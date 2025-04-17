@@ -8,7 +8,7 @@ export const meta = ({}: Route.MetaArgs) => {
 };
 
 const Home = () => {
-    return <div>Home</div>;
+    return <div className="w-32 h-32 bg-coral">Home</div>;
 };
 
 export default Home;

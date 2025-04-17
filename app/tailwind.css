@@ -1,4 +1,19 @@
+/* Font */
 @theme {
     --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* Color */
+@theme {
+    --color-ivory: oklch(97% 0.005 100);
+    --color-ink: oklch(25% 0.01 260);
+    --color-beige: oklch(90% 0.015 90);
+    --color-indigo: oklch(65% 0.08 260);
+    --color-coral: oklch(72% 0.17 25);
+    --color-dark-slate: oklch(20% 0.005 260);
+    --color-dark-white: oklch(92% 0.01 260);
+    --color-dark-stone: oklch(28% 0.01 260);
+    --color-dark-indigo: oklch(78% 0.08 260);
+    --color-dark-coral: oklch(80% 0.17 25);
 }
