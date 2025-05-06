@@ -14,11 +14,11 @@ const Contact = () => {
             </div>
             <div>
                 <h1 className="text-7xl font-bold">Contact.</h1>
-                <div className="flex flex-col items-center my-16 mb-26 bg-gray-300/50">
+                <div className="px-5 flex flex-col items-center my-16 mb-26 bg-gray-300/50">
                     <p>I’m always excited to connect with amazing people 💫 </p>
                     <p>
                         Whether it’s a project, volunteer work, or any fun opportunity — count me
-                        in!{" "}
+                        in!
                     </p>
                     <p>
                         Feel free to reach out anytime 📬 I can’t wait to work together with you!

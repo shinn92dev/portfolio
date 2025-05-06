@@ -1,21 +1,26 @@
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "~/components/ui/button";
+import mainImg from "@/assets/IMG_0660.jpg";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+    const [scale, setScale] = useState(1.2);
+
+    useEffect(() => {
+        const updateScale = () => {
+            const width = window.innerWidth;
+            const minW = 400;
+            const maxW = 1200;
+            const clampedW = Math.min(Math.max(width, minW), maxW);
+            const s = 1.2 - ((clampedW - minW) / (maxW - minW)) * 0.2;
+            setScale(s);
+        };
+
+        window.addEventListener("resize", updateScale);
+        updateScale();
+        return () => window.removeEventListener("resize", updateScale);
+    }, []);
     return (
         <div className="pb-10">
             <div className="w-full text-center bg-gray-700 py-8">
@@ -23,8 +28,17 @@ const Home = () => {
             </div>
             {/* Main Photo */}
             <div className="grid md:grid-cols-2">
-                <div className="w-full aspect-[1/0.6] bg-amber-300 flex justify-center items-center max-w-">
-                    <p>Photo</p>
+                <div className="w-full aspect-[1/0.7] overflow-hidden relative">
+                    <div
+                        className="absolute inset-0 transition-transform duration-300 ease-in-out"
+                        style={{ transform: `scale(${scale})`, transformOrigin: "top" }}
+                    >
+                        <img
+                            src={mainImg}
+                            alt={"Main image"}
+                            className="w-full h-full object-cover object-top"
+                        />
+                    </div>
                 </div>
                 <div className="w-full bg-gray-400 flex flex-col">
                     <div className="md:h-full ">
