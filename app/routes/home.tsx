@@ -23,9 +23,6 @@ const Home = () => {
     }, []);
     return (
         <div className="pb-10">
-            <div className="w-full text-center bg-gray-700 py-8">
-                <p>Header</p>
-            </div>
             {/* Main Photo */}
             <div className="grid md:grid-cols-2">
                 <div className="w-full aspect-[1/0.7] overflow-hidden relative">

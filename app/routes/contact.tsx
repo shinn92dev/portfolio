@@ -4,9 +4,6 @@ import { Button } from "~/components/ui/button";
 const Contact = () => {
     return (
         <div className="pb-10">
-            <div className="w-full text-center bg-gray-700 py-8">
-                <p>Header</p>
-            </div>
             <div>
                 <div className="w-full aspect-[1/0.43] bg-amber-200">
                     <img src="" alt="" />
