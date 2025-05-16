@@ -1,74 +1,49 @@
 import { useEffect, useState } from "react";
 import { FaAlignJustify, FaRegCircleXmark } from "react-icons/fa6";
-import { useLocation, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const MainHeader = () => {
-    const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
-    const navigate = useNavigate();
-    const location = useLocation();
+    const [isMounted, setIsMounted] = useState(false);
+    const [isNavOpen, setIsNavOpen] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) return null; // ❗ SSR 중에는 아무것도 렌더링하지 않음
+
+    const navItems = [
+        { name: "Home", path: "/" },
+        { name: "About", path: "/about" },
+        { name: "Project", path: "/project" },
+        { name: "Contact", path: "/contact" },
+    ];
 
     return (
         <header className="w-full text-center bg-indigo text-beige py-5">
             <nav>
                 <ul className="flex flex-col items-end md:flex-row justify-end px-5 gap-x-5">
-                    <li
-                        className={`md:hidden`}
-                        onClick={() => {
-                            setIsNavOpen((prev) => !prev);
-                        }}
-                    >
+                    <li className="md:hidden" onClick={() => setIsNavOpen((prev) => !prev)}>
                         {isNavOpen ? (
                             <FaRegCircleXmark size={20} className="cursor-pointer" />
                         ) : (
                             <FaAlignJustify size={20} className="cursor-pointer" />
                         )}
                     </li>
-                    <li
-                        className={`${!isNavOpen && "hidden"} py-3 text-xl font-bold md:block ${
-                            location.pathname == "/" && "border-b-2"
-                        }`}
-                        onClick={() => {
-                            setIsNavOpen(false);
-                            navigate("/");
-                        }}
-                    >
-                        Home
-                    </li>
-                    <li
-                        className={`${!isNavOpen && "hidden"} py-3 text-xl font-bold  md:block ${
-                            location.pathname == "/about" && "border-b-2"
-                        }`}
-                        onClick={() => {
-                            setIsNavOpen(false);
-
-                            navigate("/about");
-                        }}
-                    >
-                        About
-                    </li>
-                    <li
-                        className={`${!isNavOpen && "hidden"} py-3 text-xl font-bold  md:block ${
-                            location.pathname == "/project" && "border-b-2"
-                        }`}
-                        onClick={() => {
-                            setIsNavOpen(false);
-
-                            navigate("/project");
-                        }}
-                    >
-                        Project
-                    </li>
-                    <li
-                        className={`${!isNavOpen && "hidden"} py-3 text-xl font-bold md:block ${
-                            location.pathname == "/contact" && "border-b-2"
-                        }`}
-                        onClick={() => {
-                            setIsNavOpen(false);
-                            navigate("/contact");
-                        }}
-                    >
-                        Contact
-                    </li>
+                    {navItems.map(({ name, path }) => (
+                        <li
+                            key={path}
+                            className={`${!isNavOpen && "hidden"} py-3 text-xl font-bold md:block`}
+                            onClick={() => setIsNavOpen(false)}
+                        >
+                            <NavLink
+                                to={path}
+                                className={({ isActive }) => (isActive ? "border-b-2" : undefined)}
+                            >
+                                {name}
+                            </NavLink>
+                        </li>
+                    ))}
                 </ul>
             </nav>
         </header>
