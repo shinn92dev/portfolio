@@ -2,8 +2,9 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "~/components/ui/button";
 import mainImg from "@/assets/IMG_0660.jpg";
+import bg from "@/assets/background2.jpg";
 import { useEffect, useState } from "react";
-
+import HOME_CONTENT from "~/contents/home";
 const Home = () => {
     const [scale, setScale] = useState(1.2);
 
@@ -24,7 +25,10 @@ const Home = () => {
     return (
         <div className="pb-10">
             {/* Main Photo */}
-            <div className="grid md:grid-cols-2">
+            <div
+                className="grid md:grid-cols-2 bg-cover bg-center filter"
+                style={{ backgroundImage: `url(${bg})` }}
+            >
                 <div className="w-full aspect-[1/0.7] overflow-hidden relative">
                     <div
                         className="absolute inset-0 transition-transform duration-300 ease-in-out"
@@ -33,25 +37,37 @@ const Home = () => {
                         <img
                             src={mainImg}
                             alt={"Main image"}
-                            className="w-full h-full object-cover object-top"
+                            className="w-full h-full object-cover object-top shadow-2xl shadow-ink"
                         />
                     </div>
                 </div>
-                <div className="w-full bg-gray-400 flex flex-col">
-                    <div className="md:h-full ">
-                        <p className="text-3xl text-center py-3">TEST</p>
-                    </div>
-                    <div className="w-full bg-amber-200 flex justify-center p-5 gap-5">
-                        <Button>LinkedIn</Button>
-                        <Button>GitHub</Button>
-                        <Button>Resume</Button>
-                        <Button>Email</Button>
+                <div className="w-full flex flex-col">
+                    <div className="md:h-full py-5 backdrop-blur-xs">
+                        <div className="text-3xl h-full flex flex-col items-center justify-center ">
+                            <p className="font-bold">{HOME_CONTENT.titleMsg}</p>
+                            <h2 className="w-full text-center font-bold text-6xl text-ink drop-shadow">
+                                <span className="text-xl">{HOME_CONTENT.titleMsg2}</span>
+                                {HOME_CONTENT.title}
+                            </h2>
+                            <p className="text-sm px-10 font-bold py-5 drop-shadow mt-5 backdrop-blur-sm">
+                                {HOME_CONTENT.shortIntro}
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div className="md:col-span-2">
-                    <p className="text-xl px-3 py-5 bg-amber-100">
-                        Voluptate non laborum ad deserunt fugiat incididunt irure qui.
-                    </p>
+
+                <div className="w-full grid grid-cols-2 md:grid-cols-4 col-span-full justify-center  p-5 py-10 gap-5">
+                    {HOME_CONTENT.buttons.map((items) => {
+                        const Icon = items.icon;
+                        return (
+                            <div key={items.title} className="w-full flex justify-center">
+                                <Button className="flex h-12 w-full max-w-60 items-center justify-center gap-5 drop-shadow bg-coral text-ink font-bold">
+                                    <Icon />
+                                    <span>{items.title}</span>
+                                </Button>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
             {/* Top Project Section */}

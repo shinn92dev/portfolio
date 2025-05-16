@@ -41,7 +41,6 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 <Links />
             </head>
             <body className="max-w-[1028px] m-auto">
-                <MainHeader />
                 {children}
                 <ScrollRestoration />
                 <Scripts />
@@ -51,7 +50,12 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 };
 
 const App = () => {
-    return <Outlet />;
+    return (
+        <>
+            <MainHeader />
+            <Outlet />
+        </>
+    );
 };
 export default App;
 
