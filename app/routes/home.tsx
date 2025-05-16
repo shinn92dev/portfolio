@@ -4,7 +4,7 @@ import { Button } from "~/components/ui/button";
 import mainImg from "@/assets/IMG_0660.jpg";
 import bg from "@/assets/background2.jpg";
 import { useEffect, useState } from "react";
-import HOME_CONTENT from "~/contents/home";
+import HOME_CONTENT from "~/contents/en/home";
 const Home = () => {
     const [scale, setScale] = useState(1.2);
 
@@ -73,7 +73,7 @@ const Home = () => {
             {/* Top Project Section */}
             <div>
                 <div className="py-5">
-                    <h2 className="text-xl text-center">Projects</h2>
+                    <h2 className="text-xl text-center">{HOME_CONTENT.projectTitle}</h2>
                 </div>
                 <Carousel className="px-3">
                     <CarouselContent className="gap-5">
