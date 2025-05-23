@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { FaAlignJustify, FaRegCircleXmark } from "react-icons/fa6";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
-type Props = {
-    headerRef: React.RefObject<HTMLElement>;
+type MainHeaderProps = {
+    headerRef: React.RefObject<HTMLElement | null>;
 };
 
-const MainHeader = ({ headerRef }: Props) => {
+const MainHeader = ({ headerRef }: MainHeaderProps) => {
     const [isClient, setIsClient] = useState(false);
     const [isNavOpen, setIsNavOpen] = useState(false);
 

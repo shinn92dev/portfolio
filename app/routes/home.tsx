@@ -43,14 +43,14 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="w-full flex flex-col">
-                    <div className="md:h-full py-5 backdrop-blur-xs">
-                        <div className="text-3xl h-full flex flex-col items-center justify-center ">
+                    <div className="md:h-full py-5">
+                        <div className="text-3xl h-full flex flex-col items-center justify-center">
                             <p className="font-bold">{HOME_CONTENT.titleMsg}</p>
-                            <h2 className="w-full text-center font-bold text-6xl text-ink drop-shadow">
+                            <h2 className="w-full text-center font-bold text-6xl text-ink">
                                 <span className="text-xl">{HOME_CONTENT.titleMsg2}</span>
                                 {HOME_CONTENT.title}
                             </h2>
-                            <p className="text-sm px-10 font-bold py-5 drop-shadow mt-5 backdrop-blur-sm">
+                            <p className="text-sm px-10 font-bold py-5 drop-shadow mt-5 backdrop-blur-xs">
                                 {HOME_CONTENT.shortIntro}
                             </p>
                         </div>
