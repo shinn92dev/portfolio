@@ -9,7 +9,8 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
-import MainHeader from "./components/custom/MainHeader";
+import { HeaderHeightProvider } from "./components/custom/context/HeaderHeightContext";
+import Footer from "@/components/custom/Footer";
 
 export const links: Route.LinksFunction = () => [
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -40,8 +41,8 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 <Meta />
                 <Links />
             </head>
-            <body className="max-w-[1028px] m-auto">
-                {children}
+            <body className="min-h-screen flex flex-col max-w-[1028px] m-auto">
+                <main className="flex-1 pb-30">{children}</main>
                 <ScrollRestoration />
                 <Scripts />
             </body>
@@ -52,8 +53,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 const App = () => {
     return (
         <>
-            <MainHeader />
-            <Outlet />
+            <HeaderHeightProvider>
+                <Outlet />
+            </HeaderHeightProvider>
         </>
     );
 };
