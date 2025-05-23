@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { FaAlignJustify, FaRegCircleXmark } from "react-icons/fa6";
-import { NavLink } from "react-router-dom";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
-const MainHeader = () => {
-    const [isMounted, setIsMounted] = useState(false);
+type Props = {
+    headerRef: React.RefObject<HTMLElement>;
+};
+
+const MainHeader = ({ headerRef }: Props) => {
+    const [isClient, setIsClient] = useState(false);
     const [isNavOpen, setIsNavOpen] = useState(false);
 
     useEffect(() => {
-        setIsMounted(true);
+        setIsClient(true);
     }, []);
 
-    if (!isMounted) return null;
+    if (!isClient) return null;
+
+    const currentPath = window.location.pathname;
 
     const navItems = [
         { name: "Home", path: "/" },
@@ -21,7 +27,7 @@ const MainHeader = () => {
     ];
 
     return (
-        <header className="w-full text-center bg-indigo text-beige py-5">
+        <header ref={headerRef} className="w-full text-center bg-indigo text-beige py-5">
             <nav>
                 <ul className="flex flex-col items-end md:flex-row md:items-center md:justify-end px-5 gap-x-5">
                     <li className="md:hidden" onClick={() => setIsNavOpen((prev) => !prev)}>
@@ -31,23 +37,27 @@ const MainHeader = () => {
                             <FaAlignJustify size={20} className="cursor-pointer" />
                         )}
                     </li>
+
                     {navItems.map(({ name, path }) => (
                         <li
                             key={path}
                             className={`${!isNavOpen && "hidden"} py-3 text-xl font-bold md:block`}
                             onClick={() => setIsNavOpen(false)}
                         >
-                            <NavLink
+                            <Link
                                 to={path}
-                                className={({ isActive }) => (isActive ? "border-b-2" : undefined)}
+                                className={`transition-colors ${
+                                    currentPath === path ? "border-b-2" : ""
+                                }`}
                             >
                                 {name}
-                            </NavLink>
+                            </Link>
                         </li>
                     ))}
+
                     <li className={`${!isNavOpen && "hidden"} py-3 text-xl font-bold md:block`}>
-                        <ToggleGroup type="single">
-                            <ToggleGroupItem value="en" aria-label="en" defaultChecked>
+                        <ToggleGroup type="single" defaultValue="en">
+                            <ToggleGroupItem value="en" aria-label="en">
                                 <span>EN</span>
                             </ToggleGroupItem>
                             <ToggleGroupItem value="kr" aria-label="kr">

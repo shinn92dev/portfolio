@@ -22,6 +22,7 @@ const Home = () => {
         updateScale();
         return () => window.removeEventListener("resize", updateScale);
     }, []);
+
     return (
         <div className="pb-10">
             {/* Main Photo */}

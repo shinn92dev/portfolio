@@ -1,14 +1,105 @@
-const AboutHeader = () => {
+import { useEffect, useState } from "react";
+
+const sections = [
+    { id: "about", label: "About Me" },
+    { id: "detailed_about", label: "Detailed Introduction" },
+    { id: "experience", label: "Experience" },
+    { id: "skill", label: "Skills" },
+    { id: "education", label: "Education" },
+];
+
+const AboutHeader = ({ pt }: { pt: number | null }) => {
+    const [active, setActive] = useState("about");
+    const [isMobile, setIsMobile] = useState(false);
+    const [isDropdownOpen, setDropdownOpen] = useState(false);
+    const [isFixed, setIsFixed] = useState(false);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+
+    useEffect(() => {
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setDropdownOpen(false);
+            const mainHeader = document.querySelector("header");
+            if (mainHeader) {
+                const rect = mainHeader.getBoundingClientRect();
+                setIsFixed(rect.bottom <= 0);
+            }
+
+            for (let section of sections) {
+                const el = document.getElementById(section.id);
+                if (!el) continue;
+                const rect = el.getBoundingClientRect();
+                if (rect.top <= (pt ?? 60) && rect.bottom > (pt ?? 60)) {
+                    setActive(section.id);
+                    break;
+                }
+            }
+        };
+
+        handleScroll();
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [pt]);
+
+    const scrollTo = (id: string) => {
+        const el = document.getElementById(id);
+        if (el) {
+            const y = el.getBoundingClientRect().top + window.scrollY - (pt ?? 60);
+            window.scrollTo({ top: y, behavior: "smooth" });
+            setDropdownOpen(false);
+        }
+    };
+
     return (
-        <nav>
-            <ul className="flex flex-col items-center md:flex-row md:justify-end w-full gap-x-3 py-3 px-3 border-b-4">
-                <li className={`p-2`}>About Me</li>
-                <li className={`p-2 `}>Detailed Introduction</li>
-                <li className={`p-2 `}>Experience</li>
-                <li className={`p-2 `}>Education</li>
-                <li className={`p-2 `}>Skills</li>
+        <nav
+            className={`w-full max-w-[1028px] bg-white shadow-md z-40 transition-all ${
+                isFixed ? "fixed top-0" : "relative"
+            }`}
+            style={isFixed ? {} : { marginTop: pt ?? 0 }}
+        >
+            <ul
+                className="flex flex-col md:flex-row items-center justify-end md:gap-x-6 py-2 pr-6 w-full"
+                onClick={() => setDropdownOpen((prev) => !prev)}
+            >
+                {isMobile ? (
+                    <>
+                        <li className="font-bold text-lg cursor-pointer">
+                            {sections.find((s) => s.id === active)?.label}
+                        </li>
+                        {isDropdownOpen &&
+                            sections
+                                .filter((s) => s.id !== active)
+                                .map(({ id, label }) => (
+                                    <li
+                                        key={id}
+                                        onClick={() => scrollTo(id)}
+                                        className="text-sm py-1 cursor-pointer hover:underline"
+                                    >
+                                        {label}
+                                    </li>
+                                ))}
+                    </>
+                ) : (
+                    sections.map(({ id, label }) => (
+                        <li
+                            key={id}
+                            onClick={() => scrollTo(id)}
+                            className={`cursor-pointer text-sm font-semibold px-2 py-1 transition ${
+                                active === id ? "text-blue-600 underline" : "text-gray-600"
+                            }`}
+                        >
+                            {label}
+                        </li>
+                    ))
+                )}
             </ul>
         </nav>
     );
 };
+
 export default AboutHeader;
