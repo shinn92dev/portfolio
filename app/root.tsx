@@ -41,8 +41,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 <Meta />
                 <Links />
             </head>
-            <body className="min-h-screen flex flex-col max-w-[1028px] m-auto">
-                <main className="flex-1 pb-30">{children}</main>
+            <body className="flex flex-col max-w-[1028px] m-auto">
+                <main className="flex-1">{children}</main>
+                <Footer />
                 <ScrollRestoration />
                 <Scripts />
             </body>
