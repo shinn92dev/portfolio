@@ -19,7 +19,7 @@ const Footer = () => {
         <footer className="bg-indigo w-full py-5 px-10 fix bottom-0">
             <ul className="flex flex-col md:flex-row gap-5 md:justify-end items-end">
                 {navItems.map((item) => (
-                    <li className="h-10">
+                    <li className="h-10" key={item.name}>
                         <a href={item.path} className="w-full">
                             {item.name}
                         </a>
@@ -28,7 +28,7 @@ const Footer = () => {
             </ul>
             <ul className="flex justify-end gap-5">
                 {footerIcons.map((item) => (
-                    <li>
+                    <li key={item.name}>
                         <a href={item.path} target="_blank">
                             {<item.icon size={20} />}
                         </a>

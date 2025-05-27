@@ -31,8 +31,8 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             <CardContent>
                 <ul className="flex flex-col gap-y-2">
                     {role.length > 0 &&
-                        role.map((item) => (
-                            <li className="flex h-fit items-center gap-x-2">
+                        role.map((item, idx) => (
+                            <li key={idx} className="flex h-fit items-center gap-x-2">
                                 <MdArrowForwardIos size={15} className="font-bold" />
                                 <p>{item}</p>
                             </li>

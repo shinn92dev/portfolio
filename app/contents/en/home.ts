@@ -14,7 +14,7 @@ const HOME_CONTENT = {
         { title: "Email", icon: MdEmail },
     ],
     shortIntro:
-        "a Result-oriented full-stack developer🛠️ with a global perspective🌍 and a passion for turning complexity into clarity.🧠",
+        "a Result-Oriented Full-Stack Developer🛠️ with a global perspective🌍 and a passion for turning complexity into clarity.🧠",
     projectTitle: "SOME OF MY RECENT WORKS",
 };
 
