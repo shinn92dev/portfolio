@@ -19,7 +19,7 @@ const about = () => {
                 <Separator className="my-5" />
 
                 <section id="detailed_about" className="">
-                    <h2 className="text-5xl font-bold mb-5">About..</h2>
+                    <h2 className="text-5xl font-bold mb-5 ml-3">About..</h2>
                     <div className="md:px-5 px-3">
                         <div className="mb-5">
                             <h3 className="text-center text-3xl font-bold">I am Anthony</h3>
@@ -94,7 +94,7 @@ const about = () => {
                 <Separator className="my-5" />
 
                 <section id="experience" className="">
-                    <h2 className="text-5xl font-bold mb-5">Experiences..</h2>
+                    <h2 className="text-5xl font-bold mb-5 ml-3">Experiences..</h2>
                     <div className="grid gap-y-2 md:px-5 px-3">
                         {ABOUT_EXPERIENCES.map((item) => {
                             return (
@@ -113,9 +113,11 @@ const about = () => {
                 <Separator className="my-5" />
 
                 <section id="skill" className="">
-                    <h2 className="text-5xl font-bold mb-5">Skills..</h2>
-                    <div className="grid gap-y-3">
-                        <h3 className="text-xl font-bold mb-2">Programming Language</h3>
+                    <h2 className="text-5xl font-bold mb-5 ml-3">Skills..</h2>
+                    <div className="grid gap-y-5">
+                        <h3 className="text-xl font-bold mb-2 mt-5 text-center">
+                            Programming Language
+                        </h3>
                         <div className="grid gap-y-2 px-3">
                             <ul className="flex flex-wrap gap-x-7 gap-y-5 justify-center">
                                 {ABOUT_SKILLS.programmingLanguage.map((item) => (
@@ -123,7 +125,7 @@ const about = () => {
                                 ))}
                             </ul>
                         </div>
-                        <h3 className="text-xl font-bold mb-2">Frontend</h3>
+                        <h3 className="text-xl font-bold mb-2 mt-5 text-center">Frontend</h3>
                         <div className="grid gap-y-2 px-3">
                             <ul className="flex flex-wrap gap-x-7 gap-y-5 justify-center">
                                 {ABOUT_SKILLS.frontend.map((item) => (
@@ -131,7 +133,7 @@ const about = () => {
                                 ))}
                             </ul>
                         </div>
-                        <h3 className="text-xl font-bold mb-2">Backend</h3>
+                        <h3 className="text-xl font-bold mb-2 mt-5 text-center">Backend</h3>
                         <div className="grid gap-y-2 px-3">
                             <ul className="flex flex-wrap gap-x-7 gap-y-5 justify-center">
                                 {ABOUT_SKILLS.backend.map((item) => (
@@ -139,7 +141,9 @@ const about = () => {
                                 ))}
                             </ul>
                         </div>
-                        <h3 className="text-xl font-bold mb-2">Authentication / Security</h3>
+                        <h3 className="text-xl font-bold mb-2 mt-5 text-center">
+                            Authentication / Security
+                        </h3>
                         <div className="grid gap-y-2 px-3">
                             <ul className="flex flex-wrap gap-x-7 gap-y-5 justify-center">
                                 {ABOUT_SKILLS.authenticationSecurity.map((item) => (
@@ -147,7 +151,7 @@ const about = () => {
                                 ))}
                             </ul>
                         </div>
-                        <h3 className="text-xl font-bold mb-2">Database</h3>
+                        <h3 className="text-xl font-bold mb-2 mt-5 text-center">Database</h3>
                         <div className="grid gap-y-2 px-3">
                             <ul className="flex flex-wrap gap-x-7 gap-y-5 justify-center">
                                 {ABOUT_SKILLS.database.map((item) => (
@@ -155,7 +159,7 @@ const about = () => {
                                 ))}
                             </ul>
                         </div>
-                        <h3 className="text-xl font-bold mb-2">DevIos / Infra</h3>
+                        <h3 className="text-xl font-bold mb-2 mt-5 text-center">DevIos / Infra</h3>
                         <div className="grid gap-y-2 md:px-5 px-3">
                             <ul className="flex flex-wrap gap-x-7 gap-y-5 justify-center">
                                 {ABOUT_SKILLS.devOpsInfra.map((item) => (
@@ -168,7 +172,7 @@ const about = () => {
                 <Separator className="my-5" />
 
                 <section id="education" className="">
-                    <h2 className="text-5xl font-bold mb-5">Education..</h2>
+                    <h2 className="text-5xl font-bold mb-5 ml-3">Education..</h2>
                     <div className="grid gap-y-2 md:px-5 px-3">
                         {ABOUT_EDUCATION.map((item) => {
                             return (
