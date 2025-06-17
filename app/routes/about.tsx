@@ -7,19 +7,19 @@ import ExperienceCard from "@/components/custom/ExperienceCard";
 import { Separator } from "@/components/ui/separator";
 import ABOUT_SKILLS from "@/contents/en/about_skills";
 import SkillCard from "~/components/custom/SkillCard";
+import anthony2 from "@/assets/anthony2.webp";
 const about = () => {
     const headerHeight = useHeaderHeight();
     return (
         <div className="mb-10">
             <AboutHeader pt={headerHeight} />
             <div className="grid gap-y-5">
-                <section id="about" className="border-2 ">
-                    About
-                </section>
-                <Separator className="my-5" />
 
-                <section id="detailed_about" className="">
+                <section id="about" className="">
                     <h2 className="text-5xl font-bold mb-5 ml-3">About..</h2>
+                    <div className="flex justify-center p-10">
+                    <img src={anthony2} alt="anthony1" className="w-60 h-auto rounded-lg" />
+                </div>
                     <div className="md:px-5 px-3">
                         <div className="mb-5">
                             <h3 className="text-center text-3xl font-bold">I am Anthony</h3>

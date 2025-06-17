@@ -1,7 +1,7 @@
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "~/components/ui/button";
-import mainImg from "@/assets/IMG_0660.jpg";
+import mainImg from "@/assets/anthony1.jpg";
 import bg from "@/assets/background2.jpg";
 import { useEffect, useState } from "react";
 import HOME_CONTENT from "~/contents/en/home";
@@ -27,7 +27,7 @@ const Home = () => {
         <div className="pb-10">
             {/* Main Photo */}
             <div
-                className="grid md:grid-cols-2 bg-cover bg-center filter"
+                className="grid md:grid-cols-2 bg-cover bg-center filter "
                 style={{ backgroundImage: `url(${bg})` }}
             >
                 <div className="w-full aspect-[1/0.7] overflow-hidden relative">
