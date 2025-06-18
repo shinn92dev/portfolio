@@ -20,6 +20,8 @@ import {
 } from "@/components/ui/alert-dialog";
 import { MdArrowForwardIos } from "react-icons/md";
 import TechBadge from "./TechBadge";
+import { FaGithub } from "react-icons/fa6";
+import { RiHomeHeartLine } from "react-icons/ri";
 
 interface ProjectCardProps {
   name: string;
@@ -87,31 +89,49 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div />
 
         {/* Footer with button */}
-        <CardFooter className="px-0 pt-0">
-          <AlertDialog>
-            <AlertDialogTrigger>
-              <Button>What I Did?</Button>
-            </AlertDialogTrigger>
-            <AlertDialogContent>
-              <AlertDialogHeader>
-                <AlertDialogTitle>What I Did?</AlertDialogTitle>
-                <AlertDialogDescription>
-                  {whatIDid.map((each, idx) => (
-                    <div
-                      key={idx}
-                      className="flex gap-x-2 items-center h-fit my-2"
-                    >
-                      <MdArrowForwardIos size={15} className="font-bold" />
-                      <p>{each}</p>
-                    </div>
-                  ))}
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>Close</AlertDialogCancel>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialog>
+        <CardFooter className="px-0 pt-0 flex justify-between mt-10">
+          <div>
+            <AlertDialog>
+              <AlertDialogTrigger>
+                <Button>What I Did?</Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>What I Did?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    {whatIDid.map((each, idx) => (
+                      <div
+                        key={idx}
+                        className="flex gap-x-2 items-center h-fit my-2"
+                      >
+                        <MdArrowForwardIos size={15} className="font-bold" />
+                        <p>{each}</p>
+                      </div>
+                    ))}
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Close</AlertDialogCancel>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </div>
+          <div className="flex gap-x-3">
+            {githubLink !== null && (
+              <a href={githubLink} target="_blank" rel="noopener noreferrer">
+                <Button>
+                  <FaGithub />
+                </Button>
+              </a>
+            )}
+            {hostedLink !== null && (
+              <a href={hostedLink} target="_blank" rel="noopener noreferrer">
+                <Button>
+                  <RiHomeHeartLine />
+                </Button>
+              </a>
+            )}
+          </div>
         </CardFooter>
       </div>
     </Card>
