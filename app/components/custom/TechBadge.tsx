@@ -1,4 +1,4 @@
-import TECH_BADGE_MAP from "~/constants/techBadgeMap";
+import TECH_LOGO_MAP from "~/constants/techLogoMap";
 import { Badge } from "../ui/badge";
 
 interface TechBadgeProps {
@@ -6,7 +6,7 @@ interface TechBadgeProps {
 }
 
 const TechBadge: React.FC<TechBadgeProps> = ({ tech }) => {
-  const data = TECH_BADGE_MAP[tech.toLowerCase()];
+  const data = TECH_LOGO_MAP[tech.toLowerCase()];
   if (!data) return null;
 
   return (

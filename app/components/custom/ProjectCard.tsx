@@ -84,7 +84,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
 
         {/* Description */}
-        <div data-section="description" className="mb-2">
+        <div data-section="description" className="my-2">
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>
 
