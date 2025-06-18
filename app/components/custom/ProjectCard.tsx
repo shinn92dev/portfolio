@@ -48,20 +48,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <Card className="pt-0 rounded-sm flex flex-col h-full">
-      {/* Optional image placeholder */}
-      <div className="w-full bg-gray-200 h-50"></div>
-      {/* Main grid layout inside card */}
-      <div className="flex-1 grid grid-rows-[auto_auto_auto_auto_1fr_auto] px-6">
+      <div className="w-full bg-gray-200 h-40"></div>
+
+      {/* flex-1을 주어 남은 공간을 모두 차지하도록 합니다. */}
+      <div className="flex-1 flex flex-col px-6 py-4">
         {/* Title + Date */}
-        <CardHeader className="px-0 pb-2">
+        <div data-section="title" className="mb-2">
           <div className="flex justify-between items-start">
             <CardTitle className="text-base font-bold">{name}</CardTitle>
-            <p className="text-sm text-muted-foreground">{date}</p>
+            <p className="text-sm text-muted-foreground shrink-0 pl-2">
+              {date}
+            </p>
           </div>
-        </CardHeader>
+        </div>
 
         {/* Roles */}
-        <CardContent className="px-0 pb-2 min-h-[40px]">
+        {/* 각 섹션을 div로 감싸고 data-section 속성을 추가합니다. */}
+        <div data-section="roles" className="mb-2">
           <div className="flex gap-x-2 flex-wrap gap-y-2">
             {roles.map((role, idx) => (
               <Badge key={`${role}_${idx}`} className="text-[10px]">
@@ -69,45 +72,51 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               </Badge>
             ))}
           </div>
-        </CardContent>
+        </div>
 
         {/* Tech stack */}
-        <CardContent className="px-0 pb-2 min-h-[40px]">
+        <div data-section="techs" className="mb-2">
           <div className="flex gap-x-2 flex-wrap gap-y-2">
             {techs.map((tech, idx) => (
               <TechBadge key={`${tech}_${idx}`} tech={tech} />
             ))}
           </div>
-        </CardContent>
+        </div>
 
         {/* Description */}
-        <CardContent className="px-0 pb-2 min-h-[80px]">
+        <div data-section="description" className="mb-2">
           <p className="text-sm text-muted-foreground">{description}</p>
-        </CardContent>
+        </div>
 
-        {/* Spacer (grow to fill remaining space) */}
-        <div />
+        {/* Spacer (flex-grow를 사용하여 푸터를 맨 아래로 밀어냄) */}
+        <div className="flex-grow" />
 
         {/* Footer with button */}
-        <CardFooter className="px-0 pt-0 flex justify-between mt-10">
+        <div data-section="footer" className="pt-2 flex justify-between">
           <div>
             <AlertDialog>
-              <AlertDialogTrigger>
+              <AlertDialogTrigger asChild>
                 <Button>What I Did?</Button>
               </AlertDialogTrigger>
+              {/* ... AlertDialogContent ... */}
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>What I Did?</AlertDialogTitle>
-                  <AlertDialogDescription>
-                    {whatIDid.map((each, idx) => (
-                      <div
-                        key={idx}
-                        className="flex gap-x-2 items-center h-fit my-2"
-                      >
-                        <MdArrowForwardIos size={15} className="font-bold" />
-                        <p>{each}</p>
-                      </div>
-                    ))}
+                  <AlertDialogDescription asChild>
+                    <ul>
+                      {whatIDid.map((each, idx) => (
+                        <li
+                          key={idx}
+                          className="flex gap-x-3 items-start h-fit my-3"
+                        >
+                          <MdArrowForwardIos
+                            size={15}
+                            className="font-bold mt-1 shrink-0"
+                          />
+                          <span>{each}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
@@ -116,7 +125,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               </AlertDialogContent>
             </AlertDialog>
           </div>
-          <div className="flex gap-x-3">
+          <div className="flex gap-x-2">
             {githubLink !== null && (
               <a href={githubLink} target="_blank" rel="noopener noreferrer">
                 <Button>
@@ -132,7 +141,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               </a>
             )}
           </div>
-        </CardFooter>
+        </div>
       </div>
     </Card>
   );

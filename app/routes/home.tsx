@@ -3,9 +3,12 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { useRef } from "react";
+import { useSyncCardHeights } from "@/hooks/useSyncCardHeights"; // Hook import
+import type { RefObject } from "react";
 
 import { Button } from "@/components/ui/button";
-import mainImg from "@/assets/anthony1.jpg";
+import mainImg from "@/assets/anthony1.webp";
 import bg from "@/assets/background2.jpg";
 import { useEffect, useState } from "react";
 import HOME_CONTENT from "@/contents/en/home";
@@ -13,6 +16,8 @@ import PROJECT_CONTENT from "@/contents/en/project";
 import ProjectCard from "@/components/custom/ProjectCard";
 const Home = () => {
   const [scale, setScale] = useState(1.2);
+  const carouselRef = useRef<HTMLDivElement>(null); // ref 생성
+  useSyncCardHeights(carouselRef as RefObject<HTMLElement>);
 
   useEffect(() => {
     const updateScale = () => {
@@ -83,13 +88,15 @@ const Home = () => {
           <h2 className="text-xl text-center">{HOME_CONTENT.projectTitle}</h2>
         </div>
         <Carousel className="px-3">
-          <CarouselContent className="gap-5">
+          {/* ref를 CarouselContent에 연결 */}
+          <CarouselContent ref={carouselRef} className="gap-5">
             {PROJECT_CONTENT.map(
               (item, idx) =>
                 item.highlight && (
-                  <CarouselItem className="md:basis-1/2">
-                    <div className="h-full flex items-stretch">
+                  <CarouselItem key={item.title} className="md:basis-1/2">
+                    <div className="h-full">
                       <ProjectCard
+                        key={item.title}
                         name={item.title}
                         date={item.date}
                         roles={item.roles}
