@@ -19,11 +19,12 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { MdArrowForwardIos } from "react-icons/md";
+import TechBadge from "./TechBadge";
 
 interface ProjectCardProps {
   name: string;
   date: string;
-  //   roles: string[] | null;
+  roles: string[];
   techs: string[];
   description: string;
   githubLink: string | null;
@@ -35,7 +36,7 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({
   name,
   date,
-  //   roles,
+  roles,
   techs,
   description,
   githubLink,
@@ -44,58 +45,75 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   whatIDid,
 }) => {
   return (
-    <Card className="min-h-56 pt-0 rounded-sm ">
-      <div className="w-full bg-gray-200 h-40"></div>
-      <CardHeader>
-        <div className="grid grid-cols-2 md:grid-cols-1">
-          <CardTitle className="w-full">{name}</CardTitle>
-          <p className="w-full text-end">{date}</p>
-        </div>
-        <CardDescription>
-          {/* <div className="flex gap-x-3 flex-wrap my-2 gap-2">
-            {roles !== null &&
-              roles.map((role, idx) => (
-                <Badge key={`${role}_${idx}`} className="text-[10px]">
-                  {role}
-                </Badge>
-              ))}
-          </div> */}
-          <div className="flex gap-x-3 flex-wrap my-2 gap-2">
-            {techs.map((tech, idx) => (
-              <Badge key={`${tech}_${idx}`}>{tech}</Badge>
+    <Card className="pt-0 rounded-sm flex flex-col h-full">
+      {/* Optional image placeholder */}
+      <div className="w-full bg-gray-200 h-50"></div>
+      {/* Main grid layout inside card */}
+      <div className="flex-1 grid grid-rows-[auto_auto_auto_auto_1fr_auto] px-6">
+        {/* Title + Date */}
+        <CardHeader className="px-0 pb-2">
+          <div className="flex justify-between items-start">
+            <CardTitle className="text-base font-bold">{name}</CardTitle>
+            <p className="text-sm text-muted-foreground">{date}</p>
+          </div>
+        </CardHeader>
+
+        {/* Roles */}
+        <CardContent className="px-0 pb-2 min-h-[40px]">
+          <div className="flex gap-x-2 flex-wrap gap-y-2">
+            {roles.map((role, idx) => (
+              <Badge key={`${role}_${idx}`} className="text-[10px]">
+                {role}
+              </Badge>
             ))}
           </div>
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <p>{description}</p>
-      </CardContent>
-      <CardFooter className="flex justify-center mt-auto">
-        <AlertDialog>
-          <AlertDialogTrigger>
-            <Button>Detail</Button>
-          </AlertDialogTrigger>
-          <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>What I Did?</AlertDialogTitle>
-              <AlertDialogDescription>
-                {whatIDid.map((each, idx) => (
-                  <div
-                    key={idx}
-                    className="flex gap-x-2 items-center h-fit my-2"
-                  >
-                    <MdArrowForwardIos size={15} className="font-bold" />
-                    <p>{each}</p>
-                  </div>
-                ))}
-              </AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Close</AlertDialogCancel>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
-      </CardFooter>
+        </CardContent>
+
+        {/* Tech stack */}
+        <CardContent className="px-0 pb-2 min-h-[40px]">
+          <div className="flex gap-x-2 flex-wrap gap-y-2">
+            {techs.map((tech, idx) => (
+              <TechBadge key={`${tech}_${idx}`} tech={tech} />
+            ))}
+          </div>
+        </CardContent>
+
+        {/* Description */}
+        <CardContent className="px-0 pb-2 min-h-[80px]">
+          <p className="text-sm text-muted-foreground">{description}</p>
+        </CardContent>
+
+        {/* Spacer (grow to fill remaining space) */}
+        <div />
+
+        {/* Footer with button */}
+        <CardFooter className="px-0 pt-0">
+          <AlertDialog>
+            <AlertDialogTrigger>
+              <Button>What I Did?</Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>What I Did?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  {whatIDid.map((each, idx) => (
+                    <div
+                      key={idx}
+                      className="flex gap-x-2 items-center h-fit my-2"
+                    >
+                      <MdArrowForwardIos size={15} className="font-bold" />
+                      <p>{each}</p>
+                    </div>
+                  ))}
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Close</AlertDialogCancel>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+        </CardFooter>
+      </div>
     </Card>
   );
 };
