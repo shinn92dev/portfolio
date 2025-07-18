@@ -15,7 +15,7 @@ const about = () => {
       <AboutHeader pt={headerHeight} />
       <div className="grid gap-y-5">
         <section id="about" className="">
-          <h2 className="text-5xl font-bold mb-5 ml-3">About..</h2>
+          <h2 className="text-7xl font-bold mb-5 ml-3">About.</h2>
           <div className="flex justify-center p-10">
             <img
               src={anthony2}
@@ -98,7 +98,7 @@ const about = () => {
         <Separator className="my-5" />
 
         <section id="experience" className="">
-          <h2 className="text-5xl font-bold mb-5 ml-3">Experiences..</h2>
+          <h2 className="text-7xl font-bold mb-5 ml-3">Experiences.</h2>
           <div className="grid gap-y-2 md:px-5 px-3">
             {ABOUT_EXPERIENCES.map((item) => {
               return (
@@ -117,7 +117,7 @@ const about = () => {
         <Separator className="my-5" />
 
         <section id="skill" className="">
-          <h2 className="text-5xl font-bold mb-5 ml-3">Skills..</h2>
+          <h2 className="text-7xl font-bold mb-5 ml-3">Skills.</h2>
           <div className="grid gap-y-5">
             <h3 className="text-xl font-bold mb-2 mt-5 text-center">
               Programming Language
@@ -168,7 +168,7 @@ const about = () => {
               </ul>
             </div>
             <h3 className="text-xl font-bold mb-2 mt-5 text-center">
-              DevOps / Infra
+              DevOps / Infra / ETC.
             </h3>
             <div className="grid gap-y-2 md:px-5 px-3">
               <ul className="flex flex-wrap gap-x-7 gap-y-5 justify-center">
@@ -182,7 +182,7 @@ const about = () => {
         <Separator className="my-5" />
 
         <section id="education" className="">
-          <h2 className="text-5xl font-bold mb-5 ml-3">Education..</h2>
+          <h2 className="text-7xl font-bold mb-5 ml-3">Education.</h2>
           <div className="grid gap-y-2 md:px-5 px-3">
             {ABOUT_EDUCATION.map((item) => {
               return (

@@ -47,15 +47,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   whatIDid,
 }) => {
   return (
-    <Card className="pt-0 rounded-sm flex flex-col h-full">
-      <div className="w-full bg-gray-200 h-40"></div>
+    <Card className="pt-0 rounded-sm flex flex-col h-full bg-ivory">
+      {/* <div className="w-full bg-gray-200 h-40"></div> */}
 
-      {/* flex-1을 주어 남은 공간을 모두 차지하도록 합니다. */}
       <div className="flex-1 flex flex-col px-6 py-4">
-        {/* Title + Date */}
         <div data-section="title" className="mb-2">
           <div className="flex justify-between items-start">
-            <CardTitle className="text-base font-bold">{name}</CardTitle>
+            <CardTitle className="text-base font-bold text-ink">
+              {name}
+            </CardTitle>
             <p className="text-sm text-muted-foreground shrink-0 pl-2">
               {date}
             </p>
@@ -63,11 +63,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
 
         {/* Roles */}
-        {/* 각 섹션을 div로 감싸고 data-section 속성을 추가합니다. */}
         <div data-section="roles" className="mb-2">
           <div className="flex gap-x-2 flex-wrap gap-y-2">
             {roles.map((role, idx) => (
-              <Badge key={`${role}_${idx}`} className="text-[10px]">
+              <Badge
+                key={`${role}_${idx}`}
+                className="text-[10px] bg-indigo shadow"
+              >
                 {role}
               </Badge>
             ))}
@@ -85,7 +87,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {/* Description */}
         <div data-section="description" className="my-2">
-          <p className="text-sm text-muted-foreground">{description}</p>
+          <p className="text-sm text-ink">{description}</p>
         </div>
 
         {/* Spacer (flex-grow를 사용하여 푸터를 맨 아래로 밀어냄) */}
@@ -96,12 +98,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div>
             <AlertDialog>
               <AlertDialogTrigger asChild>
-                <Button>What I Did?</Button>
+                <Button className="cursor-pointer bg-indigo text-ivory hover:bg-coral hover:text-ink transition-all duration-100">
+                  What I Did?
+                </Button>
               </AlertDialogTrigger>
               {/* ... AlertDialogContent ... */}
-              <AlertDialogContent>
+              <AlertDialogContent className="z-[100] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-lg w-full">
                 <AlertDialogHeader>
-                  <AlertDialogTitle>What I Did?</AlertDialogTitle>
+                  <AlertDialogTitle className="">What I Did?</AlertDialogTitle>
                   <AlertDialogDescription asChild>
                     <ul>
                       {whatIDid.map((each, idx) => (
@@ -128,14 +132,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="flex gap-x-2">
             {githubLink !== null && (
               <a href={githubLink} target="_blank" rel="noopener noreferrer">
-                <Button>
+                <Button className="bg-indigo hover:bg-indigo hover:scale-105 active:scale-95 cursor-pointer">
                   <FaGithub />
                 </Button>
               </a>
             )}
             {hostedLink !== null && (
               <a href={hostedLink} target="_blank" rel="noopener noreferrer">
-                <Button>
+                <Button className="bg-coral-sand hover:bg-coral-sand hover:scale-105 active:scale-95 cursor-pointer">
                   <RiHomeHeartLine />
                 </Button>
               </a>

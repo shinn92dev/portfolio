@@ -35,7 +35,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="pb-10">
+    <div className="pb-10 text-ink">
       {/* Main Photo */}
       <div
         className="grid md:grid-cols-2 bg-cover bg-center filter "
@@ -61,7 +61,7 @@ const Home = () => {
                 <span className="text-xl">{HOME_CONTENT.titleMsg2}</span>
                 {HOME_CONTENT.title}
               </h2>
-              <p className="text-sm px-10 font-bold py-5 drop-shadow mt-5 backdrop-blur-xs">
+              <p className="text-xl px-10 font-bold py-5 drop-shadow mt-5">
                 {HOME_CONTENT.shortIntro}
               </p>
             </div>
@@ -72,10 +72,13 @@ const Home = () => {
           {HOME_CONTENT.buttons.map((items) => {
             const Icon = items.icon;
             return (
-              <div key={items.title} className="w-full flex justify-center">
-                <Button className="flex h-12 w-full max-w-60 items-center justify-center gap-5 drop-shadow bg-coral text-ink font-bold">
-                  <Icon />
-                  <span>{items.title}</span>
+              <div
+                key={items.title}
+                className="w-full flex justify-center shadow-xl shadow-ivory"
+              >
+                <Button className="flex h-12 w-full max-w-60 items-center justify-center gap-5 drop-shadow bg-coral-sand hover:bg-coral-sand text-ink font-bold text-xl hover:scale-105 duration-75 active:scale-95 cursor-pointer">
+                  <Icon className="" />
+                  <span className="">{items.title}</span>
                 </Button>
               </div>
             );
@@ -85,15 +88,19 @@ const Home = () => {
       {/* Top Project Section */}
       <div>
         <div className="py-5">
-          <h2 className="text-xl text-center">{HOME_CONTENT.projectTitle}</h2>
+          <h2 className="text-xl text-center font-bold text-ink">
+            {HOME_CONTENT.projectTitle}
+          </h2>
         </div>
         <Carousel className="px-3">
-          {/* ref를 CarouselContent에 연결 */}
           <CarouselContent ref={carouselRef} className="gap-5">
             {PROJECT_CONTENT.map(
               (item, idx) =>
                 item.highlight && (
-                  <CarouselItem key={item.title} className="md:basis-1/2">
+                  <CarouselItem
+                    key={item.title}
+                    className="md:basis-1/2 hover:scale-[0.99] duration-75 transition-all overflow-visible"
+                  >
                     <div className="h-full">
                       <ProjectCard
                         key={item.title}

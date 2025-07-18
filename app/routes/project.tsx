@@ -8,8 +8,8 @@ const Project = () => {
   const containerRef = useRef<HTMLDivElement>(null); // ref 생성
   useSyncCardHeights(containerRef as RefObject<HTMLElement>);
   return (
-    <div className="pb-10 px-5">
-      <h2 className="my-5 font-bold text-3xl">Project.</h2>
+    <div className="pb-10 px-5 mt-10">
+      <h2 className="my-5 text-7xl font-bold">Project.</h2>
       <div
         ref={containerRef}
         className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch"
