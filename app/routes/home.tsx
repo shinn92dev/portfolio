@@ -76,9 +76,18 @@ const Home = () => {
                 key={items.title}
                 className="w-full flex justify-center shadow-xl shadow-ivory"
               >
-                <Button className="flex h-12 w-full max-w-60 items-center justify-center gap-5 drop-shadow bg-coral-sand hover:bg-coral-sand text-ink font-bold text-xl hover:scale-105 duration-75 active:scale-95 cursor-pointer">
-                  <Icon className="" />
-                  <span className="">{items.title}</span>
+                <Button
+                  asChild
+                  className="flex h-12 w-full max-w-60 items-center justify-center gap-5 drop-shadow bg-coral-sand hover:bg-coral-sand text-ink font-bold text-xl hover:scale-105 duration-75 active:scale-95 cursor-pointer"
+                >
+                  <a
+                    href={items.link}
+                    target={`${items.type !== "email" && "_blank"}`}
+                    rel="noopener noreferrer"
+                  >
+                    <Icon className="" />
+                    <span className="">{items.title}</span>
+                  </a>
                 </Button>
               </div>
             );
