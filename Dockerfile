@@ -20,23 +20,23 @@ COPY . .
 RUN pnpm run build
 
 # --- STAGE 3: 최종 프로덕션 이미지 ---
-# 빌드된 서버를 실행하기 위한 최종 단계입니다.
 FROM node:20-alpine AS runner
 RUN corepack enable
+
 WORKDIR /app
 
-# 운영에 필요한 의존성만 복사합니다.
+# 운영에 필요한 파일만 복사
 COPY --from=dependencies /app/node_modules ./node_modules
-COPY package.json pnpm-lock.yaml ./
+COPY --from=builder /app/dist ./dist
+COPY package.json ./
 
-# 빌드 결과물('build' 폴더 전체)을 복사합니다.
-COPY --from=builder /app/build ./build
+# ### 여기가 핵심 수정 포인트! ###
+# /app 디렉터리 전체의 소유자를 node 유저로 변경합니다.
+RUN chown -R node:node /app
 
-# 보안을 위해 non-root 유저로 실행합니다.
+# 이제 non-root 유저로 전환해도 파일 쓰기 권한이 있습니다.
 USER node
 
-# react-router-serve가 기본적으로 3000번 포트를 사용합니다.
 EXPOSE 3000
 
-# package.json에 정의된 start 스크립트로 서버를 실행합니다.
 CMD ["pnpm", "run", "start"]
