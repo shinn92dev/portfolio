@@ -19,9 +19,11 @@ const ABOUT_EXPERIENCES = [
     duration: "May 2025 - Present",
     location: "Vancouver, BC",
     role: [
-      "Led the architecture and development of an all-in-one study abroad platform for Japanese users",
-      "Designed a flexible content model with Strapi to efficiently manage diverse information",
-      "Acted as a key communicator with Japanese stakeholders to align project goals with user needs",
+      "Acted as the lead developer and primary point of contact for stakeholders, translating business needs into technical specifications.",
+      "Architected and implemented a full-stack solution using Next.js for the frontend and a Strapi CMS for the backend.",
+      "Designed and managed the MySQL database schema and customized the Strapi API to provide flexible content management for administrators.",
+      "Oversaw the entire deployment process, deploying the Next.js frontend to Vercel and managing the Strapi backend on a self-hosted server.",
+      "Designed the user interface with a focus on a clean, card-based layout to ensure information is easily accessible for students.",
     ],
   },
   {

@@ -29,8 +29,12 @@ const MainHeader = ({ headerRef }: MainHeaderProps) => {
   return (
     <header
       ref={headerRef}
-      className="w-full text-center bg-indigo text-ivory py-5"
+      className="w-full text-center bg-indigo text-ivory py-5 flex justify-between"
     >
+      <Link to="/">
+        <img src="/logo.png" alt="logo" className="w-15 h-15 ml-7" />
+      </Link>
+
       <nav>
         <ul className="flex flex-col items-end md:flex-row md:items-center md:justify-end px-5 gap-x-5">
           <li

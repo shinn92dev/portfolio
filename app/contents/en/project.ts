@@ -2,19 +2,28 @@ const PROJECT_CONTENT = [
   {
     title: "Bloom",
     description:
-      "A fully responsive and customizable developer portfolio built with React and React Router (Framework Mode). Designed to showcase projects, skills, and personal branding, the portfolio supports clean routing, smooth UI transitions, and a theme-friendly design that reflects both aesthetics and performance.",
+      "A web platform designed for an international student agency to support Japanese students transitioning to life in Vancouver. It centralizes essential information, such as share housing, SIM cards, and banking, presenting it through an intuitive card-based UI to simplify the settling-in process.",
     date: "2025/05 ~ Present",
     image: "image1.jpg",
     gitHubLink: null,
     hostedLink: null,
-    techStack: ["react", "nextjs", "tailwindcss", "shadcnui"],
+    techStack: [
+      "react",
+      "nextjs",
+      "tailwindcss",
+      "shadcnui",
+      "strapi",
+      "mysql",
+    ],
     roles: ["Full-Stack Developer", "UI/UX Designer", "Project Manager"],
     teamSize: 5,
     highlight: true,
     whatIDid: [
-      "Led the architecture and development of an all-in-one study abroad platform for Japanese users",
-      "Designed a flexible content model with Strapi to efficiently manage diverse information",
-      "Acted as a key communicator with Japanese stakeholders to align project goals with user needs",
+      "Acted as the lead developer and primary point of contact for stakeholders, translating business needs into technical specifications.",
+      "Architected and implemented a full-stack solution using Next.js for the frontend and a Strapi CMS for the backend.",
+      "Designed and managed the MySQL database schema and customized the Strapi API to provide flexible content management for administrators.",
+      "Oversaw the entire deployment process, deploying the Next.js frontend to Vercel and managing the Strapi backend on a self-hosted server.",
+      "Designed the user interface with a focus on a clean, card-based layout to ensure information is easily accessible for students.",
     ],
   },
   {

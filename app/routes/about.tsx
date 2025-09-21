@@ -55,23 +55,23 @@ const about = () => {
                 <li className="flex gap-x-3">
                   <span>🎨</span>
                   <p>
-                    I believe the keyboard is a modern paintbrush — and coding
-                    is how I tell my story.
+                    I believe the keyboard is a modern paintbrush. Coding is how
+                    I tell my story.
                   </p>
                 </li>
                 <li className="flex gap-x-3">
                   <span>🧪</span>
                   <p>
-                    I used to sell semiconductor materials. Now I build software
-                    — but either way, I’ve always been passionate about making
-                    things work better.
+                    I used to sell semiconductor materials. Now I build
+                    software. Either way, I’ve always been passionate about
+                    making things work better.
                   </p>
                 </li>
                 <li className="flex gap-x-3">
                   <span>☕</span>
                   <p>
                     I can’t start my day without coffee or tea. It’s not just a
-                    drink — it’s my daily ritual that helps me slow down and
+                    drink, but it’s my daily routine that helps me slow down and
                     focus on what matters.
                   </p>
                 </li>
@@ -87,8 +87,8 @@ const about = () => {
                   <span>🏞️</span>
                   <p>
                     I love hiking through forests and mountains. Living in
-                    Vancouver means I’m never too far from nature — and that
-                    makes my heart feel at home. ❤
+                    Vancouver means I’m never too far from nature which makes my
+                    heart feel at home. ❤
                   </p>
                 </li>
               </ul>
