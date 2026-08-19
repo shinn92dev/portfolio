@@ -291,8 +291,7 @@ const WorkDetail = () => {
                 {caseStudy.responsibilities.map((responsibility, index) => (
                   <li
                     key={responsibility}
-                    className="grid grid-cols-[2rem_1fr] gap-3 border-b border-border py-4 md:odd:pr-6 md:even:border-l
-                      md:even:pl-6"
+                    className="grid grid-cols-[2rem_1fr] gap-3 border-b border-border py-4 md:odd:pr-6 md:even:border-l md:even:pl-6"
                   >
                     <span className="metadata text-signal">
                       {String(index + 1).padStart(2, "0")}
