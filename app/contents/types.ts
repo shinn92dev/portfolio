@@ -267,6 +267,15 @@ export interface SiteContent {
     technologyTitle: string;
     linksTitle: string;
     backLabel: string;
+    sectionIndexLabel: string;
+    projectDetailsLabel: string;
+    roleLabel: string;
+    teamLabel: string;
+    periodLabel: string;
+    statusLabel: string;
+    outcomesLabel: string;
+    unavailableLinkLabel: string;
+    nextProjectLabel: string;
     decisionProblemLabel: string;
     decisionOptionsLabel: string;
     decisionLabel: string;

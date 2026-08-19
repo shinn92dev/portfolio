@@ -33,7 +33,7 @@ const SelectedProject = ({ project, index }: SelectedProjectProps) => {
   const primaryDecision = caseStudy?.decisions[0];
 
   return (
-    <article className="group border-t border-border-strong py-10 sm:py-14 lg:py-20">
+    <article className="group border-border-strong border-t py-10 sm:py-14 lg:py-20">
       <div className="layout-grid gap-y-10">
         <div className="col-span-4 md:col-span-2 lg:col-span-2">
           <p className="metadata text-signal">
@@ -43,11 +43,11 @@ const SelectedProject = ({ project, index }: SelectedProjectProps) => {
         </div>
 
         <div className="col-span-4 md:col-span-6 lg:col-span-6">
-          <h3 className="text-[clamp(2.75rem,6vw,6.75rem)] font-semibold leading-[0.92] tracking-[-0.06em]">
+          <h3 className="text-[clamp(2.75rem,6vw,6.75rem)] leading-[0.92] font-semibold tracking-[-0.06em]">
             <Link
               to={`/work/${project.slug}`}
               viewTransition
-              className="no-underline decoration-signal decoration-2 underline-offset-[0.12em] hover:underline"
+              className="decoration-signal no-underline decoration-2 underline-offset-[0.12em] hover:underline"
             >
               {project.title}
             </Link>
@@ -56,9 +56,9 @@ const SelectedProject = ({ project, index }: SelectedProjectProps) => {
           <p className="body-copy mt-7">{project.summary}</p>
 
           {primaryDecision ? (
-            <div className="mt-9 border-l-2 border-signal pl-5">
+            <div className="border-signal mt-9 border-l-2 pl-5">
               <p className="eyebrow">{siteContent.work.decisionLabel}</p>
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-foreground-muted sm:text-base">
+              <p className="text-foreground-muted mt-3 max-w-2xl text-sm leading-relaxed sm:text-base">
                 {primaryDecision.decision}
               </p>
             </div>
@@ -66,21 +66,21 @@ const SelectedProject = ({ project, index }: SelectedProjectProps) => {
         </div>
 
         <div className="col-span-4 md:col-span-8 lg:col-span-4">
-          <div className="rounded-sm border border-border bg-surface p-6 sm:p-8">
+          <div className="border-border bg-surface rounded-sm border p-6 sm:p-8">
             <p className="eyebrow">{siteContent.work.evidenceLabel}</p>
 
             <dl className="mt-6 grid gap-7">
               {visibleMetrics.map((metric) => (
                 <div
                   key={`${metric.value}-${metric.label}`}
-                  className="border-t border-border pt-5 first:border-0 first:pt-0"
+                  className="border-border border-t pt-5 first:border-0 first:pt-0"
                 >
-                  <dd className="text-[clamp(2.25rem,4vw,4.5rem)] font-semibold leading-none tracking-[-0.05em]">
+                  <dd className="text-[clamp(2.25rem,4vw,4.5rem)] leading-none font-semibold tracking-[-0.05em]">
                     {metric.value}
                   </dd>
                   <dt className="mt-3 text-sm font-medium">{metric.label}</dt>
                   {metric.detail ? (
-                    <p className="mt-2 text-sm leading-relaxed text-foreground-muted">
+                    <p className="text-foreground-muted mt-2 text-sm leading-relaxed">
                       {metric.detail}
                     </p>
                   ) : null}
@@ -90,10 +90,10 @@ const SelectedProject = ({ project, index }: SelectedProjectProps) => {
           </div>
         </div>
 
-        <dl className="col-span-4 grid gap-6 border-t border-border pt-6 sm:grid-cols-3 md:col-span-8 lg:col-span-10 lg:col-start-3">
+        <dl className="border-border col-span-4 grid gap-6 border-t pt-6 sm:grid-cols-3 md:col-span-8 lg:col-span-10 lg:col-start-3">
           <div>
             <dt className="eyebrow">{siteContent.work.roleLabel}</dt>
-            <dd className="mt-3 text-sm font-medium leading-relaxed">
+            <dd className="mt-3 text-sm leading-relaxed font-medium">
               {project.role}
             </dd>
           </div>
@@ -105,14 +105,14 @@ const SelectedProject = ({ project, index }: SelectedProjectProps) => {
 
           <div>
             <dt className="eyebrow">{siteContent.work.statusLabel}</dt>
-            <dd className="mt-3 text-sm leading-relaxed text-foreground-muted">
+            <dd className="text-foreground-muted mt-3 text-sm leading-relaxed">
               {project.status}
             </dd>
           </div>
         </dl>
 
         <div className="col-span-4 md:col-span-8 lg:col-span-10 lg:col-start-3">
-          <div className="flex flex-col gap-7 border-t border-border pt-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="border-border flex flex-col gap-7 border-t pt-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="eyebrow">{siteContent.work.technologyLabel}</p>
               <ul
@@ -138,7 +138,7 @@ const SelectedProject = ({ project, index }: SelectedProjectProps) => {
               {siteContent.work.viewCaseStudyLabel}
               <ArrowUpRight
                 aria-hidden="true"
-                className="size-4 transition-transform duration-medium ease-emphasized group-hover:translate-x-1 group-hover:-translate-y-1"
+                className="duration-medium ease-emphasized size-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
               />
             </Link>
           </div>
@@ -159,7 +159,7 @@ const AdditionalProject = ({ project, index }: AdditionalProjectProps) => {
   );
 
   return (
-    <article className="layout-grid gap-y-6 border-b border-border py-8 sm:py-10">
+    <article className="layout-grid border-border gap-y-6 border-b py-8 sm:py-10">
       <div className="col-span-4 md:col-span-1 lg:col-span-1">
         <p className="metadata text-signal">
           {String(index + 1).padStart(2, "0")}
@@ -172,7 +172,7 @@ const AdditionalProject = ({ project, index }: AdditionalProjectProps) => {
       </div>
 
       <div className="col-span-4 md:col-span-4 lg:col-span-4">
-        <p className="text-sm leading-relaxed text-foreground-muted sm:text-base">
+        <p className="text-foreground-muted text-sm leading-relaxed sm:text-base">
           {project.summary}
         </p>
       </div>
@@ -185,7 +185,7 @@ const AdditionalProject = ({ project, index }: AdditionalProjectProps) => {
 
         <div>
           <dt className="eyebrow">{siteContent.work.roleLabel}</dt>
-          <dd className="mt-3 text-sm font-medium leading-relaxed">
+          <dd className="mt-3 text-sm leading-relaxed font-medium">
             {project.role}
           </dd>
         </div>
@@ -220,7 +220,7 @@ const AdditionalProject = ({ project, index }: AdditionalProjectProps) => {
 const Work = () => {
   return (
     <div>
-      <header className="layout-shell pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-28 lg:pt-28">
+      <header className="layout-shell pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-28 lg:pb-28">
         <div className="layout-grid gap-y-8">
           <div className="col-span-4 md:col-span-2">
             <p className="eyebrow text-signal">
@@ -280,7 +280,7 @@ const Work = () => {
             </p>
           </header>
 
-          <div className="mt-12 border-t border-border-strong lg:mt-16">
+          <div className="border-border-strong mt-12 border-t lg:mt-16">
             {additionalProjects.map((project, index) => (
               <AdditionalProject
                 key={project.slug}
