@@ -23,14 +23,14 @@ const ExperienceList = ({ experiences, density }: ExperienceListProps) => {
   const isPrimary = density === "primary";
 
   return (
-    <div className="border-t border-border-strong">
+    <div className="border-border-strong border-t">
       {experiences.map((experience, experienceIndex) => (
         <article
           key={experience.id}
           className={
             isPrimary
-              ? "layout-grid gap-y-8 border-b border-border py-10 sm:py-14 lg:py-18"
-              : "layout-grid gap-y-7 border-b border-border py-8 sm:py-10"
+              ? "layout-grid border-border gap-y-8 border-b py-10 sm:py-14 lg:py-18"
+              : "layout-grid border-border gap-y-7 border-b py-8 sm:py-10"
           }
         >
           <header className="col-span-4 md:col-span-3 lg:col-span-4">
@@ -42,14 +42,14 @@ const ExperienceList = ({ experiences, density }: ExperienceListProps) => {
               className={
                 isPrimary
                   ? "subsection-title mt-4"
-                  : "mt-4 text-xl font-semibold leading-tight"
+                  : "mt-4 text-xl leading-tight font-semibold"
               }
             >
               {experience.organization}
             </h3>
 
             {experience.organizationNote ? (
-              <p className="mt-3 max-w-sm text-sm leading-relaxed text-foreground-muted">
+              <p className="text-foreground-muted mt-3 max-w-sm text-sm leading-relaxed">
                 {experience.organizationNote}
               </p>
             ) : null}
@@ -85,7 +85,7 @@ const ExperienceList = ({ experiences, density }: ExperienceListProps) => {
                 <section
                   key={`${experience.id}-${role.title}-${role.period}`}
                   className={
-                    roleIndex > 0 ? "border-t border-border pt-8" : undefined
+                    roleIndex > 0 ? "border-border border-t pt-8" : undefined
                   }
                 >
                   <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-8">
@@ -110,11 +110,11 @@ const ExperienceList = ({ experiences, density }: ExperienceListProps) => {
                     {role.highlights.map((highlight) => (
                       <li
                         key={highlight}
-                        className="grid grid-cols-[0.75rem_1fr] gap-4 text-sm leading-relaxed text-foreground-muted sm:text-base"
+                        className="text-foreground-muted grid grid-cols-[0.75rem_1fr] gap-4 text-sm leading-relaxed sm:text-base"
                       >
                         <span
                           aria-hidden="true"
-                          className="mt-[0.65em] size-1.5 bg-signal"
+                          className="bg-signal mt-[0.65em] size-1.5"
                         />
                         <span>{highlight}</span>
                       </li>
@@ -141,7 +141,7 @@ const Profile = () => {
 
   return (
     <div>
-      <header className="layout-shell pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-28 lg:pt-28">
+      <header className="layout-shell pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-28 lg:pb-28">
         <div className="layout-grid gap-y-10">
           <div className="col-span-4 md:col-span-2 lg:col-span-3">
             <p className="eyebrow text-signal">
@@ -185,7 +185,7 @@ const Profile = () => {
                 {profileContent.introduction.map((paragraph, index) => (
                   <div
                     key={paragraph}
-                    className="grid grid-cols-[2rem_1fr] gap-4 border-t border-border pt-5"
+                    className="border-border grid grid-cols-[2rem_1fr] gap-4 border-t pt-5"
                   >
                     <p className="metadata text-signal">
                       {String(index + 1).padStart(2, "0")}
@@ -213,11 +213,11 @@ const Profile = () => {
             </header>
 
             <div className="col-span-4 md:col-span-5 lg:col-span-7 lg:col-start-6">
-              <ol className="border-t border-border-strong">
+              <ol className="border-border-strong border-t">
                 {profileContent.values.map((value, index) => (
                   <li
                     key={value.title}
-                    className="grid gap-4 border-b border-border py-7 sm:grid-cols-[3rem_1fr]"
+                    className="border-border grid gap-4 border-b py-7 sm:grid-cols-[3rem_1fr]"
                   >
                     <p className="metadata text-signal">
                       {String(index + 1).padStart(2, "0")}
@@ -302,11 +302,11 @@ const Profile = () => {
             </header>
 
             <div className="col-span-4 md:col-span-5 lg:col-span-7 lg:col-start-6">
-              <div className="grid border-t border-border-strong sm:grid-cols-2">
+              <div className="border-border-strong grid border-t sm:grid-cols-2">
                 {profileContent.capabilities.map((group) => (
                   <section
                     key={group.title}
-                    className="border-b border-border py-6 sm:odd:pr-6 sm:even:border-l sm:even:pl-6"
+                    className="border-border border-b py-6 sm:odd:pr-6 sm:even:border-l sm:even:pl-6"
                   >
                     <h3 className="text-lg font-semibold">{group.title}</h3>
 
@@ -333,7 +333,7 @@ const Profile = () => {
           <div className="layout-grid gap-y-8">
             <h2
               id="languages-heading"
-              className="eyebrow col-span-4 text-signal md:col-span-2 lg:col-span-3"
+              className="eyebrow text-signal col-span-4 md:col-span-2 lg:col-span-3"
             >
               {profileContent.languagesTitle}
             </h2>
@@ -342,7 +342,7 @@ const Profile = () => {
               {profileContent.languages.map((language) => (
                 <div
                   key={language.language}
-                  className="border-t border-border pt-4"
+                  className="border-border border-t pt-4"
                 >
                   <dt className="font-semibold">{language.language}</dt>
                   <dd className="metadata mt-2">{language.proficiency}</dd>
@@ -367,22 +367,22 @@ const Profile = () => {
             </header>
 
             <div className="col-span-4 md:col-span-5 lg:col-span-7 lg:col-start-6">
-              <div className="border-t border-border-strong">
+              <div className="border-border-strong border-t">
                 {profileContent.education.map((education) => (
                   <article
                     key={education.id}
-                    className="grid gap-4 border-b border-border py-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-8"
+                    className="border-border grid gap-4 border-b py-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-8"
                   >
                     <div>
                       <h3 className="text-lg font-semibold">
                         {education.institution}
                       </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-foreground-muted">
+                      <p className="text-foreground-muted mt-2 text-sm leading-relaxed">
                         {education.credential}
                       </p>
 
                       {education.note ? (
-                        <p className="mt-3 text-sm leading-relaxed text-foreground-subtle">
+                        <p className="text-foreground-subtle mt-3 text-sm leading-relaxed">
                           {education.note}
                         </p>
                       ) : null}
@@ -400,7 +400,7 @@ const Profile = () => {
         </div>
       </section>
 
-      <section className="border-y border-border-strong bg-surface-strong">
+      <section className="border-border-strong bg-surface-strong border-y">
         <div className="layout-shell py-12 sm:py-16">
           <div className="layout-grid items-end gap-y-8">
             <div className="col-span-4 md:col-span-5 lg:col-span-7">

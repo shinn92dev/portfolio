@@ -112,7 +112,7 @@ const WorkDetail = () => {
 
   return (
     <article>
-      <header className="layout-shell pb-14 pt-12 sm:pb-18 sm:pt-16 lg:pb-24 lg:pt-20">
+      <header className="layout-shell pt-12 pb-14 sm:pt-16 sm:pb-18 lg:pt-20 lg:pb-24">
         <Link to="/work" viewTransition className="text-link text-sm">
           <ArrowLeft aria-hidden="true" className="size-4" />
           {siteContent.caseStudy.backLabel}
@@ -131,18 +131,18 @@ const WorkDetail = () => {
 
         <dl
           aria-label={siteContent.caseStudy.projectDetailsLabel}
-          className="mt-14 grid gap-x-8 gap-y-7 border-y border-border-strong py-7 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4"
+          className="border-border-strong mt-14 grid gap-x-8 gap-y-7 border-y py-7 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4"
         >
           <div>
             <dt className="eyebrow">{siteContent.caseStudy.roleLabel}</dt>
-            <dd className="mt-3 text-sm font-medium leading-relaxed">
+            <dd className="mt-3 text-sm leading-relaxed font-medium">
               {project.role}
             </dd>
           </div>
 
           <div>
             <dt className="eyebrow">{siteContent.caseStudy.teamLabel}</dt>
-            <dd className="mt-3 text-sm leading-relaxed text-foreground-muted">
+            <dd className="text-foreground-muted mt-3 text-sm leading-relaxed">
               {project.team}
             </dd>
           </div>
@@ -154,7 +154,7 @@ const WorkDetail = () => {
 
           <div>
             <dt className="eyebrow">{siteContent.caseStudy.statusLabel}</dt>
-            <dd className="mt-3 text-sm leading-relaxed text-foreground-muted">
+            <dd className="text-foreground-muted mt-3 text-sm leading-relaxed">
               {project.status}
             </dd>
           </div>
@@ -175,15 +175,15 @@ const WorkDetail = () => {
               {project.metrics.map((metric) => (
                 <div
                   key={`${metric.value}-${metric.label}`}
-                  className="border-t border-border-strong pt-5"
+                  className="border-border-strong border-t pt-5"
                 >
-                  <dd className="text-[clamp(2.5rem,5vw,5.5rem)] font-semibold leading-none tracking-[-0.055em]">
+                  <dd className="text-[clamp(2.5rem,5vw,5.5rem)] leading-none font-semibold tracking-[-0.055em]">
                     {metric.value}
                   </dd>
                   <dt className="mt-4 text-sm font-semibold">{metric.label}</dt>
 
                   {metric.detail ? (
-                    <p className="mt-3 text-sm leading-relaxed text-foreground-muted">
+                    <p className="text-foreground-muted mt-3 text-sm leading-relaxed">
                       {metric.detail}
                     </p>
                   ) : null}
@@ -216,10 +216,10 @@ const WorkDetail = () => {
                       href={`#${section.id}`}
                       className="group grid grid-cols-[2rem_1fr] gap-2 text-sm no-underline"
                     >
-                      <span className="metadata transition-colors duration-fast group-hover:text-signal">
+                      <span className="metadata duration-fast group-hover:text-signal transition-colors">
                         {String(index + 1).padStart(2, "0")}
                       </span>
-                      <span className="text-foreground-muted transition-colors duration-fast group-hover:text-foreground">
+                      <span className="text-foreground-muted duration-fast group-hover:text-foreground transition-colors">
                         {section.label}
                       </span>
                     </a>
@@ -249,15 +249,15 @@ const WorkDetail = () => {
               index={2}
               title={siteContent.caseStudy.usersTitle}
             >
-              <ul className="reading-column grid border-t border-border">
+              <ul className="reading-column border-border grid border-t">
                 {caseStudy.users.map((user) => (
                   <li
                     key={user}
-                    className="grid grid-cols-[0.75rem_1fr] gap-4 border-b border-border py-4 text-foreground-muted"
+                    className="border-border text-foreground-muted grid grid-cols-[0.75rem_1fr] gap-4 border-b py-4"
                   >
                     <span
                       aria-hidden="true"
-                      className="mt-[0.7em] size-1.5 bg-signal"
+                      className="bg-signal mt-[0.7em] size-1.5"
                     />
                     <span>{user}</span>
                   </li>
@@ -271,11 +271,11 @@ const WorkDetail = () => {
               title={siteContent.caseStudy.responsibilitiesTitle}
               wide
             >
-              <ol className="grid border-t border-border md:grid-cols-2">
+              <ol className="border-border grid border-t md:grid-cols-2">
                 {caseStudy.responsibilities.map((responsibility, index) => (
                   <li
                     key={responsibility}
-                    className="grid grid-cols-[2rem_1fr] gap-3 border-b border-border py-4 md:odd:pr-6 md:even:border-l md:even:pl-6"
+                    className="border-border grid grid-cols-[2rem_1fr] gap-3 border-b py-4 md:odd:pr-6 md:even:border-l md:even:pl-6"
                   >
                     <span className="metadata text-signal">
                       {String(index + 1).padStart(2, "0")}
@@ -297,7 +297,7 @@ const WorkDetail = () => {
                 {caseStudy.constraints.map((constraint) => (
                   <li
                     key={constraint}
-                    className="border-l-2 border-signal pl-5 text-foreground-muted"
+                    className="border-signal text-foreground-muted border-l-2 pl-5"
                   >
                     {constraint}
                   </li>
@@ -311,11 +311,11 @@ const WorkDetail = () => {
               title={siteContent.caseStudy.featuresTitle}
               wide
             >
-              <ul className="grid gap-x-8 border-t border-border sm:grid-cols-2">
+              <ul className="border-border grid gap-x-8 border-t sm:grid-cols-2">
                 {caseStudy.features.map((feature) => (
                   <li
                     key={feature}
-                    className="border-b border-border py-4 text-sm leading-relaxed"
+                    className="border-border border-b py-4 text-sm leading-relaxed"
                   >
                     {feature}
                   </li>
@@ -333,7 +333,7 @@ const WorkDetail = () => {
                 {caseStudy.decisions.map((decision, index) => (
                   <article
                     key={decision.title}
-                    className="border-t border-border-strong pt-6"
+                    className="border-border-strong border-t pt-6"
                   >
                     <header className="grid gap-4 md:grid-cols-[3rem_1fr]">
                       <p className="metadata text-signal">
@@ -355,7 +355,7 @@ const WorkDetail = () => {
                           {siteContent.caseStudy.decisionOptionsLabel}
                         </dt>
                         <dd>
-                          <ul className="mt-3 grid gap-2 text-sm leading-relaxed text-foreground-muted">
+                          <ul className="text-foreground-muted mt-3 grid gap-2 text-sm leading-relaxed">
                             {decision.options.map((option) => (
                               <li key={option}>— {option}</li>
                             ))}
@@ -367,7 +367,7 @@ const WorkDetail = () => {
                         <dt className="eyebrow text-signal">
                           {siteContent.caseStudy.decisionLabel}
                         </dt>
-                        <dd className="mt-3 font-medium leading-relaxed">
+                        <dd className="mt-3 leading-relaxed font-medium">
                           {decision.decision}
                         </dd>
                       </div>
@@ -376,7 +376,7 @@ const WorkDetail = () => {
                         <dt className="eyebrow">
                           {siteContent.caseStudy.decisionRationaleLabel}
                         </dt>
-                        <dd className="mt-3 text-sm leading-relaxed text-foreground-muted">
+                        <dd className="text-foreground-muted mt-3 text-sm leading-relaxed">
                           {decision.rationale}
                         </dd>
                       </div>
@@ -386,7 +386,7 @@ const WorkDetail = () => {
                           {siteContent.caseStudy.tradeoffsLabel}
                         </dt>
                         <dd>
-                          <ul className="mt-3 grid gap-2 text-sm leading-relaxed text-foreground-muted">
+                          <ul className="text-foreground-muted mt-3 grid gap-2 text-sm leading-relaxed">
                             {decision.tradeoffs.map((tradeoff) => (
                               <li key={tradeoff}>— {tradeoff}</li>
                             ))}
@@ -404,11 +404,11 @@ const WorkDetail = () => {
               index={7}
               title={siteContent.caseStudy.outcomesTitle}
             >
-              <ol className="reading-column grid border-t border-border">
+              <ol className="reading-column border-border grid border-t">
                 {caseStudy.outcomes.map((outcome, index) => (
                   <li
                     key={outcome}
-                    className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-border py-5"
+                    className="border-border grid grid-cols-[2.5rem_1fr] gap-4 border-b py-5"
                   >
                     <span className="metadata text-signal">
                       {String(index + 1).padStart(2, "0")}
@@ -445,7 +445,7 @@ const WorkDetail = () => {
                 {project.technologies.map((technology) => (
                   <li
                     key={technology}
-                    className="technical-text border-b border-border pb-1 text-foreground-muted"
+                    className="technical-text border-border text-foreground-muted border-b pb-1"
                   >
                     {technology}
                   </li>
@@ -492,7 +492,7 @@ const WorkDetail = () => {
                     {unavailableLinks.map((link) => (
                       <li
                         key={link.label}
-                        className="text-sm text-foreground-subtle"
+                        className="text-foreground-subtle text-sm"
                       >
                         {link.label}
                         <span className="metadata ml-2">
@@ -510,7 +510,7 @@ const WorkDetail = () => {
 
       <nav
         aria-label={siteContent.caseStudy.nextProjectLabel}
-        className="border-t border-border-strong"
+        className="border-border-strong border-t"
       >
         <Link
           to={`/work/${nextProject.slug}`}
@@ -524,7 +524,7 @@ const WorkDetail = () => {
 
             <div className="mt-5 flex items-end justify-between gap-8">
               <div>
-                <p className="text-[clamp(2.5rem,6vw,6.5rem)] font-semibold leading-[0.95] tracking-[-0.055em]">
+                <p className="text-[clamp(2.5rem,6vw,6.5rem)] leading-[0.95] font-semibold tracking-[-0.055em]">
                   {nextProject.title}
                 </p>
                 <p className="body-copy mt-5">{nextProject.summary}</p>
@@ -532,7 +532,7 @@ const WorkDetail = () => {
 
               <ArrowRight
                 aria-hidden="true"
-                className="hidden size-10 shrink-0 transition-transform duration-medium ease-emphasized group-hover:translate-x-2 sm:block"
+                className="duration-medium ease-emphasized hidden size-10 shrink-0 transition-transform group-hover:translate-x-2 sm:block"
               />
             </div>
           </div>

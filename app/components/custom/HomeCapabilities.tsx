@@ -11,7 +11,7 @@ const HomeCapabilities = () => {
     >
       <div className="layout-shell">
         <header className="layout-grid gap-y-6">
-          <p className="eyebrow col-span-4 text-signal md:col-span-2">
+          <p className="eyebrow text-signal col-span-4 md:col-span-2">
             {siteContent.home.capabilityEyebrow}
           </p>
 
@@ -23,7 +23,7 @@ const HomeCapabilities = () => {
           </h2>
         </header>
 
-        <div className="mt-14 border-t border-border-strong lg:mt-20">
+        <div className="border-border-strong mt-14 border-t lg:mt-20">
           {siteContent.home.capabilities.map((capability, index) => {
             const relatedProjects = capability.projectSlugs
               .map((slug) => projects.find((project) => project.slug === slug))
@@ -32,7 +32,7 @@ const HomeCapabilities = () => {
             return (
               <article
                 key={capability.title}
-                className="layout-grid gap-y-7 border-b border-border py-8 sm:py-10"
+                className="layout-grid border-border gap-y-7 border-b py-8 sm:py-10"
               >
                 <div className="col-span-4 md:col-span-3 lg:col-span-4">
                   <p className="metadata text-signal">
@@ -52,11 +52,11 @@ const HomeCapabilities = () => {
                       {capability.evidence.map((evidence) => (
                         <li
                           key={evidence}
-                          className="flex gap-3 text-sm leading-relaxed text-foreground-muted"
+                          className="text-foreground-muted flex gap-3 text-sm leading-relaxed"
                         >
                           <span
                             aria-hidden="true"
-                            className="mt-[0.65em] size-1.5 shrink-0 bg-signal"
+                            className="bg-signal mt-[0.65em] size-1.5 shrink-0"
                           />
                           <span>{evidence}</span>
                         </li>
@@ -75,12 +75,12 @@ const HomeCapabilities = () => {
                         <Link
                           to={`/work/${project.slug}`}
                           viewTransition
-                          className="group/link flex items-center justify-between gap-4 border-b border-border py-3 text-sm font-medium no-underline transition-colors hover:border-signal hover:text-signal"
+                          className="group/link border-border hover:border-signal hover:text-signal flex items-center justify-between gap-4 border-b py-3 text-sm font-medium no-underline transition-colors"
                         >
                           {project.shortTitle}
                           <ArrowRight
                             aria-hidden="true"
-                            className="size-4 transition-transform duration-medium ease-emphasized group-hover/link:translate-x-1"
+                            className="duration-medium ease-emphasized size-4 transition-transform group-hover/link:translate-x-1"
                           />
                         </Link>
                       </li>

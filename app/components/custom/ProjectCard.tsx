@@ -47,16 +47,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   whatIDid,
 }) => {
   return (
-    <Card className="pt-0 rounded-sm flex flex-col h-full bg-ivory">
+    <Card className="bg-ivory flex h-full flex-col rounded-sm pt-0">
       {/* <div className="w-full bg-gray-200 h-40"></div> */}
 
-      <div className="flex-1 flex flex-col px-6 py-4">
+      <div className="flex flex-1 flex-col px-6 py-4">
         <div data-section="title" className="mb-2">
-          <div className="flex justify-between items-start">
-            <CardTitle className="text-base font-bold text-ink">
+          <div className="flex items-start justify-between">
+            <CardTitle className="text-ink text-base font-bold">
               {name}
             </CardTitle>
-            <p className="text-sm text-muted-foreground shrink-0 pl-2">
+            <p className="text-muted-foreground shrink-0 pl-2 text-sm">
               {date}
             </p>
           </div>
@@ -64,11 +64,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {/* Roles */}
         <div data-section="roles" className="mb-2">
-          <div className="flex gap-x-2 flex-wrap gap-y-2">
+          <div className="flex flex-wrap gap-x-2 gap-y-2">
             {roles.map((role, idx) => (
               <Badge
                 key={`${role}_${idx}`}
-                className="text-[10px] bg-indigo shadow"
+                className="bg-indigo text-[10px] shadow"
               >
                 {role}
               </Badge>
@@ -78,7 +78,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {/* Tech stack */}
         <div data-section="techs" className="mb-2">
-          <div className="flex gap-x-2 flex-wrap gap-y-2">
+          <div className="flex flex-wrap gap-x-2 gap-y-2">
             {techs.map((tech, idx) => (
               <TechBadge key={`${tech}_${idx}`} tech={tech} />
             ))}
@@ -87,23 +87,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {/* Description */}
         <div data-section="description" className="my-2">
-          <p className="text-sm text-ink">{description}</p>
+          <p className="text-ink text-sm">{description}</p>
         </div>
 
         {/* Spacer (flex-grow를 사용하여 푸터를 맨 아래로 밀어냄) */}
         <div className="flex-grow" />
 
         {/* Footer with button */}
-        <div data-section="footer" className="pt-2 flex justify-between">
+        <div data-section="footer" className="flex justify-between pt-2">
           <div>
             <AlertDialog>
               <AlertDialogTrigger asChild>
-                <Button className="cursor-pointer bg-indigo text-ivory hover:bg-coral hover:text-ink transition-all duration-100">
+                <Button className="bg-indigo text-ivory hover:bg-coral hover:text-ink cursor-pointer transition-all duration-100">
                   What I Did?
                 </Button>
               </AlertDialogTrigger>
               {/* ... AlertDialogContent ... */}
-              <AlertDialogContent className="z-[100] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-lg w-full">
+              <AlertDialogContent className="fixed top-1/2 left-1/2 z-[100] w-full max-w-lg -translate-x-1/2 -translate-y-1/2">
                 <AlertDialogHeader>
                   <AlertDialogTitle className="">What I Did?</AlertDialogTitle>
                   <AlertDialogDescription asChild>
@@ -111,11 +111,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                       {whatIDid.map((each, idx) => (
                         <li
                           key={idx}
-                          className="flex gap-x-3 items-start h-fit my-3"
+                          className="my-3 flex h-fit items-start gap-x-3"
                         >
                           <MdArrowForwardIos
                             size={15}
-                            className="font-bold mt-1 shrink-0"
+                            className="mt-1 shrink-0 font-bold"
                           />
                           <span>{each}</span>
                         </li>
@@ -132,14 +132,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="flex gap-x-2">
             {githubLink !== null && (
               <a href={githubLink} target="_blank" rel="noopener noreferrer">
-                <Button className="bg-indigo hover:bg-indigo hover:scale-105 active:scale-95 cursor-pointer">
+                <Button className="bg-indigo hover:bg-indigo cursor-pointer hover:scale-105 active:scale-95">
                   <FaGithub />
                 </Button>
               </a>
             )}
             {hostedLink !== null && (
               <a href={hostedLink} target="_blank" rel="noopener noreferrer">
-                <Button className="bg-coral-sand hover:bg-coral-sand hover:scale-105 active:scale-95 cursor-pointer">
+                <Button className="bg-coral-sand hover:bg-coral-sand cursor-pointer hover:scale-105 active:scale-95">
                   <RiHomeHeartLine />
                 </Button>
               </a>

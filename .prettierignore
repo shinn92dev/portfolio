@@ -1,5 +1,5 @@
-  build
-  node_modules
-  .react-router
-  public
-  pnpm-lock.yaml
+build
+node_modules
+.react-router
+public
+pnpm-lock.yaml

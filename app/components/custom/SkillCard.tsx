@@ -10,7 +10,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
   return (
     <Card className="w-30">
       <div className="flex flex-col items-center gap-y-5">
-        <img src={data.icon} alt="" className="w-25 h-25" />
+        <img src={data.icon} alt="" className="h-25 w-25" />
         <CardTitle className="text-center">{data.name}</CardTitle>
       </div>
     </Card>

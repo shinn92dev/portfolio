@@ -77,10 +77,10 @@ const SiteHeader = () => {
   return (
     <header
       className={[
-        "sticky top-0 z-50 border-b transition-[background-color,padding,border-color] duration-medium ease-emphasized",
+        "duration-medium ease-emphasized sticky top-0 z-50 border-b transition-[background-color,padding,border-color]",
         isCompact
           ? "border-border bg-background/95 py-3 backdrop-blur-md"
-          : "border-transparent bg-background py-5",
+          : "bg-background border-transparent py-5",
       ].join(" ")}
     >
       <div className="layout-shell flex items-center justify-between gap-5">
@@ -91,13 +91,13 @@ const SiteHeader = () => {
         >
           <span
             aria-hidden="true"
-            className="flex size-9 shrink-0 items-center justify-center bg-foreground font-mono text-xs font-medium text-foreground-inverse"
+            className="bg-foreground text-foreground-inverse flex size-9 shrink-0 items-center justify-center font-mono text-xs font-medium"
           >
             AS
           </span>
 
           <span className="hidden min-w-0 sm:block">
-            <span className="block truncate text-sm font-semibold leading-tight">
+            <span className="block truncate text-sm leading-tight font-semibold">
               {siteContent.identity.displayName}
             </span>
             <span className="metadata mt-0.5 block truncate">
@@ -122,7 +122,7 @@ const SiteHeader = () => {
                   <Link
                     to={item.href}
                     className={[
-                      "relative py-2 text-sm font-medium no-underline transition-colors duration-fast ease-standard",
+                      "duration-fast ease-standard relative py-2 text-sm font-medium no-underline transition-colors",
                       isActive
                         ? "text-signal"
                         : "text-foreground-muted hover:text-foreground",
@@ -133,7 +133,7 @@ const SiteHeader = () => {
                     {isActive ? (
                       <span
                         aria-hidden="true"
-                        className="absolute inset-x-0 bottom-0 h-px bg-signal"
+                        className="bg-signal absolute inset-x-0 bottom-0 h-px"
                       />
                     ) : null}
                   </Link>
@@ -153,7 +153,7 @@ const SiteHeader = () => {
           <button
             ref={menuButtonRef}
             type="button"
-            className="interactive-shift inline-flex size-10 items-center justify-center rounded-sm border border-border text-foreground hover:border-signal hover:text-signal lg:hidden"
+            className="interactive-shift border-border text-foreground hover:border-signal hover:text-signal inline-flex size-10 items-center justify-center rounded-sm border lg:hidden"
             aria-label={
               isMenuOpen
                 ? siteContent.shell.closeMenuLabel
@@ -175,12 +175,12 @@ const SiteHeader = () => {
       <div
         id="mobile-navigation"
         className={[
-          "grid transition-[grid-template-rows,visibility] duration-medium ease-emphasized lg:hidden",
+          "duration-medium ease-emphasized grid transition-[grid-template-rows,visibility] lg:hidden",
           isMenuOpen ? "visible grid-rows-[1fr]" : "invisible grid-rows-[0fr]",
         ].join(" ")}
       >
         <div className="overflow-hidden">
-          <div className="layout-shell border-t border-border pb-6 pt-5">
+          <div className="layout-shell border-border border-t pt-5 pb-6">
             <nav aria-label={siteContent.shell.mainNavigationLabel}>
               <ul className="grid">
                 {siteContent.navigation.map((item) => {
@@ -190,7 +190,7 @@ const SiteHeader = () => {
                   );
 
                   return (
-                    <li key={item.href} className="border-b border-border">
+                    <li key={item.href} className="border-border border-b">
                       <Link
                         to={item.href}
                         className={[
@@ -202,7 +202,7 @@ const SiteHeader = () => {
                         {item.label}
                         <span
                           aria-hidden="true"
-                          className="font-mono text-xs text-foreground-subtle"
+                          className="text-foreground-subtle font-mono text-xs"
                         >
                           ↗
                         </span>

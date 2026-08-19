@@ -3,10 +3,7 @@ export type LocaleCode = "en" | "ko" | "ja";
 export type ProjectTier = "selected" | "additional";
 
 export type ProjectSlug =
-  | "gyu-kaku-portal"
-  | "kana-fighter"
-  | "rate-van-rent"
-  | "portfolio";
+  "gyu-kaku-portal" | "kana-fighter" | "rate-van-rent" | "portfolio";
 
 export type ProjectEditorialStatus = "verified" | "draft";
 

@@ -12,7 +12,7 @@ interface CareerListProps {
 
 const CareerList = ({ entries, prominent }: CareerListProps) => {
   return (
-    <div className="border-t border-border-strong">
+    <div className="border-border-strong border-t">
       {entries.map((entry, index) => {
         const experience = profileContent.experiences.find(
           (item) => item.id === entry.experienceId,
@@ -28,7 +28,7 @@ const CareerList = ({ entries, prominent }: CareerListProps) => {
           <article
             key={entry.experienceId}
             className={[
-              "layout-grid gap-y-6 border-b border-border",
+              "layout-grid border-border gap-y-6 border-b",
               prominent ? "py-9 sm:py-12" : "py-7 sm:py-9",
             ].join(" ")}
           >
@@ -60,8 +60,8 @@ const CareerList = ({ entries, prominent }: CareerListProps) => {
                 className={[
                   "leading-relaxed",
                   prominent
-                    ? "text-base text-foreground sm:text-lg"
-                    : "text-sm text-foreground-muted sm:text-base",
+                    ? "text-foreground text-base sm:text-lg"
+                    : "text-foreground-muted text-sm sm:text-base",
                 ].join(" ")}
               >
                 {entry.summary}
@@ -71,7 +71,7 @@ const CareerList = ({ entries, prominent }: CareerListProps) => {
             <dl className="col-span-4 grid grid-cols-2 gap-5 md:col-start-4 lg:col-span-3 lg:col-start-10">
               <div>
                 <dt className="eyebrow">{siteContent.home.careerRoleLabel}</dt>
-                <dd className="mt-3 text-sm font-medium leading-relaxed">
+                <dd className="mt-3 text-sm leading-relaxed font-medium">
                   {primaryRole?.title}
                 </dd>
               </div>
@@ -98,7 +98,7 @@ const HomeCareer = () => {
     >
       <div className="layout-shell">
         <header className="layout-grid gap-y-7">
-          <p className="eyebrow col-span-4 text-signal md:col-span-2">
+          <p className="eyebrow text-signal col-span-4 md:col-span-2">
             {siteContent.home.careerEyebrow}
           </p>
 
@@ -115,7 +115,7 @@ const HomeCareer = () => {
 
         <div className="mt-16 lg:mt-24">
           <div className="layout-grid">
-            <h3 className="eyebrow col-span-4 mb-6 text-foreground md:col-span-8 lg:col-span-3">
+            <h3 className="eyebrow text-foreground col-span-4 mb-6 md:col-span-8 lg:col-span-3">
               {siteContent.home.softwareExperienceLabel}
             </h3>
 
@@ -128,7 +128,7 @@ const HomeCareer = () => {
           </div>
 
           <div className="layout-grid mt-16 lg:mt-24">
-            <h3 className="eyebrow col-span-4 mb-6 text-foreground md:col-span-8 lg:col-span-3">
+            <h3 className="eyebrow text-foreground col-span-4 mb-6 md:col-span-8 lg:col-span-3">
               {siteContent.home.earlierExperienceLabel}
             </h3>
 
@@ -142,9 +142,9 @@ const HomeCareer = () => {
         </div>
 
         <div className="layout-grid mt-14 lg:mt-20">
-          <div className="col-span-4 border-l-2 border-signal pl-5 md:col-span-6 md:col-start-3 lg:col-span-6 lg:col-start-5">
+          <div className="border-signal col-span-4 border-l-2 pl-5 md:col-span-6 md:col-start-3 lg:col-span-6 lg:col-start-5">
             <p className="eyebrow">{siteContent.home.personalNoteLabel}</p>
-            <p className="mt-4 text-lg leading-relaxed text-foreground-muted">
+            <p className="text-foreground-muted mt-4 text-lg leading-relaxed">
               {siteContent.home.personalNote}
             </p>
 

@@ -56,18 +56,18 @@ const AboutHeader = ({ pt }: { pt: number | null }) => {
 
   return (
     <nav
-      className={`w-full max-w-[1028px] bg-beige shadow-md mb-10 z-40 transition-all ${
+      className={`bg-beige z-40 mb-10 w-full max-w-[1028px] shadow-md transition-all ${
         isFixed ? "fixed top-0" : "relative"
       }`}
       style={isFixed ? {} : { marginTop: pt ?? 0 }}
     >
       <ul
-        className="flex flex-col md:flex-row items-center justify-end md:gap-x-6 py-2 pr-6 w-full"
+        className="flex w-full flex-col items-center justify-end py-2 pr-6 md:flex-row md:gap-x-6"
         onClick={() => setDropdownOpen((prev) => !prev)}
       >
         {isMobile ? (
           <>
-            <li className="font-bold text-lg cursor-pointer">
+            <li className="cursor-pointer text-lg font-bold">
               {sections.find((s) => s.id === active)?.label}
             </li>
             {isDropdownOpen &&
@@ -77,7 +77,7 @@ const AboutHeader = ({ pt }: { pt: number | null }) => {
                   <li
                     key={id}
                     onClick={() => scrollTo(id)}
-                    className="text-sm py-1 cursor-pointer hover:underline"
+                    className="cursor-pointer py-1 text-sm hover:underline"
                   >
                     {label}
                   </li>
@@ -88,7 +88,7 @@ const AboutHeader = ({ pt }: { pt: number | null }) => {
             <li
               key={id}
               onClick={() => scrollTo(id)}
-              className={`cursor-pointer text-sm font-semibold px-2 py-1 transition ${
+              className={`cursor-pointer px-2 py-1 text-sm font-semibold transition ${
                 active === id ? "text-coral underline" : "text-ink"
               }`}
             >

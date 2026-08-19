@@ -71,7 +71,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="border-border mt-14 flex flex-col gap-3 border-t pt-5 sm:flex-row sm:items-center sm:justify-between">
           <p className="metadata">
             © {currentYear} {siteContent.shell.copyright}
           </p>

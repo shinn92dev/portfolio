@@ -161,7 +161,7 @@ export const ErrorBoundary = ({ error }: Route.ErrorBoundaryProps) => {
         </a>
 
         {stack ? (
-          <pre className="mt-10 overflow-x-auto border-t border-border pt-6 text-sm">
+          <pre className="border-border mt-10 overflow-x-auto border-t pt-6 text-sm">
             <code>{stack}</code>
           </pre>
         ) : null}

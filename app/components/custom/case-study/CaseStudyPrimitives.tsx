@@ -19,7 +19,7 @@ export const CaseStudySection = ({
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className="border-t border-border py-14 sm:py-18 lg:py-24"
+      className="border-border border-t py-14 sm:py-18 lg:py-24"
     >
       <div className="layout-grid gap-y-8">
         <header className="col-span-4 md:col-span-2 lg:col-span-3">
@@ -63,9 +63,9 @@ export const CaseStudyFigure = ({
     <figure>
       <div className="image-frame">{children}</div>
 
-      <figcaption className="mt-4 grid gap-2 border-t border-border pt-4 sm:grid-cols-[auto_1fr] sm:gap-6">
+      <figcaption className="border-border mt-4 grid gap-2 border-t pt-4 sm:grid-cols-[auto_1fr] sm:gap-6">
         {label ? <span className="eyebrow text-signal">{label}</span> : null}
-        <span className="max-w-3xl text-sm leading-relaxed text-foreground-muted">
+        <span className="text-foreground-muted max-w-3xl text-sm leading-relaxed">
           {caption}
         </span>
       </figcaption>
@@ -90,16 +90,16 @@ export const CaseStudyComparison = ({
 }: CaseStudyComparisonProps) => {
   return (
     <figure>
-      <div className="grid gap-px overflow-hidden rounded-sm border border-image-border bg-image-border md:grid-cols-2">
+      <div className="border-image-border bg-image-border grid gap-px overflow-hidden rounded-sm border md:grid-cols-2">
         <div className="bg-image">
-          <p className="eyebrow border-b border-image-border px-5 py-4">
+          <p className="eyebrow border-image-border border-b px-5 py-4">
             {beforeLabel}
           </p>
           <div>{before}</div>
         </div>
 
         <div className="bg-image">
-          <p className="eyebrow border-b border-image-border px-5 py-4 text-signal">
+          <p className="eyebrow border-image-border text-signal border-b px-5 py-4">
             {afterLabel}
           </p>
           <div>{after}</div>
@@ -107,7 +107,7 @@ export const CaseStudyComparison = ({
       </div>
 
       {caption ? (
-        <figcaption className="mt-4 max-w-3xl text-sm leading-relaxed text-foreground-muted">
+        <figcaption className="text-foreground-muted mt-4 max-w-3xl text-sm leading-relaxed">
           {caption}
         </figcaption>
       ) : null}
@@ -132,18 +132,18 @@ export const CaseStudyProductFlow = ({
   return (
     <ol
       aria-label={ariaLabel}
-      className="grid border-t border-border-strong md:grid-cols-2 lg:grid-cols-3"
+      className="border-border-strong grid border-t md:grid-cols-2 lg:grid-cols-3"
     >
       {steps.map((step, index) => (
         <li
           key={`${index}-${step.title}`}
-          className="border-b border-border py-6 md:px-6 md:first:pl-0 lg:border-r lg:last:border-r-0"
+          className="border-border border-b py-6 md:px-6 md:first:pl-0 lg:border-r lg:last:border-r-0"
         >
           <p className="metadata text-signal">
             {String(index + 1).padStart(2, "0")}
           </p>
           <h3 className="mt-4 text-lg font-semibold">{step.title}</h3>
-          <p className="mt-3 text-sm leading-relaxed text-foreground-muted">
+          <p className="text-foreground-muted mt-3 text-sm leading-relaxed">
             {step.description}
           </p>
         </li>
@@ -171,12 +171,12 @@ export const CaseStudyArchitecture = ({
     <div
       role="img"
       aria-label={ariaLabel}
-      className="border-y border-border-strong"
+      className="border-border-strong border-y"
     >
       {layers.map((layer, index) => (
         <div
           key={layer.label}
-          className="grid gap-4 border-b border-border py-6 last:border-b-0 md:grid-cols-[1fr_2fr]"
+          className="border-border grid gap-4 border-b py-6 last:border-b-0 md:grid-cols-[1fr_2fr]"
         >
           <div>
             <p className="metadata text-signal">

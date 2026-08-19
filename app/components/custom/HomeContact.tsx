@@ -9,7 +9,7 @@ const HomeContact = () => {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="scroll-mt-24 bg-surface-inverse text-foreground-inverse"
+      className="bg-surface-inverse text-foreground-inverse scroll-mt-24"
     >
       <div className="layout-shell section-space">
         <div className="layout-grid gap-y-12">
@@ -20,12 +20,12 @@ const HomeContact = () => {
 
             <h2
               id="contact-heading"
-              className="mt-5 max-w-[12ch] text-[clamp(3rem,7vw,7.5rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-foreground-inverse"
+              className="text-foreground-inverse mt-5 max-w-[12ch] text-[clamp(3rem,7vw,7.5rem)] leading-[0.92] font-semibold tracking-[-0.06em]"
             >
               {siteContent.home.contactTitle}
             </h2>
 
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-foreground-inverse/65 sm:text-xl">
+            <p className="text-foreground-inverse/65 mt-7 max-w-2xl text-lg leading-relaxed sm:text-xl">
               {siteContent.home.contactDescription}
             </p>
           </header>
@@ -37,18 +37,18 @@ const HomeContact = () => {
 
             <a
               href={emailHref}
-              className="group mt-5 flex min-h-20 items-center justify-between gap-5 border-y border-foreground-inverse/25 py-5 text-lg font-medium text-foreground-inverse no-underline transition-colors hover:border-signal hover:text-signal"
+              className="group border-foreground-inverse/25 text-foreground-inverse hover:border-signal hover:text-signal mt-5 flex min-h-20 items-center justify-between gap-5 border-y py-5 text-lg font-medium no-underline transition-colors"
             >
               <span className="flex min-w-0 items-center gap-4">
                 <Mail aria-hidden="true" className="size-5 shrink-0" />
-                <span className="min-w-0 break-all text-sm sm:text-lg">
+                <span className="min-w-0 text-sm break-all sm:text-lg">
                   {siteContent.contact.email}
                 </span>
               </span>
 
               <ArrowUpRight
                 aria-hidden="true"
-                className="size-5 shrink-0 transition-transform duration-medium ease-emphasized group-hover:translate-x-1 group-hover:-translate-y-1"
+                className="duration-medium ease-emphasized size-5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
               />
             </a>
 
@@ -60,18 +60,18 @@ const HomeContact = () => {
                 {siteContent.socialLinks.map((link) => (
                   <li
                     key={link.href}
-                    className="border-b border-foreground-inverse/20"
+                    className="border-foreground-inverse/20 border-b"
                   >
                     <a
                       href={link.href}
                       target={link.external ? "_blank" : undefined}
                       rel={link.external ? "noreferrer" : undefined}
-                      className="group flex min-h-14 items-center justify-between gap-4 py-3 text-sm font-medium text-foreground-inverse no-underline transition-colors hover:text-signal"
+                      className="group text-foreground-inverse hover:text-signal flex min-h-14 items-center justify-between gap-4 py-3 text-sm font-medium no-underline transition-colors"
                     >
                       {link.label}
                       <ArrowUpRight
                         aria-hidden="true"
-                        className="size-4 transition-transform duration-medium ease-emphasized group-hover:translate-x-1 group-hover:-translate-y-1"
+                        className="duration-medium ease-emphasized size-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
                       />
                       {link.external ? (
                         <span className="sr-only"> opens in a new tab</span>
@@ -80,27 +80,27 @@ const HomeContact = () => {
                   </li>
                 ))}
 
-                <li className="border-b border-foreground-inverse/20">
+                <li className="border-foreground-inverse/20 border-b">
                   <a
                     href={siteContent.resume.href}
-                    className="group flex min-h-14 items-center justify-between gap-4 py-3 text-sm font-medium text-foreground-inverse no-underline transition-colors hover:text-signal"
+                    className="group text-foreground-inverse hover:text-signal flex min-h-14 items-center justify-between gap-4 py-3 text-sm font-medium no-underline transition-colors"
                   >
                     {siteContent.resume.label}
                     <ArrowUpRight
                       aria-hidden="true"
-                      className="size-4 transition-transform duration-medium ease-emphasized group-hover:translate-x-1 group-hover:-translate-y-1"
+                      className="duration-medium ease-emphasized size-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
                     />
                   </a>
                 </li>
               </ul>
             </nav>
 
-            <dl className="mt-8 border-t border-foreground-inverse/20 pt-5">
+            <dl className="border-foreground-inverse/20 mt-8 border-t pt-5">
               <div className="flex items-start justify-between gap-5">
                 <dt className="eyebrow text-foreground-inverse/55">
                   {siteContent.home.contactLocationLabel}
                 </dt>
-                <dd className="metadata text-right text-foreground-inverse">
+                <dd className="metadata text-foreground-inverse text-right">
                   {siteContent.identity.location}
                 </dd>
               </div>

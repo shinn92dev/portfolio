@@ -11,7 +11,7 @@ export const useSyncCardHeights = (containerRef: RefObject<HTMLElement>) => {
     const syncHeights = () => {
       SELECTORS.forEach((selector) => {
         const elements = container.querySelectorAll<HTMLElement>(
-          `[data-section="${selector}"]`
+          `[data-section="${selector}"]`,
         );
         elements.forEach((el) => {
           el.style.minHeight = "0";
@@ -21,7 +21,7 @@ export const useSyncCardHeights = (containerRef: RefObject<HTMLElement>) => {
       requestAnimationFrame(() => {
         SELECTORS.forEach((selector) => {
           const elements = container.querySelectorAll<HTMLElement>(
-            `[data-section="${selector}"]`
+            `[data-section="${selector}"]`,
           );
           if (elements.length === 0) return;
 

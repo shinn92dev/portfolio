@@ -16,7 +16,7 @@ const LanguageControl = ({ compact = false }: LanguageControlProps) => {
           return (
             <span
               key={language.code}
-              className="metadata border-b border-signal pb-1 text-foreground"
+              className="metadata border-signal text-foreground border-b pb-1"
               aria-current="true"
             >
               {language.label}
@@ -27,7 +27,7 @@ const LanguageControl = ({ compact = false }: LanguageControlProps) => {
         return (
           <span
             key={language.code}
-            className="flex items-center gap-1 text-foreground-subtle"
+            className="text-foreground-subtle flex items-center gap-1"
             title={language.message}
           >
             <span className="metadata">{language.label}</span>
@@ -37,7 +37,7 @@ const LanguageControl = ({ compact = false }: LanguageControlProps) => {
                 {language.message ?? siteContent.shell.comingSoonLabel}
               </span>
             ) : (
-              <span className="text-[0.625rem] uppercase tracking-wider">
+              <span className="text-[0.625rem] tracking-wider uppercase">
                 {siteContent.shell.comingSoonLabel}
               </span>
             )}

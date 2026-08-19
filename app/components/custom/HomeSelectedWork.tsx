@@ -15,7 +15,7 @@ const HomeSelectedWork = () => {
     >
       <div className="layout-shell">
         <header className="layout-grid gap-y-6">
-          <p className="eyebrow col-span-4 text-signal md:col-span-2">
+          <p className="eyebrow text-signal col-span-4 md:col-span-2">
             {siteContent.home.selectedWorkEyebrow}
           </p>
 
@@ -44,7 +44,7 @@ const HomeSelectedWork = () => {
             return (
               <article
                 key={project.slug}
-                className="group border-t border-border-strong pt-5"
+                className="group border-border-strong border-t pt-5"
               >
                 <div className="mb-8 flex items-start justify-between gap-6">
                   <p className="metadata text-signal">
@@ -71,7 +71,7 @@ const HomeSelectedWork = () => {
                     >
                       <div
                         className={[
-                          "relative flex min-h-[22rem] flex-col justify-between overflow-hidden rounded-sm border p-6 transition-[background-color,border-color,transform] duration-medium ease-emphasized group-hover:-translate-y-1 sm:min-h-[28rem] sm:p-9",
+                          "duration-medium ease-emphasized relative flex min-h-[22rem] flex-col justify-between overflow-hidden rounded-sm border p-6 transition-[background-color,border-color,transform] group-hover:-translate-y-1 sm:min-h-[28rem] sm:p-9",
                           isReversed
                             ? "border-signal/30 bg-signal-soft"
                             : "border-foreground bg-foreground text-foreground-inverse",
@@ -92,7 +92,7 @@ const HomeSelectedWork = () => {
                           <ArrowUpRight
                             aria-hidden="true"
                             className={[
-                              "size-5 shrink-0 transition-transform duration-medium ease-emphasized group-hover:translate-x-1 group-hover:-translate-y-1",
+                              "duration-medium ease-emphasized size-5 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1",
                               isReversed
                                 ? "text-signal"
                                 : "text-foreground-inverse",
@@ -104,7 +104,7 @@ const HomeSelectedWork = () => {
                           <div>
                             <p
                               className={[
-                                "text-[clamp(3.5rem,9vw,8rem)] font-semibold leading-none tracking-[-0.065em]",
+                                "text-[clamp(3.5rem,9vw,8rem)] leading-none font-semibold tracking-[-0.065em]",
                                 isReversed
                                   ? "text-foreground"
                                   : "text-foreground-inverse",
@@ -138,7 +138,7 @@ const HomeSelectedWork = () => {
                         ) : (
                           <p
                             className={[
-                              "max-w-xl text-3xl font-medium leading-tight",
+                              "max-w-xl text-3xl leading-tight font-medium",
                               isReversed
                                 ? "text-foreground"
                                 : "text-foreground-inverse",
@@ -196,11 +196,11 @@ const HomeSelectedWork = () => {
                       {siteContent.home.selectedWorkProductLabel}
                     </p>
 
-                    <h3 className="mt-4 text-[clamp(2.5rem,5vw,5.5rem)] font-semibold leading-[0.95] tracking-[-0.055em]">
+                    <h3 className="mt-4 text-[clamp(2.5rem,5vw,5.5rem)] leading-[0.95] font-semibold tracking-[-0.055em]">
                       <Link
                         to={`/work/${project.slug}`}
                         viewTransition
-                        className="no-underline decoration-signal decoration-2 underline-offset-8 hover:underline"
+                        className="decoration-signal no-underline decoration-2 underline-offset-8 hover:underline"
                       >
                         {project.title}
                       </Link>
@@ -208,12 +208,12 @@ const HomeSelectedWork = () => {
 
                     <p className="body-copy mt-7">{project.summary}</p>
 
-                    <dl className="mt-9 grid gap-6 border-t border-border pt-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                    <dl className="border-border mt-9 grid gap-6 border-t pt-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                       <div>
                         <dt className="eyebrow">
                           {siteContent.home.selectedWorkUserLabel}
                         </dt>
-                        <dd className="mt-3 text-sm leading-relaxed text-foreground-muted">
+                        <dd className="text-foreground-muted mt-3 text-sm leading-relaxed">
                           {caseStudy.users[0]}
                         </dd>
                       </div>
@@ -222,7 +222,7 @@ const HomeSelectedWork = () => {
                         <dt className="eyebrow">
                           {siteContent.home.selectedWorkResponsibilityLabel}
                         </dt>
-                        <dd className="mt-3 text-sm font-medium leading-relaxed">
+                        <dd className="mt-3 text-sm leading-relaxed font-medium">
                           {project.role}
                         </dd>
                       </div>
@@ -231,7 +231,7 @@ const HomeSelectedWork = () => {
                         <dt className="eyebrow">
                           {siteContent.home.selectedWorkDecisionLabel}
                         </dt>
-                        <dd className="mt-3 text-sm leading-relaxed text-foreground-muted">
+                        <dd className="text-foreground-muted mt-3 text-sm leading-relaxed">
                           {caseStudy.decisions[0]?.decision}
                         </dd>
                       </div>
@@ -240,13 +240,13 @@ const HomeSelectedWork = () => {
                         <dt className="eyebrow">
                           {siteContent.home.selectedWorkStatusLabel}
                         </dt>
-                        <dd className="mt-3 text-sm leading-relaxed text-foreground-muted">
+                        <dd className="text-foreground-muted mt-3 text-sm leading-relaxed">
                           {project.status}
                         </dd>
                       </div>
                     </dl>
 
-                    <div className="mt-8 border-t border-border pt-5">
+                    <div className="border-border mt-8 border-t pt-5">
                       <p className="eyebrow">
                         {siteContent.home.selectedWorkTechnologyLabel}
                       </p>
