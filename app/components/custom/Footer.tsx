@@ -48,6 +48,9 @@ const Footer = () => {
                     rel={link.external ? "noreferrer" : undefined}
                   >
                     {link.label}
+                    {link.external ? (
+                      <span className="sr-only"> opens in a new tab</span>
+                    ) : null}
                   </a>
                 </li>
               ))}

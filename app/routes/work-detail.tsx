@@ -487,10 +487,15 @@ const WorkDetail = () => {
                         >
                           {link.label}
                           {link.external ? (
-                            <ArrowUpRight
-                              aria-hidden="true"
-                              className="size-4"
-                            />
+                            <>
+                              <ArrowUpRight
+                                aria-hidden="true"
+                                className="size-4"
+                              />
+                              <span className="sr-only">
+                                opens in a new tab
+                              </span>
+                            </>
                           ) : null}
                         </a>
                       </li>

@@ -31,11 +31,16 @@ const LanguageControl = ({ compact = false }: LanguageControlProps) => {
             title={language.message}
           >
             <span className="metadata">{language.label}</span>
-            {!compact ? (
+
+            {compact ? (
+              <span className="sr-only">
+                {language.message ?? siteContent.shell.comingSoonLabel}
+              </span>
+            ) : (
               <span className="text-[0.625rem] uppercase tracking-wider">
                 {siteContent.shell.comingSoonLabel}
               </span>
-            ) : null}
+            )}
           </span>
         );
       })}

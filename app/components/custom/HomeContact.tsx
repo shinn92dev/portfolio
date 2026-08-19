@@ -41,7 +41,9 @@ const HomeContact = () => {
             >
               <span className="flex min-w-0 items-center gap-4">
                 <Mail aria-hidden="true" className="size-5 shrink-0" />
-                <span className="truncate">{siteContent.contact.email}</span>
+                <span className="min-w-0 break-all text-sm sm:text-lg">
+                  {siteContent.contact.email}
+                </span>
               </span>
 
               <ArrowUpRight

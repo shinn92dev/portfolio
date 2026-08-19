@@ -1,5 +1,5 @@
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router";
 
 import { siteContent } from "@/contents/en";
@@ -27,6 +27,7 @@ const SiteHeader = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -62,13 +63,14 @@ const SiteHeader = () => {
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsMenuOpen(false);
+        menuButtonRef.current?.focus();
       }
-    };
 
-    document.addEventListener("keydown", closeOnEscape);
+      document.addEventListener("keydown", closeOnEscape);
 
-    return () => {
-      document.removeEventListener("keydown", closeOnEscape);
+      return () => {
+        document.removeEventListener("keydown", closeOnEscape);
+      };
     };
   }, [isMenuOpen]);
 
@@ -149,8 +151,10 @@ const SiteHeader = () => {
           <ThemeToggle />
 
           <button
+            ref={menuButtonRef}
             type="button"
-            className="interactive-shift inline-flex size-10 items-center justify-center rounded-sm border border-border text-foreground hover:border-signal hover:text-signal lg:hidden"
+            className="interactive-shift inline-flex size-10 items-center justify-center rounded-sm border border-border text-foreground
+    hover:border-signal hover:text-signal lg:hidden"
             aria-label={
               isMenuOpen
                 ? siteContent.shell.closeMenuLabel
