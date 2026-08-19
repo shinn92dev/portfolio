@@ -233,14 +233,27 @@ export interface SiteContent {
     emailLabel: string;
   };
   work: {
+    pageEyebrow: string;
     pageTitle: string;
     pageDescription: string;
     selectedTitle: string;
+    selectedDescription: string;
     additionalTitle: string;
+    additionalDescription: string;
+    projectCountLabel: string;
+    productTypeLabel: string;
+    roleLabel: string;
+    periodLabel: string;
+    statusLabel: string;
+    evidenceLabel: string;
+    decisionLabel: string;
+    technologyLabel: string;
+    projectLinksLabel: string;
     viewCaseStudyLabel: string;
     viewDemoLabel: string;
     privateRepositoryLabel: string;
   };
+
   caseStudy: {
     overviewTitle: string;
     contextTitle: string;

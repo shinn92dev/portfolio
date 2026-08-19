@@ -192,11 +192,25 @@ export const siteContent = {
     emailLabel: "Email Anthony",
   },
   work: {
+    pageEyebrow: "Project index",
     pageTitle: "Work",
     pageDescription:
       "Selected case studies and additional projects spanning full-stack products, mobile applications, optimization, and client work.",
-    selectedTitle: "Selected work",
+    selectedTitle: "Selected case studies",
+    selectedDescription:
+      "Two independently delivered products that demonstrate product planning, full-stack engineering, mobile development, and technical decision-making.",
     additionalTitle: "Additional work",
+    additionalDescription:
+      "Earlier and supporting projects retained as a concise record of continued development work.",
+    projectCountLabel: "Projects",
+    productTypeLabel: "Product type",
+    roleLabel: "Role",
+    periodLabel: "Period",
+    statusLabel: "Status",
+    evidenceLabel: "Selected evidence",
+    decisionLabel: "Technical direction",
+    technologyLabel: "Selected technology",
+    projectLinksLabel: "Project links",
     viewCaseStudyLabel: "View case study",
     viewDemoLabel: "Open demo",
     privateRepositoryLabel: "Private repository",

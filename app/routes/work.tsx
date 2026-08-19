@@ -1,3 +1,4 @@
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router";
 
 import {
@@ -21,103 +22,282 @@ export const meta = ({}: Route.MetaArgs) => {
   ];
 };
 
-interface ProjectListProps {
-  projects: Project[];
-  detailed: boolean;
+interface SelectedProjectProps {
+  project: Project;
+  index: number;
 }
 
-const ProjectList = ({ projects, detailed }: ProjectListProps) => {
+const SelectedProject = ({ project, index }: SelectedProjectProps) => {
+  const caseStudy = project.caseStudy;
+  const visibleMetrics = project.metrics.slice(0, 2);
+  const primaryDecision = caseStudy?.decisions[0];
+
   return (
-    <div className="mt-8 grid gap-10">
-      {projects.map((project) => (
-        <article key={project.slug}>
-          <p>{project.eyebrow}</p>
+    <article className="group border-t border-border-strong py-10 sm:py-14 lg:py-20">
+      <div className="layout-grid gap-y-10">
+        <div className="col-span-4 md:col-span-2 lg:col-span-2">
+          <p className="metadata text-signal">
+            {String(index + 1).padStart(2, "0")}
+          </p>
+          <p className="eyebrow mt-4">{project.eyebrow}</p>
+        </div>
 
-          <h3 className="mt-2 text-3xl font-bold">
-            {detailed ? (
-              <Link to={`/work/${project.slug}`} viewTransition>
-                {project.title}
-              </Link>
-            ) : (
-              project.title
-            )}
-          </h3>
-
-          <p className="mt-4 max-w-3xl">{project.summary}</p>
-
-          <dl className="mt-5 grid gap-3 sm:grid-cols-3">
-            <div>
-              <dt>Role</dt>
-              <dd>{project.role}</dd>
-            </div>
-            <div>
-              <dt>Period</dt>
-              <dd>{project.period}</dd>
-            </div>
-            <div>
-              <dt>Status</dt>
-              <dd>{project.status}</dd>
-            </div>
-          </dl>
-
-          <ul aria-label="Technologies" className="mt-5 flex flex-wrap gap-3">
-            {project.technologies.map((technology) => (
-              <li key={technology}>{technology}</li>
-            ))}
-          </ul>
-
-          {detailed ? (
+        <div className="col-span-4 md:col-span-6 lg:col-span-6">
+          <h3 className="text-[clamp(2.75rem,6vw,6.75rem)] font-semibold leading-[0.92] tracking-[-0.06em]">
             <Link
-              className="mt-5 inline-block"
               to={`/work/${project.slug}`}
               viewTransition
+              className="no-underline decoration-signal decoration-2 underline-offset-[0.12em] hover:underline"
             >
-              {siteContent.work.viewCaseStudyLabel}
+              {project.title}
             </Link>
-          ) : (
-            <ul className="mt-5 flex flex-wrap gap-4">
-              {project.links
-                .filter((link) => link.availability === "available")
-                .map((link) => (
-                  <li key={`${project.slug}-${link.label}`}>
-                    <a
-                      href={link.href}
-                      target={link.external ? "_blank" : undefined}
-                      rel={link.external ? "noreferrer" : undefined}
-                    >
-                      {link.label}
-                    </a>
+          </h3>
+
+          <p className="body-copy mt-7">{project.summary}</p>
+
+          {primaryDecision ? (
+            <div className="mt-9 border-l-2 border-signal pl-5">
+              <p className="eyebrow">{siteContent.work.decisionLabel}</p>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-foreground-muted sm:text-base">
+                {primaryDecision.decision}
+              </p>
+            </div>
+          ) : null}
+        </div>
+
+        <div className="col-span-4 md:col-span-8 lg:col-span-4">
+          <div className="rounded-sm border border-border bg-surface p-6 sm:p-8">
+            <p className="eyebrow">{siteContent.work.evidenceLabel}</p>
+
+            <dl className="mt-6 grid gap-7">
+              {visibleMetrics.map((metric) => (
+                <div
+                  key={`${metric.value}-${metric.label}`}
+                  className="border-t border-border pt-5 first:border-0 first:pt-0"
+                >
+                  <dd className="text-[clamp(2.25rem,4vw,4.5rem)] font-semibold leading-none tracking-[-0.05em]">
+                    {metric.value}
+                  </dd>
+                  <dt className="mt-3 text-sm font-medium">{metric.label}</dt>
+                  {metric.detail ? (
+                    <p className="mt-2 text-sm leading-relaxed text-foreground-muted">
+                      {metric.detail}
+                    </p>
+                  ) : null}
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+
+        <dl className="col-span-4 grid gap-6 border-t border-border pt-6 sm:grid-cols-3 md:col-span-8 lg:col-span-10 lg:col-start-3">
+          <div>
+            <dt className="eyebrow">{siteContent.work.roleLabel}</dt>
+            <dd className="mt-3 text-sm font-medium leading-relaxed">
+              {project.role}
+            </dd>
+          </div>
+
+          <div>
+            <dt className="eyebrow">{siteContent.work.periodLabel}</dt>
+            <dd className="metadata mt-3">{project.period}</dd>
+          </div>
+
+          <div>
+            <dt className="eyebrow">{siteContent.work.statusLabel}</dt>
+            <dd className="mt-3 text-sm leading-relaxed text-foreground-muted">
+              {project.status}
+            </dd>
+          </div>
+        </dl>
+
+        <div className="col-span-4 md:col-span-8 lg:col-span-10 lg:col-start-3">
+          <div className="flex flex-col gap-7 border-t border-border pt-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="eyebrow">{siteContent.work.technologyLabel}</p>
+              <ul
+                className="mt-4 flex flex-wrap gap-x-5 gap-y-2"
+                aria-label={siteContent.work.technologyLabel}
+              >
+                {project.technologies.slice(0, 7).map((technology) => (
+                  <li
+                    key={technology}
+                    className="technical-text text-foreground-muted"
+                  >
+                    {technology}
                   </li>
                 ))}
-            </ul>
-          )}
-        </article>
-      ))}
-    </div>
+              </ul>
+            </div>
+
+            <Link
+              to={`/work/${project.slug}`}
+              viewTransition
+              className="text-link shrink-0"
+            >
+              {siteContent.work.viewCaseStudyLabel}
+              <ArrowUpRight
+                aria-hidden="true"
+                className="size-4 transition-transform duration-medium ease-emphasized group-hover:translate-x-1 group-hover:-translate-y-1"
+              />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+};
+
+interface AdditionalProjectProps {
+  project: Project;
+  index: number;
+}
+
+const AdditionalProject = ({ project, index }: AdditionalProjectProps) => {
+  const publicLinks = project.links.filter(
+    (link) => link.availability === "available" && link.href,
+  );
+
+  return (
+    <article className="layout-grid gap-y-6 border-b border-border py-8 sm:py-10">
+      <div className="col-span-4 md:col-span-1 lg:col-span-1">
+        <p className="metadata text-signal">
+          {String(index + 1).padStart(2, "0")}
+        </p>
+      </div>
+
+      <div className="col-span-4 md:col-span-3 lg:col-span-3">
+        <p className="eyebrow">{project.eyebrow}</p>
+        <h3 className="subsection-title mt-3">{project.title}</h3>
+      </div>
+
+      <div className="col-span-4 md:col-span-4 lg:col-span-4">
+        <p className="text-sm leading-relaxed text-foreground-muted sm:text-base">
+          {project.summary}
+        </p>
+      </div>
+
+      <dl className="col-span-4 grid grid-cols-2 gap-5 md:col-start-5 lg:col-span-3 lg:col-start-10">
+        <div>
+          <dt className="eyebrow">{siteContent.work.periodLabel}</dt>
+          <dd className="metadata mt-3">{project.period}</dd>
+        </div>
+
+        <div>
+          <dt className="eyebrow">{siteContent.work.roleLabel}</dt>
+          <dd className="mt-3 text-sm font-medium leading-relaxed">
+            {project.role}
+          </dd>
+        </div>
+      </dl>
+
+      {publicLinks.length > 0 ? (
+        <nav
+          className="col-span-4 md:col-start-5 lg:col-span-3 lg:col-start-10"
+          aria-label={`${project.title} ${siteContent.work.projectLinksLabel}`}
+        >
+          <ul className="grid gap-2">
+            {publicLinks.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noreferrer" : undefined}
+                  className="text-link text-sm"
+                >
+                  {link.label}
+                  <ArrowUpRight aria-hidden="true" className="size-3.5" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ) : null}
+    </article>
   );
 };
 
 const Work = () => {
   return (
-    <div className="px-4 py-16 sm:px-6 lg:px-8">
-      <header>
-        <h1 className="text-5xl font-bold">{siteContent.work.pageTitle}</h1>
-        <p className="mt-5 max-w-3xl">{siteContent.work.pageDescription}</p>
+    <div>
+      <header className="layout-shell pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-28 lg:pt-28">
+        <div className="layout-grid gap-y-8">
+          <div className="col-span-4 md:col-span-2">
+            <p className="eyebrow text-signal">
+              {siteContent.work.pageEyebrow}
+            </p>
+            <p className="metadata mt-4">
+              {selectedProjects.length + additionalProjects.length}{" "}
+              {siteContent.work.projectCountLabel}
+            </p>
+          </div>
+
+          <div className="col-span-4 md:col-span-6 lg:col-span-8 lg:col-start-5">
+            <h1 className="page-title">{siteContent.work.pageTitle}</h1>
+            <p className="lead-text mt-7">{siteContent.work.pageDescription}</p>
+          </div>
+        </div>
       </header>
 
-      <section aria-labelledby="selected-work-heading" className="py-16">
-        <h2 id="selected-work-heading" className="text-4xl font-bold">
-          {siteContent.work.selectedTitle}
-        </h2>
-        <ProjectList projects={selectedProjects} detailed />
+      <section aria-labelledby="selected-work-heading" className="section-rule">
+        <div className="layout-shell">
+          <header className="layout-grid gap-y-6 py-12 sm:py-16">
+            <div className="col-span-4 md:col-span-6 md:col-start-3 lg:col-span-8 lg:col-start-5">
+              <h2 id="selected-work-heading" className="section-title">
+                {siteContent.work.selectedTitle}
+              </h2>
+              <p className="lead-text mt-6">
+                {siteContent.work.selectedDescription}
+              </p>
+            </div>
+          </header>
+
+          {selectedProjects.map((project, index) => (
+            <SelectedProject
+              key={project.slug}
+              project={project}
+              index={index}
+            />
+          ))}
+        </div>
       </section>
 
-      <section aria-labelledby="additional-work-heading" className="py-16">
-        <h2 id="additional-work-heading" className="text-4xl font-bold">
-          {siteContent.work.additionalTitle}
-        </h2>
-        <ProjectList projects={additionalProjects} detailed={false} />
+      <section
+        aria-labelledby="additional-work-heading"
+        className="section-rule section-space"
+      >
+        <div className="layout-shell">
+          <header className="layout-grid gap-y-6">
+            <h2
+              id="additional-work-heading"
+              className="section-title col-span-4 md:col-span-5 lg:col-span-6"
+            >
+              {siteContent.work.additionalTitle}
+            </h2>
+
+            <p className="body-copy col-span-4 md:col-span-3 lg:col-span-4 lg:col-start-9">
+              {siteContent.work.additionalDescription}
+            </p>
+          </header>
+
+          <div className="mt-12 border-t border-border-strong lg:mt-16">
+            {additionalProjects.map((project, index) => (
+              <AdditionalProject
+                key={project.slug}
+                project={project}
+                index={index}
+              />
+            ))}
+          </div>
+        </div>
       </section>
+
+      <div className="layout-shell pb-16 sm:pb-24">
+        <Link to="/" className="text-link">
+          Home
+          <ArrowRight aria-hidden="true" className="size-4" />
+        </Link>
+      </div>
     </div>
   );
 };

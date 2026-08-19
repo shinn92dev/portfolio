@@ -371,7 +371,7 @@ export const projects: Project[] = [
     links: [
       {
         label: "Repository",
-        href: "https://github.com/shinn92dev",
+        href: "https://github.com/shinn92dev/Rate-Van-Rent",
         kind: "repository",
         external: true,
         availability: "available",
@@ -402,7 +402,7 @@ export const projects: Project[] = [
     links: [
       {
         label: "Repository",
-        href: "https://github.com/shinn92dev",
+        href: "https://github.com/shinn92dev/portfolio",
         kind: "repository",
         external: true,
         availability: "available",
