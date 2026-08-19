@@ -116,6 +116,13 @@ export interface CapabilityGroup {
   items: string[];
 }
 
+export interface HomeCapability {
+  title: string;
+  description: string;
+  evidence: string[];
+  projectSlugs: ProjectSlug[];
+}
+
 export interface ProfileContent {
   pageTitle: string;
   pageDescription: string;
@@ -189,8 +196,17 @@ export interface SiteContent {
     selectedWorkEyebrow: string;
     selectedWorkTitle: string;
     selectedWorkDescription: string;
+    selectedWorkProductLabel: string;
+    selectedWorkUserLabel: string;
+    selectedWorkResponsibilityLabel: string;
+    selectedWorkDecisionLabel: string;
+    selectedWorkOutcomeLabel: string;
+    selectedWorkStatusLabel: string;
+    selectedWorkTechnologyLabel: string;
     capabilityEyebrow: string;
     capabilityTitle: string;
+    capabilityEvidenceLabel: string;
+    capabilities: HomeCapability[];
     profileLinkLabel: string;
     workLinkLabel: string;
     contactEyebrow: string;

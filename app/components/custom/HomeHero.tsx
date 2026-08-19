@@ -20,18 +20,12 @@ const HomeHero = () => {
             {siteContent.identity.displayName}
           </h1>
 
-          <p
-            className="mt-7 max-w-[18ch] text-[clamp(1.75rem,3.25vw,3.75rem)] font-medium leading-[1.05] tracking-[-0.045em] text-
-          foreground"
-          >
+          <p className="mt-7 max-w-[18ch] text-[clamp(1.75rem,3.25vw,3.75rem)] font-medium leading-[1.05] tracking-[-0.045em] text-foreground">
             {siteContent.identity.positioning}
           </p>
         </header>
 
-        <dl
-          className="hero-reveal hero-delay-1 col-span-4 grid grid-cols-2 gap-5 border-t border-border pt-5 md:col-span-5 lg:col-
-        span-7 lg:grid-cols-2"
-        >
+        <dl className="hero-reveal hero-delay-1 col-span-4 grid grid-cols-2 gap-5 border-t border-border pt-5 md:col-span-5 lg:col-span-7 lg:grid-cols-2">
           <div>
             <dt className="eyebrow">{siteContent.home.locationLabel}</dt>
             <dd className="mt-2 text-sm font-medium leading-relaxed sm:text-base">
@@ -47,10 +41,7 @@ const HomeHero = () => {
           </div>
         </dl>
 
-        <figure
-          className="hero-reveal hero-delay-2 col-span-4 md:col-span-5 md:col-start-4 lg:col-start-9 lg:row-span-3 lg:row-
-        start-1"
-        >
+        <figure className="hero-reveal hero-delay-2 col-span-4 md:col-span-5 md:col-start-4 lg:col-start-9 lg:row-span-3 lg:row-start-1">
           <div className="image-frame aspect-[4/5]">
             <img
               src={temporaryPortrait}
@@ -86,8 +77,7 @@ const HomeHero = () => {
 
             <a
               href={emailHref}
-              className="interactive-shift inline-flex min-h-12 items-center justify-between gap-6 rounded-sm border border-border-
-              strong px-5 py-3 font-semibold no-underline hover:border-signal hover:text-signal sm:min-w-52"
+              className="interactive-shift inline-flex min-h-12 items-center justify-between gap-6 rounded-sm border border-border-strong px-5 py-3 font-semibold no-underline hover:border-signal hover:text-signal sm:min-w-52"
             >
               {siteContent.home.emailLabel}
               <ArrowUpRight aria-hidden="true" className="size-4" />

@@ -99,8 +99,48 @@ export const siteContent = {
     selectedWorkTitle: "Products shaped by real operational constraints.",
     selectedWorkDescription:
       "A restaurant operations platform and a game-based Japanese learning app demonstrate product planning, full-stack engineering, mobile development, and dependable delivery.",
+    selectedWorkProductLabel: "Product",
+    selectedWorkUserLabel: "Primary users",
+    selectedWorkResponsibilityLabel: "Responsibility",
+    selectedWorkDecisionLabel: "Key decision",
+    selectedWorkOutcomeLabel: "Evidence",
+    selectedWorkStatusLabel: "Status",
+    selectedWorkTechnologyLabel: "Selected technology",
     capabilityEyebrow: "Core capabilities",
     capabilityTitle: "From ambiguous requirements to working software.",
+    capabilityEvidenceLabel: "Evidence from selected work",
+    capabilities: [
+      {
+        title: "Product Engineering",
+        description:
+          "Turning incomplete requirements and operational context into focused product workflows.",
+        evidence: [
+          "Proposed and scoped Gyu-Kaku Portal from firsthand restaurant operations.",
+          "Translated Kana Fighter’s externally defined concept, content, and visual design into a complete mobile product.",
+        ],
+        projectSlugs: ["gyu-kaku-portal", "kana-fighter"],
+      },
+      {
+        title: "Full-stack Systems",
+        description:
+          "Designing connected interfaces, APIs, data models, authorization, optimization, and deployment.",
+        evidence: [
+          "Built Gyu-Kaku Portal across React, FastAPI, PostgreSQL, OR-Tools, Docker, and VPS infrastructure.",
+          "Designed Kana Fighter as a local-first React Native application with persistent progression, audio, and animation.",
+        ],
+        projectSlugs: ["gyu-kaku-portal", "kana-fighter"],
+      },
+      {
+        title: "Technical Leadership",
+        description:
+          "Clarifying decisions, communicating trade-offs, and remaining accountable for delivery.",
+        evidence: [
+          "Owned Gyu-Kaku Portal from stakeholder discovery through pilot training as the sole developer.",
+          "Led Kana Fighter’s technical architecture, implementation, testing, and build validation.",
+        ],
+        projectSlugs: ["gyu-kaku-portal", "kana-fighter"],
+      },
+    ],
     profileLinkLabel: "Read my profile",
     workLinkLabel: "View selected work",
     contactEyebrow: "Contact",
