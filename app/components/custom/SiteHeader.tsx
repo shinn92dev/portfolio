@@ -65,12 +65,12 @@ const SiteHeader = () => {
         setIsMenuOpen(false);
         menuButtonRef.current?.focus();
       }
+    };
 
-      document.addEventListener("keydown", closeOnEscape);
+    document.addEventListener("keydown", closeOnEscape);
 
-      return () => {
-        document.removeEventListener("keydown", closeOnEscape);
-      };
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
     };
   }, [isMenuOpen]);
 
@@ -153,8 +153,7 @@ const SiteHeader = () => {
           <button
             ref={menuButtonRef}
             type="button"
-            className="interactive-shift inline-flex size-10 items-center justify-center rounded-sm border border-border text-foreground
-    hover:border-signal hover:text-signal lg:hidden"
+            className="interactive-shift inline-flex size-10 items-center justify-center rounded-sm border border-border text-foreground hover:border-signal hover:text-signal lg:hidden"
             aria-label={
               isMenuOpen
                 ? siteContent.shell.closeMenuLabel

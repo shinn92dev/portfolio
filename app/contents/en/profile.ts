@@ -234,7 +234,7 @@ export const profileContent: ProfileContent = {
       institution: "British Columbia Institute of Technology (BCIT)",
       credential: "Diploma in Computer Systems Technology",
       period: "2023 – 2025",
-      location: "Burnaby, BC, Canada",
+      location: "Vancouver, BC, Canada",
     },
     {
       id: "knou",

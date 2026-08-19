@@ -57,11 +57,19 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export const meta = ({}: Route.MetaArgs) => {
-  return createSeoMeta({
-    title: siteContent.metadata.defaultTitle,
-    description: siteContent.metadata.description,
-    path: "/",
-  });
+  return [
+    {
+      title: siteContent.metadata.defaultTitle,
+    },
+    {
+      name: "description",
+      content: siteContent.metadata.description,
+    },
+    {
+      name: "robots",
+      content: "noindex, nofollow",
+    },
+  ];
 };
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -111,34 +119,53 @@ export const ErrorBoundary = ({ error }: Route.ErrorBoundaryProps) => {
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
 
+  const isNotFound = isRouteErrorResponse(error) && error.status === 404;
+
   if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? "Page not found" : "Request error";
-    details =
-      error.status === 404
-        ? "The page you requested could not be found."
-        : error.statusText || details;
+    message = isNotFound ? "Page not found" : "Request error";
+    details = isNotFound
+      ? "The page you requested could not be found."
+      : error.statusText || details;
   } else if (import.meta.env.DEV && error && error instanceof Error) {
     details = error.message;
     stack = error.stack;
   }
 
   return (
-    <section className="layout-shell section-space">
-      <p className="eyebrow">
-        {isRouteErrorResponse(error) ? error.status : "Error"}
-      </p>
-      <h1 className="page-title mt-4">{message}</h1>
-      <p className="lead-text mt-6">{details}</p>
+    <>
+      <title>
+        {isNotFound
+          ? `Page not found — ${siteContent.identity.displayName}`
+          : `Error — ${siteContent.identity.displayName}`}
+      </title>
+      <meta
+        name="description"
+        content={
+          isNotFound
+            ? "The requested page could not be found."
+            : "An unexpected error occurred while loading the page."
+        }
+      />
+      <meta name="robots" content="noindex, nofollow" />
 
-      <a href="/" className="text-link mt-8">
-        Return home
-      </a>
+      <section className="layout-shell section-space">
+        <p className="eyebrow">
+          {isRouteErrorResponse(error) ? error.status : "Error"}
+        </p>
 
-      {stack ? (
-        <pre className="mt-10 overflow-x-auto border-t border-border pt-6 text-sm">
-          <code>{stack}</code>
-        </pre>
-      ) : null}
-    </section>
+        <h1 className="page-title mt-4">{message}</h1>
+        <p className="lead-text mt-6">{details}</p>
+
+        <a href="/" className="text-link mt-8">
+          Return home
+        </a>
+
+        {stack ? (
+          <pre className="mt-10 overflow-x-auto border-t border-border pt-6 text-sm">
+            <code>{stack}</code>
+          </pre>
+        ) : null}
+      </section>
+    </>
   );
 };

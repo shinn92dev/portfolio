@@ -41,7 +41,7 @@ const HomeHero = () => {
           </div>
         </dl>
 
-        <figure className="hero-reveal hero-delay-2 col-span-4 md:col-span-5 md:col-start-4 lg:col-start-9 lg:row-span-3 lg:row-start-1">
+        <figure className="hero-reveal hero-delay-2 col-span-4 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-9 lg:row-span-3 lg:row-start-1">
           <div className="image-frame aspect-[4/5]">
             <img
               src={temporaryPortrait}
@@ -52,7 +52,6 @@ const HomeHero = () => {
               className="h-full w-full object-cover object-[center_22%] grayscale-[0.12] transition-[filter,transform] duration-slow ease-emphasized hover:scale-[1.015] hover:grayscale-0"
             />
           </div>
-
           <figcaption className="metadata mt-3 flex items-center justify-between gap-4">
             <span>{siteContent.identity.location}</span>
             <span>{siteContent.home.portraitStatus}</span>
