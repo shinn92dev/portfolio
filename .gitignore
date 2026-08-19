@@ -40,3 +40,8 @@ scripts/
 .windsurfrules
 .taskmasterconfig
 .roomodes
+
+AGENTS.md
+DESIGN_GUIDELINES.md
+PROJECT_CONTEXT.md
+docs/

@@ -1,135 +1,142 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import { useRef } from "react";
-import { useSyncCardHeights } from "@/hooks/useSyncCardHeights"; // Hook import
-import type { RefObject } from "react";
+import { Link } from "react-router";
 
-import { Button } from "@/components/ui/button";
-import mainImg from "@/assets/anthony1.webp";
-import bg from "@/assets/background2.jpg";
-import { useEffect, useState } from "react";
-import HOME_CONTENT from "@/contents/en/home";
-import PROJECT_CONTENT from "@/contents/en/project";
-import ProjectCard from "@/components/custom/ProjectCard";
+import { profileContent, selectedProjects, siteContent } from "@/contents/en";
+
+import type { Route } from "./+types/home";
+
+export const meta = ({}: Route.MetaArgs) => {
+  return [
+    {
+      title: siteContent.metadata.defaultTitle,
+    },
+    {
+      name: "description",
+      content: siteContent.metadata.description,
+    },
+  ];
+};
+
 const Home = () => {
-  const [scale, setScale] = useState(1.2);
-  const carouselRef = useRef<HTMLDivElement>(null); // ref 생성
-  useSyncCardHeights(carouselRef as RefObject<HTMLElement>);
-
-  useEffect(() => {
-    const updateScale = () => {
-      const width = window.innerWidth;
-      const minW = 400;
-      const maxW = 1200;
-      const clampedW = Math.min(Math.max(width, minW), maxW);
-      const s = 1.2 - ((clampedW - minW) / (maxW - minW)) * 0.2;
-      setScale(s);
-    };
-
-    window.addEventListener("resize", updateScale);
-    updateScale();
-    return () => window.removeEventListener("resize", updateScale);
-  }, []);
+  const emailHref = "mailto:anthony.seunghwan.shin@gmail.com";
+  const primaryCapabilities = profileContent.capabilities.slice(0, 3);
 
   return (
-    <div className="pb-10 text-ink">
-      {/* Main Photo */}
-      <div
-        className="grid md:grid-cols-2 bg-cover bg-center filter "
-        style={{ backgroundImage: `url(${bg})` }}
-      >
-        <div className="w-full aspect-[1/0.7] overflow-hidden relative">
-          <div
-            className="absolute inset-0 transition-transform duration-300 ease-in-out"
-            style={{ transform: `scale(${scale})`, transformOrigin: "top" }}
-          >
-            <img
-              src={mainImg}
-              alt={"Main image"}
-              className="w-full h-full object-cover object-top shadow-2xl shadow-ink"
-            />
+    <div className="px-4 py-12 sm:px-6 lg:px-8">
+      <section aria-labelledby="home-heading" className="py-16">
+        <p>{siteContent.identity.role}</p>
+        <h1 id="home-heading" className="mt-4 text-5xl font-bold">
+          {siteContent.identity.displayName}
+        </h1>
+        <p className="mt-6 max-w-3xl text-2xl">
+          {siteContent.identity.positioning}
+        </p>
+
+        <dl className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div>
+            <dt>Location</dt>
+            <dd>{siteContent.identity.location}</dd>
           </div>
+          <div>
+            <dt>Availability</dt>
+            <dd>{siteContent.identity.availability}</dd>
+          </div>
+        </dl>
+
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Link to="/work">{siteContent.home.workLinkLabel}</Link>
+          <a href={emailHref}>{siteContent.home.emailLabel}</a>
         </div>
-        <div className="w-full flex flex-col">
-          <div className="md:h-full py-5">
-            <div className="text-3xl h-full flex flex-col items-center justify-center">
-              <p className="font-bold">{HOME_CONTENT.titleMsg}</p>
-              <h2 className="w-full text-center font-bold text-6xl text-ink">
-                <span className="text-xl">{HOME_CONTENT.titleMsg2}</span>
-                {HOME_CONTENT.title}
-              </h2>
-              <p className="text-xl px-10 font-bold py-5 drop-shadow mt-5">
-                {HOME_CONTENT.shortIntro}
-              </p>
-            </div>
-          </div>
+      </section>
+
+      <section aria-labelledby="selected-work-heading" className="py-16">
+        <p>{siteContent.home.selectedWorkEyebrow}</p>
+        <h2 id="selected-work-heading" className="mt-3 text-4xl font-bold">
+          {siteContent.home.selectedWorkTitle}
+        </h2>
+        <p className="mt-4 max-w-3xl">
+          {siteContent.home.selectedWorkDescription}
+        </p>
+
+        <div className="mt-10 grid gap-10">
+          {selectedProjects.map((project) => (
+            <article key={project.slug}>
+              <p>{project.eyebrow}</p>
+              <h3 className="mt-2 text-3xl font-bold">
+                <Link to={`/work/${project.slug}`}>{project.title}</Link>
+              </h3>
+              <p className="mt-4 max-w-3xl">{project.summary}</p>
+
+              <dl className="mt-5 grid gap-3 sm:grid-cols-3">
+                <div>
+                  <dt>Role</dt>
+                  <dd>{project.role}</dd>
+                </div>
+                <div>
+                  <dt>Period</dt>
+                  <dd>{project.period}</dd>
+                </div>
+                <div>
+                  <dt>Status</dt>
+                  <dd>{project.status}</dd>
+                </div>
+              </dl>
+
+              <Link className="mt-5 inline-block" to={`/work/${project.slug}`}>
+                {siteContent.work.viewCaseStudyLabel}
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section aria-labelledby="capabilities-heading" className="py-16">
+        <p>{siteContent.home.capabilityEyebrow}</p>
+        <h2 id="capabilities-heading" className="mt-3 text-4xl font-bold">
+          {siteContent.home.capabilityTitle}
+        </h2>
+
+        <div className="mt-8 grid gap-8 md:grid-cols-3">
+          {primaryCapabilities.map((group) => (
+            <section key={group.title}>
+              <h3 className="text-xl font-bold">{group.title}</h3>
+              <ul className="mt-4">
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          ))}
         </div>
 
-        <div className="w-full grid grid-cols-2 md:grid-cols-4 col-span-full justify-center  p-5 py-10 gap-5">
-          {HOME_CONTENT.buttons.map((items) => {
-            const Icon = items.icon;
-            return (
-              <div
-                key={items.title}
-                className="w-full flex justify-center shadow-xl shadow-ivory"
-              >
-                <Button
-                  asChild
-                  className="flex h-12 w-full max-w-60 items-center justify-center gap-5 drop-shadow bg-coral-sand hover:bg-coral-sand text-ink font-bold text-xl hover:scale-105 duration-75 active:scale-95 cursor-pointer"
-                >
-                  <a
-                    href={items.link}
-                    target={`${items.type !== "email" && "_blank"}`}
-                    rel="noopener noreferrer"
-                  >
-                    <Icon className="" />
-                    <span className="">{items.title}</span>
-                  </a>
-                </Button>
-              </div>
-            );
-          })}
+        <Link className="mt-8 inline-block" to="/profile">
+          {siteContent.home.profileLinkLabel}
+        </Link>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-heading" className="py-16">
+        <p>{siteContent.home.contactEyebrow}</p>
+        <h2 id="contact-heading" className="mt-3 text-4xl font-bold">
+          {siteContent.home.contactTitle}
+        </h2>
+        <p className="mt-4 max-w-2xl">{siteContent.home.contactDescription}</p>
+
+        <div className="mt-8 flex flex-wrap gap-4">
+          <a href={emailHref}>{siteContent.home.emailLabel}</a>
+
+          {siteContent.socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noreferrer" : undefined}
+            >
+              {link.label}
+            </a>
+          ))}
+
+          <a href={siteContent.resume.href}>{siteContent.resume.label}</a>
         </div>
-      </div>
-      {/* Top Project Section */}
-      <div>
-        <div className="py-5">
-          <h2 className="text-xl text-center font-bold text-ink">
-            {HOME_CONTENT.projectTitle}
-          </h2>
-        </div>
-        <Carousel className="px-3">
-          <CarouselContent ref={carouselRef} className="gap-5">
-            {PROJECT_CONTENT.map(
-              (item, idx) =>
-                item.highlight && (
-                  <CarouselItem
-                    key={item.title}
-                    className="md:basis-1/2 hover:scale-[0.99] duration-75 transition-all overflow-visible"
-                  >
-                    <div className="h-full">
-                      <ProjectCard
-                        key={item.title}
-                        name={item.title}
-                        date={item.date}
-                        roles={item.roles}
-                        techs={item.techStack}
-                        description={item.description}
-                        githubLink={item.gitHubLink}
-                        hostedLink={item.hostedLink}
-                        image={item.image}
-                        whatIDid={item.whatIDid}
-                      />
-                    </div>
-                  </CarouselItem>
-                )
-            )}
-          </CarouselContent>
-        </Carousel>
-      </div>
+      </section>
     </div>
   );
 };
