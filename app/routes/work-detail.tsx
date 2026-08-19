@@ -45,8 +45,9 @@ const WorkDetail = () => {
   const { project, caseStudy } = useLoaderData<typeof loader>();
   return (
     <article className="px-4 py-16 sm:px-6 lg:px-8">
-      <Link to="/work">← {siteContent.caseStudy.backLabel}</Link>
-
+      <Link to="/work" viewTransition>
+        ← {siteContent.caseStudy.backLabel}
+      </Link>
       <header className="py-12">
         <p>{project.eyebrow}</p>
         <h1 className="mt-3 text-5xl font-bold">{project.title}</h1>

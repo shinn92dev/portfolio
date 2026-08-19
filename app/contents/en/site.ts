@@ -17,6 +17,23 @@ export const siteContent = {
     description:
       "Portfolio of Anthony Shin, a product-minded full-stack developer based in Vancouver.",
   },
+  shell: {
+    skipToContentLabel: "Skip to main content",
+    mainNavigationLabel: "Main navigation",
+    openMenuLabel: "Open navigation menu",
+    closeMenuLabel: "Close navigation menu",
+    themeToggleLabel: "Toggle color theme",
+    lightThemeLabel: "Switch to light theme",
+    darkThemeLabel: "Switch to dark theme",
+    languageLabel: "Language",
+    comingSoonLabel: "Coming soon",
+    footerNavigationLabel: "Footer navigation",
+    socialLinksLabel: "Social links",
+    copyright: "Anthony Shin. All rights reserved.",
+  },
+  contact: {
+    email: "anthony.seunghwan.shin@gmail.com",
+  },
   navigation: [
     {
       label: "Home",

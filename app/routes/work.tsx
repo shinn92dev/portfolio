@@ -35,7 +35,9 @@ const ProjectList = ({ projects, detailed }: ProjectListProps) => {
 
           <h3 className="mt-2 text-3xl font-bold">
             {detailed ? (
-              <Link to={`/work/${project.slug}`}>{project.title}</Link>
+              <Link to={`/work/${project.slug}`} viewTransition>
+                {project.title}
+              </Link>
             ) : (
               project.title
             )}
@@ -65,7 +67,11 @@ const ProjectList = ({ projects, detailed }: ProjectListProps) => {
           </ul>
 
           {detailed ? (
-            <Link className="mt-5 inline-block" to={`/work/${project.slug}`}>
+            <Link
+              className="mt-5 inline-block"
+              to={`/work/${project.slug}`}
+              viewTransition
+            >
               {siteContent.work.viewCaseStudyLabel}
             </Link>
           ) : (

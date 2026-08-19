@@ -62,7 +62,9 @@ const Home = () => {
             <article key={project.slug}>
               <p>{project.eyebrow}</p>
               <h3 className="mt-2 text-3xl font-bold">
-                <Link to={`/work/${project.slug}`}>{project.title}</Link>
+                <Link to={`/work/${project.slug}`} viewTransition>
+                  {project.title}
+                </Link>
               </h3>
               <p className="mt-4 max-w-3xl">{project.summary}</p>
 
@@ -81,7 +83,11 @@ const Home = () => {
                 </div>
               </dl>
 
-              <Link className="mt-5 inline-block" to={`/work/${project.slug}`}>
+              <Link
+                className="mt-5 inline-block"
+                to={`/work/${project.slug}`}
+                viewTransition
+              >
                 {siteContent.work.viewCaseStudyLabel}
               </Link>
             </article>

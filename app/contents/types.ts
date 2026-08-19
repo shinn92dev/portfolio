@@ -154,6 +154,23 @@ export interface SiteContent {
     titleTemplate: string;
     description: string;
   };
+  shell: {
+    skipToContentLabel: string;
+    mainNavigationLabel: string;
+    openMenuLabel: string;
+    closeMenuLabel: string;
+    themeToggleLabel: string;
+    lightThemeLabel: string;
+    darkThemeLabel: string;
+    languageLabel: string;
+    comingSoonLabel: string;
+    footerNavigationLabel: string;
+    socialLinksLabel: string;
+    copyright: string;
+  };
+  contact: {
+    email: string;
+  };
   navigation: NavigationItem[];
   languages: LanguageOption[];
   socialLinks: SocialLink[];
