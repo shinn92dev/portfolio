@@ -6,20 +6,17 @@ import {
   selectedProjects,
   siteContent,
 } from "@/contents/en";
+import { createSeoMeta } from "@/lib/seo";
 
 import type { Project } from "@/contents/types";
 import type { Route } from "./+types/work";
 
 export const meta = ({}: Route.MetaArgs) => {
-  return [
-    {
-      title: `Work — ${siteContent.identity.displayName}`,
-    },
-    {
-      name: "description",
-      content: siteContent.work.pageDescription,
-    },
-  ];
+  return createSeoMeta({
+    title: `Work — ${siteContent.identity.displayName}`,
+    description: siteContent.work.pageDescription,
+    path: "/work",
+  });
 };
 
 interface SelectedProjectProps {

@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link, useLoaderData } from "react-router";
+import { createSeoMeta } from "@/lib/seo";
 
 import { CaseStudySection } from "@/components/custom/case-study/CaseStudyPrimitives";
 import { getProjectBySlug, selectedProjects, siteContent } from "@/contents/en";
@@ -85,34 +86,17 @@ export const meta = ({ data }: Route.MetaArgs) => {
       },
       {
         name: "robots",
-        content: "noindex",
+        content: "noindex, nofollow",
       },
     ];
   }
 
-  const title = `${data.project.title} — ${siteContent.identity.displayName}`;
-
-  return [
-    {
-      title,
-    },
-    {
-      name: "description",
-      content: data.project.summary,
-    },
-    {
-      property: "og:title",
-      content: title,
-    },
-    {
-      property: "og:description",
-      content: data.project.summary,
-    },
-    {
-      property: "og:type",
-      content: "article",
-    },
-  ];
+  return createSeoMeta({
+    title: `${data.project.title} — ${siteContent.identity.displayName}`,
+    description: data.project.summary,
+    path: `/work/${data.project.slug}`,
+    type: "article",
+  });
 };
 
 const WorkDetail = () => {

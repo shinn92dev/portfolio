@@ -9,6 +9,7 @@ import {
 
 import Footer from "@/components/custom/Footer";
 import SiteHeader from "@/components/custom/SiteHeader";
+import { createSeoMeta } from "@/lib/seo";
 import { siteContent } from "@/contents/en";
 
 import type { Route } from "./+types/root";
@@ -34,12 +35,6 @@ const themeInitializationScript = `
 })();
 `;
 
-export const loader = ({ request }: Route.LoaderArgs) => {
-  return {
-    origin: new URL(request.url).origin,
-  };
-};
-
 export const links: Route.LinksFunction = () => [
   {
     rel: "preconnect",
@@ -61,50 +56,12 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-export const meta = ({ data, location }: Route.MetaArgs) => {
-  const origin = data?.origin;
-  const canonicalUrl = origin
-    ? new URL(location.pathname, origin).toString()
-    : location.pathname;
-
-  return [
-    {
-      title: siteContent.metadata.defaultTitle,
-    },
-    {
-      name: "description",
-      content: siteContent.metadata.description,
-    },
-    {
-      property: "og:type",
-      content: "website",
-    },
-    {
-      property: "og:site_name",
-      content: siteContent.identity.displayName,
-    },
-    {
-      property: "og:title",
-      content: siteContent.metadata.defaultTitle,
-    },
-    {
-      property: "og:description",
-      content: siteContent.metadata.description,
-    },
-    {
-      property: "og:url",
-      content: canonicalUrl,
-    },
-    {
-      name: "twitter:card",
-      content: "summary",
-    },
-    {
-      tagName: "link",
-      rel: "canonical",
-      href: canonicalUrl,
-    },
-  ];
+export const meta = ({}: Route.MetaArgs) => {
+  return createSeoMeta({
+    title: siteContent.metadata.defaultTitle,
+    description: siteContent.metadata.description,
+    path: "/",
+  });
 };
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {

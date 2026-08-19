@@ -1,31 +1,17 @@
 import { ArrowUpRight, Download } from "lucide-react";
 import { Link } from "react-router";
-
+import { createSeoMeta } from "@/lib/seo";
 import { profileContent, siteContent } from "@/contents/en";
 
 import type { Experience } from "@/contents/types";
 import type { Route } from "./+types/profile";
 
 export const meta = ({}: Route.MetaArgs) => {
-  const title = `${profileContent.pageTitle} — ${siteContent.identity.displayName}`;
-
-  return [
-    {
-      title,
-    },
-    {
-      name: "description",
-      content: profileContent.pageDescription,
-    },
-    {
-      property: "og:title",
-      content: title,
-    },
-    {
-      property: "og:description",
-      content: profileContent.pageDescription,
-    },
-  ];
+  return createSeoMeta({
+    title: `${profileContent.pageTitle} — ${siteContent.identity.displayName}`,
+    description: profileContent.pageDescription,
+    path: "/profile",
+  });
 };
 
 interface ExperienceListProps {

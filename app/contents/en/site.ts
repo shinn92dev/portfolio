@@ -12,6 +12,7 @@ export const siteContent = {
       "Open to full-time and contract opportunities, with a preference for full-time roles.",
   },
   metadata: {
+    siteUrl: "https://anthonydev.me",
     defaultTitle: "Anthony Shin — Full-stack Developer",
     titleTemplate: "%s — Anthony Shin",
     description:

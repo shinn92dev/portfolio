@@ -162,6 +162,7 @@ export interface SiteContent {
     availability: string;
   };
   metadata: {
+    siteUrl: string;
     defaultTitle: string;
     titleTemplate: string;
     description: string;
