@@ -144,9 +144,9 @@ export const siteContent = {
     profileLinkLabel: "Read my profile",
     workLinkLabel: "View selected work",
     careerEyebrow: "Career in context",
-    careerTitle: "Technical communication became product engineering.",
+    careerTitle: "From technical sales to product engineering.",
     careerIntroduction:
-      "My path into software began with solving business and operational problems: first through semiconductor technical sales, then through computer systems education, client projects, and independently delivered products.",
+      "I began my career in semiconductor technical sales, translating client requirements into practical decisions with engineers across Korea and Japan. That same work—understanding constraints, aligning stakeholders, and improving how things operate—led me to software. Today, I apply it by taking products from requirements and architecture through implementation and delivery.",
     softwareExperienceLabel: "Software & product experience",
     earlierExperienceLabel: "Earlier experience",
     careerPeriodLabel: "Period",
