@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { profileContent, selectedProjects, siteContent } from "@/contents/en";
 
 import type { Route } from "./+types/home";
+import HomeHero from "@/components/custom/HomeHero";
 
 export const meta = ({}: Route.MetaArgs) => {
   return [
@@ -17,38 +18,15 @@ export const meta = ({}: Route.MetaArgs) => {
 };
 
 const Home = () => {
-  const emailHref = "mailto:anthony.seunghwan.shin@gmail.com";
   const primaryCapabilities = profileContent.capabilities.slice(0, 3);
 
   return (
-    <div className="px-4 py-12 sm:px-6 lg:px-8">
-      <section aria-labelledby="home-heading" className="py-16">
-        <p>{siteContent.identity.role}</p>
-        <h1 id="home-heading" className="mt-4 text-5xl font-bold">
-          {siteContent.identity.displayName}
-        </h1>
-        <p className="mt-6 max-w-3xl text-2xl">
-          {siteContent.identity.positioning}
-        </p>
-
-        <dl className="mt-8 grid gap-4 sm:grid-cols-2">
-          <div>
-            <dt>Location</dt>
-            <dd>{siteContent.identity.location}</dd>
-          </div>
-          <div>
-            <dt>Availability</dt>
-            <dd>{siteContent.identity.availability}</dd>
-          </div>
-        </dl>
-
-        <div className="mt-8 flex flex-wrap gap-4">
-          <Link to="/work">{siteContent.home.workLinkLabel}</Link>
-          <a href={emailHref}>{siteContent.home.emailLabel}</a>
-        </div>
-      </section>
-
-      <section aria-labelledby="selected-work-heading" className="py-16">
+    <div>
+      <HomeHero />
+      <section
+        aria-labelledby="selected-work-heading"
+        className="layout-shell py-16"
+      >
         <p>{siteContent.home.selectedWorkEyebrow}</p>
         <h2 id="selected-work-heading" className="mt-3 text-4xl font-bold">
           {siteContent.home.selectedWorkTitle}
@@ -56,7 +34,6 @@ const Home = () => {
         <p className="mt-4 max-w-3xl">
           {siteContent.home.selectedWorkDescription}
         </p>
-
         <div className="mt-10 grid gap-10">
           {selectedProjects.map((project) => (
             <article key={project.slug}>
@@ -94,13 +71,14 @@ const Home = () => {
           ))}
         </div>
       </section>
-
-      <section aria-labelledby="capabilities-heading" className="py-16">
+      <section
+        aria-labelledby="capabilities-heading"
+        className="layout-shell py-16"
+      >
         <p>{siteContent.home.capabilityEyebrow}</p>
         <h2 id="capabilities-heading" className="mt-3 text-4xl font-bold">
           {siteContent.home.capabilityTitle}
         </h2>
-
         <div className="mt-8 grid gap-8 md:grid-cols-3">
           {primaryCapabilities.map((group) => (
             <section key={group.title}>
@@ -113,22 +91,24 @@ const Home = () => {
             </section>
           ))}
         </div>
-
         <Link className="mt-8 inline-block" to="/profile">
           {siteContent.home.profileLinkLabel}
         </Link>
       </section>
-
-      <section id="contact" aria-labelledby="contact-heading" className="py-16">
+      <section
+        id="contact"
+        aria-labelledby="contact-heading"
+        className="layout-shell py-16"
+      >
         <p>{siteContent.home.contactEyebrow}</p>
         <h2 id="contact-heading" className="mt-3 text-4xl font-bold">
           {siteContent.home.contactTitle}
         </h2>
         <p className="mt-4 max-w-2xl">{siteContent.home.contactDescription}</p>
-
         <div className="mt-8 flex flex-wrap gap-4">
-          <a href={emailHref}>{siteContent.home.emailLabel}</a>
-
+          <a href={`mailto:${siteContent.contact.email}`}>
+            {siteContent.home.emailLabel}
+          </a>
           {siteContent.socialLinks.map((link) => (
             <a
               key={link.label}

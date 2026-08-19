@@ -88,6 +88,13 @@ export const siteContent = {
     href: "/Resume_Anthony-Shin_250718.pdf",
   },
   home: {
+    heroEyebrow: "Product-minded full-stack developer",
+    locationLabel: "Based in",
+    availabilityLabel: "Currently",
+    portraitAlt: "Anthony Shin, a full-stack developer based in Vancouver.",
+    portraitStatus: "Temporary development portrait",
+    primaryActionsLabel: "Primary actions",
+    secondaryLinksLabel: "Professional links",
     selectedWorkEyebrow: "Selected work",
     selectedWorkTitle: "Products shaped by real operational constraints.",
     selectedWorkDescription:

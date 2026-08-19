@@ -179,6 +179,13 @@ export interface SiteContent {
     href: string;
   };
   home: {
+    heroEyebrow: string;
+    locationLabel: string;
+    availabilityLabel: string;
+    portraitAlt: string;
+    portraitStatus: string;
+    primaryActionsLabel: string;
+    secondaryLinksLabel: string;
     selectedWorkEyebrow: string;
     selectedWorkTitle: string;
     selectedWorkDescription: string;
