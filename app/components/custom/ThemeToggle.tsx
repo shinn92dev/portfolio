@@ -33,8 +33,7 @@ const ThemeToggle = () => {
   return (
     <button
       type="button"
-      className="interactive-shift inline-flex size-10 items-center justify-center rounded-sm border border-border text-foreground
-      hover:border-signal hover:text-signal"
+      className="interactive-shift inline-flex size-10 items-center justify-center rounded-sm border border-border text-foreground hover:border-signal hover:text-signal"
       aria-label={nextThemeLabel}
       aria-pressed={theme === "dark"}
       title={nextThemeLabel}

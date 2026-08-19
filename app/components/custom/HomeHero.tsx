@@ -49,8 +49,7 @@ const HomeHero = () => {
               width={1026}
               height={1473}
               fetchPriority="high"
-              className="h-full w-full object-cover object-[center_22%] grayscale-[0.12] transition-[filter,transform] duration-slow
-              ease-emphasized hover:scale-[1.015] hover:grayscale-0"
+              className="h-full w-full object-cover object-[center_22%] grayscale-[0.12] transition-[filter,transform] duration-slow ease-emphasized hover:scale-[1.015] hover:grayscale-0"
             />
           </div>
 
@@ -68,8 +67,7 @@ const HomeHero = () => {
             <Link
               to="/work"
               viewTransition
-              className="interactive-shift inline-flex min-h-12 items-center justify-between gap-6 rounded-sm bg-foreground px-5 py-3
-              font-semibold text-foreground-inverse no-underline hover:bg-signal hover:text-signal-foreground sm:min-w-52"
+              className="interactive-shift inline-flex min-h-12 items-center justify-between gap-6 rounded-sm bg-foreground px-5 py-3 font-semibold text-foreground-inverse no-underline hover:bg-signal hover:text-signal-foreground sm:min-w-52"
             >
               {siteContent.home.workLinkLabel}
               <ArrowDownRight aria-hidden="true" className="size-4" />

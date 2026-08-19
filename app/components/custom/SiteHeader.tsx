@@ -89,8 +89,7 @@ const SiteHeader = () => {
         >
           <span
             aria-hidden="true"
-            className="flex size-9 shrink-0 items-center justify-center bg-foreground font-mono text-xs font-medium text-foreground-
-            inverse"
+            className="flex size-9 shrink-0 items-center justify-center bg-foreground font-mono text-xs font-medium text-foreground-inverse"
           >
             AS
           </span>
@@ -151,8 +150,7 @@ const SiteHeader = () => {
 
           <button
             type="button"
-            className="interactive-shift inline-flex size-10 items-center justify-center rounded-sm border border-border text-
-            foreground hover:border-signal hover:text-signal lg:hidden"
+            className="interactive-shift inline-flex size-10 items-center justify-center rounded-sm border border-border text-foreground hover:border-signal hover:text-signal lg:hidden"
             aria-label={
               isMenuOpen
                 ? siteContent.shell.closeMenuLabel

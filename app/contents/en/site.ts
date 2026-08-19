@@ -143,10 +143,52 @@ export const siteContent = {
     ],
     profileLinkLabel: "Read my profile",
     workLinkLabel: "View selected work",
+    careerEyebrow: "Career in context",
+    careerTitle: "Technical communication became product engineering.",
+    careerIntroduction:
+      "My path into software began with solving business and operational problems: first through semiconductor technical sales, then through computer systems education, client projects, and independently delivered products.",
+    softwareExperienceLabel: "Software & product experience",
+    earlierExperienceLabel: "Earlier experience",
+    careerPeriodLabel: "Period",
+    careerRoleLabel: "Role",
+    softwareExperience: [
+      {
+        experienceId: "gyu-kaku-portal",
+        summary:
+          "Turned firsthand restaurant operations into a paid internal product, owning the work from initial proposal through pilot adoption.",
+      },
+      {
+        experienceId: "kana-fighter",
+        summary:
+          "Translated an owner’s learning concept, content, and visual direction into a complete React Native application.",
+      },
+      {
+        experienceId: "skyline-zipline",
+        summary:
+          "Led client communication and a three-person BCIT practicum team while contributing to equipment onboarding, inspection workflows, and data migration.",
+      },
+    ],
+    earlierExperience: [
+      {
+        experienceId: "hitachi-chemical",
+        summary:
+          "Learned to interpret technical requirements, coordinate Japanese engineers and client teams, negotiate constraints, and remain accountable for commercial outcomes.",
+      },
+      {
+        experienceId: "gyu-kaku-service",
+        summary:
+          "Built practical knowledge of staffing, scheduling, training, and fast-paced English-language restaurant operations in Vancouver.",
+      },
+    ],
+    personalNoteLabel: "Beyond the work",
+    personalNote:
+      "I work across Korean, Japanese, and English, and recharge by spending time on Vancouver’s trails and over a good coffee or tea.",
     contactEyebrow: "Contact",
     contactTitle: "Let’s build something useful.",
     contactDescription:
       "I’m interested in full-time and contract opportunities where product thinking, clear communication, and hands-on engineering matter.",
+    contactLinksLabel: "Contact and professional links",
+    contactLocationLabel: "Based in",
     emailLabel: "Email Anthony",
   },
   work: {

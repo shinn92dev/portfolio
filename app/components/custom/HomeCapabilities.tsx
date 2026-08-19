@@ -75,8 +75,7 @@ const HomeCapabilities = () => {
                         <Link
                           to={`/work/${project.slug}`}
                           viewTransition
-                          className="group/link flex items-center justify-between gap-4 border-b border-border py-3 text-sm font-
-                          medium no-underline transition-colors hover:border-signal hover:text-signal"
+                          className="group/link flex items-center justify-between gap-4 border-b border-border py-3 text-sm font-medium no-underline transition-colors hover:border-signal hover:text-signal"
                         >
                           {project.shortTitle}
                           <ArrowRight

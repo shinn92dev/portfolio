@@ -123,6 +123,11 @@ export interface HomeCapability {
   projectSlugs: ProjectSlug[];
 }
 
+export interface HomeCareerEntry {
+  experienceId: string;
+  summary: string;
+}
+
 export interface ProfileContent {
   pageTitle: string;
   pageDescription: string;
@@ -209,9 +214,22 @@ export interface SiteContent {
     capabilities: HomeCapability[];
     profileLinkLabel: string;
     workLinkLabel: string;
+    careerEyebrow: string;
+    careerTitle: string;
+    careerIntroduction: string;
+    softwareExperienceLabel: string;
+    earlierExperienceLabel: string;
+    careerPeriodLabel: string;
+    careerRoleLabel: string;
+    softwareExperience: HomeCareerEntry[];
+    earlierExperience: HomeCareerEntry[];
+    personalNoteLabel: string;
+    personalNote: string;
     contactEyebrow: string;
     contactTitle: string;
     contactDescription: string;
+    contactLinksLabel: string;
+    contactLocationLabel: string;
     emailLabel: string;
   };
   work: {
