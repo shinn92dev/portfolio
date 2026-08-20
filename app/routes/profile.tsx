@@ -1,15 +1,19 @@
 import { ArrowUpRight, Download } from "lucide-react";
 import { Link } from "react-router";
 import { createSeoMeta } from "@/lib/seo";
-import { profileContent, siteContent } from "@/contents/en";
+import {
+  profileContent as englishProfileContent,
+  siteContent as englishSiteContent,
+} from "@/contents/en";
+import { usePortfolioContent } from "@/contexts/LanguageContext";
 
 import type { Experience } from "@/contents/types";
 import type { Route } from "./+types/profile";
 
 export const meta = ({}: Route.MetaArgs) => {
   return createSeoMeta({
-    title: `${profileContent.pageTitle} — ${siteContent.identity.displayName}`,
-    description: profileContent.pageDescription,
+    title: `${englishProfileContent.pageTitle} — ${englishSiteContent.identity.displayName}`,
+    description: englishProfileContent.pageDescription,
     path: "/profile",
   });
 };
@@ -20,6 +24,7 @@ interface ExperienceListProps {
 }
 
 const ExperienceList = ({ experiences, density }: ExperienceListProps) => {
+  const { siteContent } = usePortfolioContent();
   const isPrimary = density === "primary";
 
   return (
@@ -131,6 +136,7 @@ const ExperienceList = ({ experiences, density }: ExperienceListProps) => {
 };
 
 const Profile = () => {
+  const { profileContent, siteContent } = usePortfolioContent();
   const softwareExperience = profileContent.experiences.filter(
     (experience) => experience.category === "software-product",
   );

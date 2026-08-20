@@ -1,7 +1,7 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { siteContent } from "@/contents/en";
+import { usePortfolioContent } from "@/contexts/LanguageContext";
 
 type Theme = "light" | "dark";
 
@@ -10,6 +10,7 @@ const getCurrentTheme = (): Theme => {
 };
 
 const ThemeToggle = () => {
+  const { siteContent } = usePortfolioContent();
   const [theme, setTheme] = useState<Theme | null>(null);
 
   useEffect(() => {

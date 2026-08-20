@@ -1,8 +1,9 @@
 import { ArrowUpRight, Mail } from "lucide-react";
 
-import { siteContent } from "@/contents/en";
+import { usePortfolioContent } from "@/contexts/LanguageContext";
 
 const HomeContact = () => {
+  const { siteContent } = usePortfolioContent();
   const emailHref = `mailto:${siteContent.contact.email}`;
 
   return (

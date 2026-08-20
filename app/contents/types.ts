@@ -23,7 +23,7 @@ export interface SocialLink {
 }
 
 export interface LanguageOption {
-  code: LocaleCode;
+  code: "en" | "ko" | "ja";
   label: string;
   enabled: boolean;
   message?: string;

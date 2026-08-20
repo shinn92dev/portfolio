@@ -1,9 +1,11 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 
-import { projects, siteContent } from "@/contents/en";
+import { usePortfolioContent } from "@/contexts/LanguageContext";
 
 const HomeCapabilities = () => {
+  const { projects, siteContent } = usePortfolioContent();
+
   return (
     <section
       aria-labelledby="capabilities-heading"

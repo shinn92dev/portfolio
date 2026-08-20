@@ -8,55 +8,17 @@ import {
 } from "@/components/custom/case-study/CaseStudyMedia";
 import { CaseStudySection } from "@/components/custom/case-study/CaseStudyPrimitives";
 import { CaseStudyVisuals } from "@/components/custom/case-study/CaseStudyVisuals";
-import { getProjectBySlug, selectedProjects, siteContent } from "@/contents/en";
+import {
+  getProjectBySlug as getEnglishProjectBySlug,
+  selectedProjects as englishSelectedProjects,
+  siteContent as englishSiteContent,
+} from "@/contents/en";
+import { usePortfolioContent } from "@/contexts/LanguageContext";
 
 import type { Route } from "./+types/work-detail";
 
-const CASE_STUDY_SECTIONS = [
-  {
-    id: "context",
-    label: siteContent.caseStudy.contextTitle,
-  },
-  {
-    id: "users",
-    label: siteContent.caseStudy.usersTitle,
-  },
-  {
-    id: "responsibilities",
-    label: siteContent.caseStudy.responsibilitiesTitle,
-  },
-  {
-    id: "constraints",
-    label: siteContent.caseStudy.constraintsTitle,
-  },
-  {
-    id: "features",
-    label: siteContent.caseStudy.featuresTitle,
-  },
-  {
-    id: "decisions",
-    label: siteContent.caseStudy.decisionsTitle,
-  },
-  {
-    id: "outcomes",
-    label: siteContent.caseStudy.outcomesTitle,
-  },
-  {
-    id: "reflection",
-    label: siteContent.caseStudy.reflectionTitle,
-  },
-  {
-    id: "technology",
-    label: siteContent.caseStudy.technologyTitle,
-  },
-  {
-    id: "links",
-    label: siteContent.caseStudy.linksTitle,
-  },
-] as const;
-
 export const loader = ({ params }: Route.LoaderArgs) => {
-  const project = getProjectBySlug(params.slug);
+  const project = getEnglishProjectBySlug(params.slug);
 
   if (
     !project ||
@@ -69,12 +31,14 @@ export const loader = ({ params }: Route.LoaderArgs) => {
     });
   }
 
-  const currentProjectIndex = selectedProjects.findIndex(
+  const currentProjectIndex = englishSelectedProjects.findIndex(
     (selectedProject) => selectedProject.slug === project.slug,
   );
 
   const nextProject =
-    selectedProjects[(currentProjectIndex + 1) % selectedProjects.length];
+    englishSelectedProjects[
+      (currentProjectIndex + 1) % englishSelectedProjects.length
+    ];
 
   return {
     project,
@@ -87,7 +51,7 @@ export const meta = ({ data }: Route.MetaArgs) => {
   if (!data) {
     return [
       {
-        title: `Project not found — ${siteContent.identity.displayName}`,
+        title: `Project not found — ${englishSiteContent.identity.displayName}`,
       },
       {
         name: "robots",
@@ -97,7 +61,7 @@ export const meta = ({ data }: Route.MetaArgs) => {
   }
 
   return createSeoMeta({
-    title: `${data.project.title} — ${siteContent.identity.displayName}`,
+    title: `${data.project.title} — ${englishSiteContent.identity.displayName}`,
     description: data.project.summary,
     path: `/work/${data.project.slug}`,
     type: "article",
@@ -105,7 +69,36 @@ export const meta = ({ data }: Route.MetaArgs) => {
 };
 
 const WorkDetail = () => {
-  const { project, caseStudy, nextProject } = useLoaderData<typeof loader>();
+  const { project: englishProject } = useLoaderData<typeof loader>();
+  const { getProjectBySlug, selectedProjects, siteContent } =
+    usePortfolioContent();
+  const project = getProjectBySlug(englishProject.slug);
+
+  if (!project || !project.caseStudy) {
+    return null;
+  }
+
+  const caseStudy = project.caseStudy;
+  const currentProjectIndex = selectedProjects.findIndex(
+    (selectedProject) => selectedProject.slug === project.slug,
+  );
+  const nextProject =
+    selectedProjects[(currentProjectIndex + 1) % selectedProjects.length];
+  const caseStudySections = [
+    { id: "context", label: siteContent.caseStudy.contextTitle },
+    { id: "users", label: siteContent.caseStudy.usersTitle },
+    {
+      id: "responsibilities",
+      label: siteContent.caseStudy.responsibilitiesTitle,
+    },
+    { id: "constraints", label: siteContent.caseStudy.constraintsTitle },
+    { id: "features", label: siteContent.caseStudy.featuresTitle },
+    { id: "decisions", label: siteContent.caseStudy.decisionsTitle },
+    { id: "outcomes", label: siteContent.caseStudy.outcomesTitle },
+    { id: "reflection", label: siteContent.caseStudy.reflectionTitle },
+    { id: "technology", label: siteContent.caseStudy.technologyTitle },
+    { id: "links", label: siteContent.caseStudy.linksTitle },
+  ] as const;
 
   const publicLinks = project.links.filter(
     (link) => link.availability === "available" && link.href,
@@ -224,7 +217,7 @@ const WorkDetail = () => {
               </p>
 
               <ol className="mt-6 grid gap-3">
-                {CASE_STUDY_SECTIONS.map((section, index) => (
+                {caseStudySections.map((section, index) => (
                   <li key={section.id}>
                     <a
                       href={`#${section.id}`}

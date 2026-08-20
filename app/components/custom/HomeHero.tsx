@@ -2,9 +2,10 @@ import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router";
 
 import temporaryPortrait from "@/assets/anthony2.webp";
-import { siteContent } from "@/contents/en";
+import { usePortfolioContent } from "@/contexts/LanguageContext";
 
 const HomeHero = () => {
+  const { siteContent } = usePortfolioContent();
   const emailHref = `mailto:${siteContent.contact.email}`;
 
   return (

@@ -1,13 +1,15 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router";
 
-import { selectedProjects, siteContent } from "@/contents/en";
+import { usePortfolioContent } from "@/contexts/LanguageContext";
 
 const formatProjectNumber = (index: number) => {
   return String(index + 1).padStart(2, "0");
 };
 
 const HomeSelectedWork = () => {
+  const { selectedProjects, siteContent } = usePortfolioContent();
+
   return (
     <section
       aria-labelledby="selected-work-heading"

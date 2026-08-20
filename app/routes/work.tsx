@@ -1,11 +1,8 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router";
 
-import {
-  additionalProjects,
-  selectedProjects,
-  siteContent,
-} from "@/contents/en";
+import { siteContent as englishSiteContent } from "@/contents/en";
+import { usePortfolioContent } from "@/contexts/LanguageContext";
 import { createSeoMeta } from "@/lib/seo";
 
 import type { Project } from "@/contents/types";
@@ -13,8 +10,8 @@ import type { Route } from "./+types/work";
 
 export const meta = ({}: Route.MetaArgs) => {
   return createSeoMeta({
-    title: `Work — ${siteContent.identity.displayName}`,
-    description: siteContent.work.pageDescription,
+    title: `Work — ${englishSiteContent.identity.displayName}`,
+    description: englishSiteContent.work.pageDescription,
     path: "/work",
   });
 };
@@ -25,6 +22,7 @@ interface SelectedProjectProps {
 }
 
 const SelectedProject = ({ project, index }: SelectedProjectProps) => {
+  const { siteContent } = usePortfolioContent();
   const caseStudy = project.caseStudy;
   const visibleMetrics = project.metrics.slice(0, 2);
   const primaryDecision = caseStudy?.decisions[0];
@@ -151,6 +149,8 @@ interface AdditionalProjectProps {
 }
 
 const AdditionalProject = ({ project, index }: AdditionalProjectProps) => {
+  const { siteContent } = usePortfolioContent();
+
   const publicLinks = project.links.filter(
     (link) => link.availability === "available" && link.href,
   );
@@ -215,6 +215,9 @@ const AdditionalProject = ({ project, index }: AdditionalProjectProps) => {
 };
 
 const Work = () => {
+  const { additionalProjects, selectedProjects, siteContent } =
+    usePortfolioContent();
+
   return (
     <div>
       <header className="layout-shell pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-28 lg:pb-28">
@@ -291,7 +294,7 @@ const Work = () => {
 
       <div className="layout-shell pb-16 sm:pb-24">
         <Link to="/" className="text-link">
-          Home
+          {siteContent.navigation[0]?.label}
           <ArrowRight aria-hidden="true" className="size-4" />
         </Link>
       </div>

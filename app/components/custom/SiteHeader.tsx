@@ -2,7 +2,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router";
 
-import { siteContent } from "@/contents/en";
+import { usePortfolioContent } from "@/contexts/LanguageContext";
 import { BrandMark } from "./BrandMark";
 
 import LanguageControl from "./LanguageControl";
@@ -25,6 +25,7 @@ const isNavigationItemActive = (href: string, pathname: string) => {
 };
 
 const SiteHeader = () => {
+  const { siteContent } = usePortfolioContent();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCompact, setIsCompact] = useState(false);

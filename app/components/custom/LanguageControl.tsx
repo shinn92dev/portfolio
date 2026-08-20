@@ -1,10 +1,12 @@
-import { siteContent } from "@/contents/en";
+import { usePortfolioContent } from "@/contexts/LanguageContext";
 
 interface LanguageControlProps {
   compact?: boolean;
 }
 
 const LanguageControl = ({ compact = false }: LanguageControlProps) => {
+  const { locale, setLocale, siteContent } = usePortfolioContent();
+
   return (
     <div
       className="flex items-center gap-3"
@@ -12,36 +14,24 @@ const LanguageControl = ({ compact = false }: LanguageControlProps) => {
       aria-label={siteContent.shell.languageLabel}
     >
       {siteContent.languages.map((language) => {
-        if (language.enabled) {
-          return (
-            <span
-              key={language.code}
-              className="metadata border-signal text-foreground border-b pb-1"
-              aria-current="true"
-            >
-              {language.label}
-            </span>
-          );
-        }
+        const isActive = language.code === locale;
 
         return (
-          <span
+          <button
             key={language.code}
-            className="text-foreground-subtle flex items-center gap-1"
-            title={language.message}
+            type="button"
+            className={[
+              "metadata duration-fast ease-standard pb-1 transition-colors",
+              isActive
+                ? "border-signal text-foreground border-b"
+                : "text-foreground-subtle hover:text-foreground",
+              compact ? "min-h-8" : "min-h-10",
+            ].join(" ")}
+            aria-pressed={isActive}
+            onClick={() => setLocale(language.code)}
           >
-            <span className="metadata">{language.label}</span>
-
-            {compact ? (
-              <span className="sr-only">
-                {language.message ?? siteContent.shell.comingSoonLabel}
-              </span>
-            ) : (
-              <span className="text-[0.625rem] tracking-wider uppercase">
-                {siteContent.shell.comingSoonLabel}
-              </span>
-            )}
-          </span>
+            {language.label}
+          </button>
         );
       })}
     </div>

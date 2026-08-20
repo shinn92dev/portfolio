@@ -1,20 +1,29 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 
-import { profileContent, siteContent } from "@/contents/en";
+import { usePortfolioContent } from "@/contexts/LanguageContext";
 
-import type { HomeCareerEntry } from "@/contents/types";
+import type { Experience, HomeCareerEntry } from "@/contents/types";
 
 interface CareerListProps {
   entries: HomeCareerEntry[];
+  experiences: Experience[];
+  roleLabel: string;
+  periodLabel: string;
   prominent: boolean;
 }
 
-const CareerList = ({ entries, prominent }: CareerListProps) => {
+const CareerList = ({
+  entries,
+  experiences,
+  roleLabel,
+  periodLabel,
+  prominent,
+}: CareerListProps) => {
   return (
     <div className="border-border-strong border-t">
       {entries.map((entry, index) => {
-        const experience = profileContent.experiences.find(
+        const experience = experiences.find(
           (item) => item.id === entry.experienceId,
         );
 
@@ -70,16 +79,14 @@ const CareerList = ({ entries, prominent }: CareerListProps) => {
 
             <dl className="col-span-4 grid grid-cols-2 gap-5 md:col-start-4 lg:col-span-3 lg:col-start-10">
               <div>
-                <dt className="eyebrow">{siteContent.home.careerRoleLabel}</dt>
+                <dt className="eyebrow">{roleLabel}</dt>
                 <dd className="mt-3 text-sm leading-relaxed font-medium">
                   {primaryRole?.title}
                 </dd>
               </div>
 
               <div>
-                <dt className="eyebrow">
-                  {siteContent.home.careerPeriodLabel}
-                </dt>
+                <dt className="eyebrow">{periodLabel}</dt>
                 <dd className="metadata mt-3">{primaryRole?.period}</dd>
               </div>
             </dl>
@@ -91,6 +98,8 @@ const CareerList = ({ entries, prominent }: CareerListProps) => {
 };
 
 const HomeCareer = () => {
+  const { profileContent, siteContent } = usePortfolioContent();
+
   return (
     <section
       aria-labelledby="career-heading"
@@ -122,6 +131,9 @@ const HomeCareer = () => {
             <div className="col-span-4 md:col-span-8 lg:col-span-9 lg:col-start-4">
               <CareerList
                 entries={siteContent.home.softwareExperience}
+                experiences={profileContent.experiences}
+                roleLabel={siteContent.home.careerRoleLabel}
+                periodLabel={siteContent.home.careerPeriodLabel}
                 prominent
               />
             </div>
@@ -135,6 +147,9 @@ const HomeCareer = () => {
             <div className="col-span-4 md:col-span-8 lg:col-span-9 lg:col-start-4">
               <CareerList
                 entries={siteContent.home.earlierExperience}
+                experiences={profileContent.experiences}
+                roleLabel={siteContent.home.careerRoleLabel}
+                periodLabel={siteContent.home.careerPeriodLabel}
                 prominent={false}
               />
             </div>

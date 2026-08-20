@@ -9,6 +9,10 @@ import {
 
 import Footer from "@/components/custom/Footer";
 import SiteHeader from "@/components/custom/SiteHeader";
+import {
+  LanguageProvider,
+  usePortfolioContent,
+} from "@/contexts/LanguageContext";
 import { siteContent } from "@/contents/en";
 
 import type { Route } from "./+types/root";
@@ -71,6 +75,12 @@ export const meta = ({}: Route.MetaArgs) => {
   ];
 };
 
+const LocalizedSkipLink = () => {
+  const { siteContent: localizedSiteContent } = usePortfolioContent();
+
+  return localizedSiteContent.shell.skipToContentLabel;
+};
+
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -85,20 +95,23 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         <Meta />
         <Links />
       </head>
+
       <body>
-        <a href="#main-content" className="skip-link">
-          {siteContent.shell.skipToContentLabel}
-        </a>
+        <LanguageProvider>
+          <a href="#main-content" className="skip-link">
+            <LocalizedSkipLink />
+          </a>
 
-        <div className="flex min-h-screen flex-col">
-          <SiteHeader />
+          <div className="flex min-h-screen flex-col">
+            <SiteHeader />
 
-          <main id="main-content" className="min-w-0 flex-1">
-            {children}
-          </main>
+            <main id="main-content" className="min-w-0 flex-1">
+              {children}
+            </main>
 
-          <Footer />
-        </div>
+            <Footer />
+          </div>
+        </LanguageProvider>
 
         <ScrollRestoration />
         <Scripts />

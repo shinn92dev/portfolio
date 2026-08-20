@@ -1,8 +1,9 @@
 import { Link } from "react-router";
 
-import { siteContent } from "@/contents/en";
+import { usePortfolioContent } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { siteContent } = usePortfolioContent();
   const currentYear = new Date().getFullYear();
 
   return (
