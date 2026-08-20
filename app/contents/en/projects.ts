@@ -3,6 +3,10 @@ import generatedDraft from "@/assets/gyukaku_portal/generated-draft.webp";
 import heroDashboard from "@/assets/gyukaku_portal/hero-dashboard.webp";
 import performanceHistory from "@/assets/gyukaku_portal/performance-history.webp";
 import scheduleDiagnostics from "@/assets/gyukaku_portal/schedule-diagnostics.webp";
+import gameplayDemo from "@/assets/kana_fighter/gameplay-demo.mp4";
+import gameplayDemoPoster from "@/assets/kana_fighter/gameplay-demo-poster.webp";
+import heroQuest from "@/assets/kana_fighter/hero-quest.webp";
+import kanaMap from "@/assets/kana_fighter/kana-map.webp";
 
 import type { Project } from "../types";
 
@@ -481,6 +485,16 @@ export const projects: Project[] = [
         detail: "Learning state and progression are stored on the device.",
       },
     ],
+
+    heroMedia: {
+      kind: "image",
+      src: heroQuest,
+      alt: "Kana Fighter Quest battle with player and enemy health bars, animated characters, a Kana prompt, and a Romaji answer field.",
+      label: "Typed-answer Quest",
+      caption:
+        "A learning prompt becomes a complete battle interaction connecting typed recall, input locking, animation, audio feedback, health changes, and progression.",
+      orientation: "portrait",
+    },
     links: [
       {
         label: "Private repository",
@@ -562,6 +576,27 @@ export const projects: Project[] = [
         "Local progress reset",
         "Google Form feedback and email bug reporting",
         "Offline learning after bundled assets are available",
+      ],
+      media: [
+        {
+          kind: "image",
+          src: kanaMap,
+          alt: "Kana Fighter Hiragana progression map with completed, active, and locked Kana rows and Fight and Drill actions.",
+          label: "Progression map",
+          caption:
+            "Learners move through Kana rows sequentially. Completed, active, and locked stages make the next learning objective visible without introducing a separate account or backend.",
+          orientation: "portrait",
+        },
+        {
+          kind: "video",
+          src: gameplayDemo,
+          poster: gameplayDemoPoster,
+          alt: "Kana Fighter gameplay demonstration showing a typed-answer Quest battle and progression feedback.",
+          label: "Gameplay sequence",
+          caption:
+            "The gameplay demonstration shows how answer input, battle feedback, character animation, health changes, and progression operate as one controlled sequence.",
+          orientation: "portrait",
+        },
       ],
       visuals: [
         {
