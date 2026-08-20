@@ -117,6 +117,119 @@ export const projects: Project[] = [
         "Role-based performance ratings, history, and visual trends",
         "Responsive staff and manager interfaces",
       ],
+      visuals: [
+        {
+          kind: "comparison",
+          title: "From fragmented coordination to shared operational data",
+          description:
+            "The portal brings staff inputs, manager decisions, and published schedules into one traceable workflow.",
+          beforeLabel: "Before",
+          afterLabel: "With the portal",
+          before: [
+            "Staff submit availability through shared spreadsheets.",
+            "Time-specific restrictions are sent separately by message.",
+            "Vacation requests and blackout periods are tracked through email and announcements.",
+            "Managers manually reconcile the information before building FOH and BOH schedules.",
+          ],
+          after: [
+            "Staff submit structured availability and start-time restrictions.",
+            "Vacation requests, approvals, and blackout periods share one source of truth.",
+            "Validated operational data becomes input for schedule generation.",
+            "Managers review and edit the draft before publishing a preserved staff-facing schedule.",
+          ],
+          caption:
+            "The product reduces manual transcription without removing manager review or operational judgment.",
+        },
+        {
+          kind: "architecture",
+          title: "How a schedule becomes an editable draft",
+          description:
+            "The solver is one part of a broader workflow that validates inputs, protects newer work, and reports incomplete coverage.",
+          ariaLabel:
+            "Architecture showing operational inputs passing through candidate filtering, OR-Tools, validation, editable draft storage, and publication.",
+          layers: [
+            {
+              label: "Operational inputs",
+              technologies: [
+                "Staff records",
+                "Roles",
+                "Availability",
+                "Approved vacation",
+                "Daily settings",
+                "Policy version",
+              ],
+              description:
+                "Manager settings and staff-submitted operational data define the scheduling problem for a specific week.",
+            },
+            {
+              label: "Candidate filtering",
+              technologies: [
+                "Role eligibility",
+                "Availability windows",
+                "Vacation exclusion",
+                "Overlap checks",
+              ],
+              description:
+                "Invalid candidates are removed before optimization so the solver cannot fill coverage by breaking non-negotiable rules.",
+            },
+            {
+              label: "Optimization",
+              technologies: [
+                "Google OR-Tools",
+                "CP-SAT",
+                "Hard constraints",
+                "Weighted objectives",
+              ],
+              description:
+                "CP-SAT searches for the strongest valid draft while balancing coverage, hours, fairness, and operational preferences.",
+            },
+            {
+              label: "Validation and diagnostics",
+              technologies: [
+                "Shortage reporting",
+                "Conflict validation",
+                "Version checks",
+              ],
+              description:
+                "The backend preserves valid assignments, reports coverage shortages, and prevents an older generation result from replacing newer manager edits.",
+            },
+            {
+              label: "Manager-controlled output",
+              technologies: [
+                "Editable draft",
+                "Manual reassignment",
+                "Published snapshot",
+              ],
+              description:
+                "Managers retain final control, review diagnostics, adjust assignments, and publish an immutable staff-facing schedule.",
+            },
+          ],
+        },
+        {
+          kind: "comparison",
+          title: "Hard rules and weighted objectives",
+          description:
+            "The model distinguishes assignments that must never occur from operational goals that should be balanced.",
+          beforeLabel: "Hard constraints",
+          afterLabel: "Soft objectives",
+          before: [
+            "Respect submitted availability and start-time restrictions.",
+            "Exclude approved vacation dates.",
+            "Assign only staff eligible for the required role.",
+            "Prevent overlapping or unauthorized double shifts.",
+            "Respect individual hard-hour limits.",
+          ],
+          after: [
+            "Improve coverage across each role and service.",
+            "Balance weekly hours and assignment fairness.",
+            "Account for role and service preferences.",
+            "Support busier days and optional operational coverage.",
+            "Return the strongest valid partial draft when full coverage is impossible.",
+          ],
+          caption:
+            "A valid partial schedule with explicit shortages is safer than a complete-looking schedule that assigns unavailable or ineligible staff.",
+        },
+      ],
       decisions: [
         {
           title: "Use a proven constraint solver",

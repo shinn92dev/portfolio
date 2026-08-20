@@ -53,12 +53,50 @@ export interface ProjectDecision {
   tradeoffs: string[];
 }
 
+export interface ProjectFlowVisual {
+  kind: "flow";
+  title: string;
+  description?: string;
+  ariaLabel: string;
+  steps: {
+    title: string;
+    description: string;
+  }[];
+}
+
+export interface ProjectArchitectureVisual {
+  kind: "architecture";
+  title: string;
+  description?: string;
+  ariaLabel: string;
+  layers: {
+    label: string;
+    technologies: string[];
+    description: string;
+  }[];
+}
+
+export interface ProjectComparisonVisual {
+  kind: "comparison";
+  title: string;
+  description?: string;
+  beforeLabel: string;
+  afterLabel: string;
+  before: string[];
+  after: string[];
+  caption?: string;
+}
+
+export type ProjectCaseStudyVisual =
+  ProjectFlowVisual | ProjectArchitectureVisual | ProjectComparisonVisual;
+
 export interface ProjectCaseStudy {
   context: string[];
   users: string[];
   responsibilities: string[];
   constraints: string[];
   features: string[];
+  visuals?: ProjectCaseStudyVisual[];
   decisions: ProjectDecision[];
   outcomes: string[];
   reflection: string[];

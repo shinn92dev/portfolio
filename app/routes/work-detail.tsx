@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router";
 import { createSeoMeta } from "@/lib/seo";
 
 import { CaseStudySection } from "@/components/custom/case-study/CaseStudyPrimitives";
+import { CaseStudyVisuals } from "@/components/custom/case-study/CaseStudyVisuals";
 import { getProjectBySlug, selectedProjects, siteContent } from "@/contents/en";
 
 import type { Route } from "./+types/work-detail";
@@ -311,16 +312,22 @@ const WorkDetail = () => {
               title={siteContent.caseStudy.featuresTitle}
               wide
             >
-              <ul className="border-border grid gap-x-8 border-t sm:grid-cols-2">
-                {caseStudy.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="border-border border-b py-4 text-sm leading-relaxed"
-                  >
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              <>
+                <ul className="border-border grid gap-x-8 border-t sm:grid-cols-2">
+                  {caseStudy.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="border-border border-b py-4 text-sm leading-relaxed"
+                    >
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                {caseStudy.visuals?.length ? (
+                  <CaseStudyVisuals visuals={caseStudy.visuals} />
+                ) : null}
+              </>
             </CaseStudySection>
 
             <CaseStudySection
