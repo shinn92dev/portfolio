@@ -44,6 +44,21 @@ export interface ProjectMetric {
   attribution?: string;
 }
 
+export type ProjectMediaKind = "image" | "video";
+
+export type ProjectMediaOrientation = "wide" | "landscape" | "portrait";
+
+export interface ProjectMedia {
+  kind: ProjectMediaKind;
+  src: string;
+  poster?: string;
+  alt: string;
+  label: string;
+  caption: string;
+  orientation: ProjectMediaOrientation;
+}
+
+
 export interface ProjectDecision {
   title: string;
   problem: string;
@@ -96,6 +111,7 @@ export interface ProjectCaseStudy {
   responsibilities: string[];
   constraints: string[];
   features: string[];
+  media?: ProjectMedia[];
   visuals?: ProjectCaseStudyVisual[];
   decisions: ProjectDecision[];
   outcomes: string[];
@@ -116,9 +132,11 @@ export interface Project {
   editorialStatus: ProjectEditorialStatus;
   technologies: string[];
   metrics: ProjectMetric[];
+  heroMedia?: ProjectMedia;
   links: ProjectLink[];
   caseStudy?: ProjectCaseStudy;
 }
+
 
 export interface ExperienceRole {
   title: string;

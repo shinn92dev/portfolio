@@ -2,6 +2,10 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link, useLoaderData } from "react-router";
 import { createSeoMeta } from "@/lib/seo";
 
+import {
+  CaseStudyMediaGallery,
+  CaseStudyMediaItem,
+} from "@/components/custom/case-study/CaseStudyMedia";
 import { CaseStudySection } from "@/components/custom/case-study/CaseStudyPrimitives";
 import { CaseStudyVisuals } from "@/components/custom/case-study/CaseStudyVisuals";
 import { getProjectBySlug, selectedProjects, siteContent } from "@/contents/en";
@@ -199,6 +203,15 @@ const WorkDetail = () => {
         </section>
       ) : null}
 
+      {project.heroMedia ? (
+        <section
+          aria-label={`${project.title} product preview`}
+          className="layout-shell py-12 sm:py-16 lg:py-20"
+        >
+          <CaseStudyMediaItem media={project.heroMedia} priority />
+        </section>
+      ) : null}
+
       <div className="layout-shell">
         <div className="lg:grid lg:grid-cols-12 lg:gap-[var(--grid-gap)]">
           <aside className="hidden lg:col-span-3 lg:block">
@@ -323,6 +336,10 @@ const WorkDetail = () => {
                     </li>
                   ))}
                 </ul>
+
+                {caseStudy.media?.length ? (
+                  <CaseStudyMediaGallery media={caseStudy.media} />
+                ) : null}
 
                 {caseStudy.visuals?.length ? (
                   <CaseStudyVisuals visuals={caseStudy.visuals} />

@@ -1,3 +1,9 @@
+import availabilityStartTime from "@/assets/gyukaku_portal/availability-start-time.webp";
+import generatedDraft from "@/assets/gyukaku_portal/generated-draft.webp";
+import heroDashboard from "@/assets/gyukaku_portal/hero-dashboard.webp";
+import performanceHistory from "@/assets/gyukaku_portal/performance-history.webp";
+import scheduleDiagnostics from "@/assets/gyukaku_portal/schedule-diagnostics.webp";
+
 import type { Project } from "../types";
 
 export const projects: Project[] = [
@@ -47,6 +53,15 @@ export const projects: Project[] = [
         attribution: "Reported by the Gyu-Kaku Vancouver management team.",
       },
     ],
+    heroMedia: {
+      kind: "image",
+      src: heroDashboard,
+      alt: "Gyu-Kaku Portal manager dashboard showing staff, availability, vacation, performance-level, and scheduling operations.",
+      label: "Operations overview",
+      caption:
+        "The manager dashboard brings staff administration, availability, vacation, performance levels, and schedule automation into one operational workspace.",
+      orientation: "landscape",
+    },
     links: [
       {
         label: "Open pilot demo",
@@ -116,6 +131,44 @@ export const projects: Project[] = [
         "Staff-facing published schedule",
         "Role-based performance ratings, history, and visual trends",
         "Responsive staff and manager interfaces",
+      ],
+      media: [
+        {
+          kind: "image",
+          src: availabilityStartTime,
+          alt: "Weekly availability form with separate Lunch and Dinner selections and time-specific availability controls.",
+          label: "Structured staff input",
+          caption:
+            "Staff can submit Lunch and Dinner availability with specific start times, removing the need to communicate exceptions through separate messages.",
+          orientation: "landscape",
+        },
+        {
+          kind: "image",
+          src: generatedDraft,
+          alt: "Generated FOH schedule draft displaying staff availability, assigned shifts, unavailable periods, and vacation states across the week.",
+          label: "Editable schedule draft",
+          caption:
+            "The generated draft combines availability and assigned shifts in one weekly view. Managers can review the result before saving or publishing it.",
+          orientation: "landscape",
+        },
+        {
+          kind: "image",
+          src: scheduleDiagnostics,
+          alt: "Schedule-generation result showing assignment count, unfilled targets, generation time, optimization score, and staffing shortages.",
+          label: "Actionable diagnostics",
+          caption:
+            "A valid partial result is preserved while unfilled staffing targets are reported by date, service, and role. Managers can see where operational review is required instead of receiving only a generic solver failure.",
+          orientation: "landscape",
+        },
+        {
+          kind: "image",
+          src: performanceHistory,
+          alt: "Staff performance-level screen showing role-specific metrics, evaluation notes, and a historical level chart.",
+          label: "Visible performance history",
+          caption:
+            "Staff can review the metrics, notes, and historical changes behind their role-based performance level rather than seeing only the latest result.",
+          orientation: "landscape",
+        },
       ],
       visuals: [
         {
