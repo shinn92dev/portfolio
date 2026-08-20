@@ -510,6 +510,133 @@ export const projects: Project[] = [
         "Google Form feedback and email bug reporting",
         "Offline learning after bundled assets are available",
       ],
+      visuals: [
+        {
+          kind: "flow",
+          title: "A learning loop built around visible progress",
+          description:
+            "Each activity prepares the learner for the next step instead of presenting disconnected exercises.",
+          ariaLabel:
+            "Kana Fighter learning loop from learning and listening through drills, battles, feedback, and progression.",
+          steps: [
+            {
+              title: "Learn",
+              description:
+                "Explore a Kana row with its characters, Romaji readings, and structured lesson content.",
+            },
+            {
+              title: "Listen",
+              description:
+                "Use pronunciation audio to connect each visual character with its sound.",
+            },
+            {
+              title: "Drill",
+              description:
+                "Practice recognition through randomized multiple-choice questions and immediate feedback.",
+            },
+            {
+              title: "Battle",
+              description:
+                "Recall the answer by typing Romaji during a character-based Quest encounter.",
+            },
+            {
+              title: "Receive feedback",
+              description:
+                "See the answer, animation, audio response, score, and health change as one controlled sequence.",
+            },
+            {
+              title: "Unlock",
+              description:
+                "Complete the row, preserve progress locally, and open the next stage of the learning path.",
+            },
+          ],
+        },
+        {
+          kind: "architecture",
+          title: "From original artwork to application-ready animation",
+          description:
+            "A Python and Pillow pipeline removed repetitive composition work while keeping creative ownership with the owner.",
+          ariaLabel:
+            "Asset production architecture from owner-created character frames through Python processing and Expo preloading to in-app animation.",
+          layers: [
+            {
+              label: "Original artwork",
+              technologies: [
+                "Owner-created frames",
+                "Player actions",
+                "Opponent actions",
+                "Transparent PNG",
+              ],
+              description:
+                "Dylan Wood creates the characters and original action frames while retaining control of the visual direction.",
+            },
+            {
+              label: "Automated preparation",
+              technologies: [
+                "Python",
+                "Pillow",
+                "Frame validation",
+                "Layer composition",
+              ],
+              description:
+                "The processing tool validates naming and dimensions, aligns player and opponent frames, applies layering rules, and creates consistent combined sequences.",
+            },
+            {
+              label: "Output optimization",
+              technologies: [
+                "Cropping",
+                "Resizing",
+                "Contact sheets",
+                "Predictable filenames",
+              ],
+              description:
+                "Processed assets receive consistent bounds and naming so they can be reviewed and mapped into the application without repeated manual adjustment.",
+            },
+            {
+              label: "Runtime preparation",
+              technologies: [
+                "Static asset maps",
+                "Expo Asset",
+                "Row-specific preload",
+              ],
+              description:
+                "The application collects and preloads only the animation frames required for the current Kana row before interaction begins.",
+            },
+            {
+              label: "Battle playback",
+              technologies: [
+                "React Native Reanimated",
+                "Audio feedback",
+                "Completion callbacks",
+              ],
+              description:
+                "Preloaded frames, audio, health changes, and navigation advance through an explicit battle sequence.",
+            },
+          ],
+        },
+        {
+          kind: "comparison",
+          title: "Choosing a smaller UI foundation",
+          description:
+            "A broad component library added styling layers that were not helping this highly customized game interface.",
+          beforeLabel: "Initial approach",
+          afterLabel: "Revised approach",
+          before: [
+            "Gluestack components supplied a broad generated UI layer.",
+            "NativeWind utilities did not always override Gluestack styles as expected.",
+            "Visual issues required tracing styles across multiple systems.",
+            "The dependency and generated-component footprint exceeded the needs of the application.",
+          ],
+          after: [
+            "React Native primitives provide the base behavior.",
+            "NativeWind handles the primary styling layer.",
+            "Focused shared components cover genuinely repeated interactions.",
+            "The approved Figma design remains unchanged while design-related debugging becomes more direct.",
+          ],
+          caption:
+            "After I explained the trade-offs, the owner agreed to the change. Development speed remained stable, while styling problems became faster to identify and resolve.",
+        },
+      ],
       decisions: [
         {
           title: "Use a local-first progression architecture",
