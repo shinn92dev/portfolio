@@ -93,7 +93,7 @@ export const siteContent = {
     locationLabel: "Based in",
     availabilityLabel: "Currently",
     portraitAlt: "Anthony Shin, a full-stack developer based in Vancouver.",
-    portraitStatus: "Temporary development portrait",
+    portraitStatus: "",
     primaryActionsLabel: "Primary actions",
     secondaryLinksLabel: "Professional links",
     selectedWorkEyebrow: "Selected work",

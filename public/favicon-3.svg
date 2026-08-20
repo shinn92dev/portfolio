@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>Anthony Shin — Compact monogram</title>
+  <rect width="32" height="32" rx="2" fill="#252320" />
+  <path
+    d="M6 24 14.5 7 23 24M9.3 18h10.4"
+    fill="none"
+    stroke="#f4f0e8"
+    stroke-width="2.25"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+  />
+  <path
+    d="M25.5 10.5h-7v5.5h7v6h-7.5"
+    fill="none"
+    stroke="#c55432"
+    stroke-width="2"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+  />
+</svg>

@@ -9,7 +9,6 @@ import {
 
 import Footer from "@/components/custom/Footer";
 import SiteHeader from "@/components/custom/SiteHeader";
-import { createSeoMeta } from "@/lib/seo";
 import { siteContent } from "@/contents/en";
 
 import type { Route } from "./+types/root";
@@ -51,8 +50,8 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "icon",
-    href: "/favicon.ico",
-    sizes: "any",
+    href: "/favicon.svg",
+    type: "image/svg+xml",
   },
 ];
 

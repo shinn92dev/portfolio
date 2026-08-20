@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>Anthony Shin — Split monogram</title>
+  <rect width="32" height="32" rx="2" fill="#f4f0e8" />
+  <path d="M0 0h16v32H0z" fill="#252320" />
+  <path
+    d="M3.5 22.5 8 9.5l4.5 13M5.2 18h5.6"
+    fill="none"
+    stroke="#f4f0e8"
+    stroke-width="2"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+  />
+  <path
+    d="M28 10h-8v6h8v6.5h-8.5"
+    fill="none"
+    stroke="#252320"
+    stroke-width="2"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+  />
+  <path d="M16 5v22" stroke="#c55432" stroke-width="1.5" />
+</svg>

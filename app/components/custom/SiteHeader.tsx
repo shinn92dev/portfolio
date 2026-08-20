@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router";
 
 import { siteContent } from "@/contents/en";
+import { BrandMark } from "./BrandMark";
 
 import LanguageControl from "./LanguageControl";
 import ThemeToggle from "./ThemeToggle";
@@ -89,12 +90,7 @@ const SiteHeader = () => {
           className="flex min-w-0 items-center gap-3 no-underline"
           aria-label={`${siteContent.identity.displayName}, home`}
         >
-          <span
-            aria-hidden="true"
-            className="bg-foreground text-foreground-inverse flex size-9 shrink-0 items-center justify-center font-mono text-xs font-medium"
-          >
-            AS
-          </span>
+          <BrandMark className="size-9 shrink-0" />
 
           <span className="hidden min-w-0 sm:block">
             <span className="block truncate text-sm leading-tight font-semibold">

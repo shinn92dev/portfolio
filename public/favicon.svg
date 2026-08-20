@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>Anthony Shin — Inline monogram</title>
+  <rect width="32" height="32" rx="2" fill="#252320" />
+  <path
+    d="M4.5 22.5 9.5 9.5l5 13M6.4 18h6.2"
+    fill="none"
+    stroke="#f4f0e8"
+    stroke-width="2"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+  />
+  <path
+    d="M27 10h-8v6h8v6.5h-8.5"
+    fill="none"
+    stroke="#f4f0e8"
+    stroke-width="2"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+  />
+  <path d="M18.5 26h8.5" stroke="#c55432" stroke-width="2" />
+</svg>
