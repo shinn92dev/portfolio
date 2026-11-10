@@ -18,7 +18,7 @@ export const projects: Project[] = [
     eyebrow: "Restaurant operations · Paid contract",
     summary:
       "A production operations platform for Gyu-Kaku Vancouver that connects staff administration, availability, vacation, performance history, notifications, and constraint-based schedule generation.",
-    period: "May 2026 – Present",
+    period: "Built April–September 2026 · In production since October 2026",
     status: "Launched at Gyu-Kaku Vancouver · Serving approximately 41 users",
     role: "Solo Full-stack Developer",
     team: "1 developer · 5 operational stakeholders",
@@ -104,7 +104,7 @@ export const projects: Project[] = [
         "Database and authorization design",
         "Constraint-based scheduling engine",
         "Infrastructure and deployment",
-        "Production rollout, monitoring, and continued iteration",
+        "Production rollout, monitoring, and ongoing maintenance",
         "Documentation and staff training",
       ],
       constraints: [
@@ -415,7 +415,7 @@ export const projects: Project[] = [
         },
       ],
       outcomes: [
-        "The platform completed its pilot and launched into production at Gyu-Kaku Vancouver.",
+        "The platform completed its pilot and launched into production at Gyu-Kaku Vancouver in October 2026.",
         "It now supports approximately 41 staff and management users in day-to-day restaurant operations.",
         "The initial combined FOH and BOH schedule draft is generated in under ten seconds.",
         "Manager scheduling work decreased from approximately six to ten hours per week to no more than one hour, including review and adjustment.",

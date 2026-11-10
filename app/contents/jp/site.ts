@@ -102,7 +102,7 @@ export const siteContent = {
         description:
           "判断とトレードオフを明確に共有し、デリバリーまで責任を持ちます。",
         evidence: [
-          "Gyu-Kaku Portal では、ステークホルダーへのヒアリングから正式リリース、継続改善まで単独で担当しました。",
+          "Gyu-Kaku Portal では、ステークホルダーへのヒアリングから正式リリース、現在の保守まで単独で担当しました。",
           "Kana Fighter の技術設計、実装、テスト、ビルド検証をリードしました。",
         ],
         projectSlugs: ["gyu-kaku-portal", "kana-fighter"],
@@ -122,7 +122,7 @@ export const siteContent = {
       {
         experienceId: "gyu-kaku-portal",
         summary:
-          "レストラン現場で見つけた課題を有償の社内プロダクトへ発展させ、Gyu-Kaku Vancouver での正式リリースから約41名の利用者に向けた継続改善まで単独で担当しています。",
+          "レストラン現場で見つけた課題を有償の社内プロダクトへ発展させ、Gyu-Kaku Vancouver で正式リリースしました。現在は約41名の利用者に向けた運用保守を担当しています。",
       },
       {
         experienceId: "kana-fighter",

@@ -22,7 +22,7 @@ export const projects: Project[] = [
     eyebrow: "레스토랑 운영 · 유급 계약",
     summary:
       "직원 관리, 근무 가능 시간, 휴가, 성과 이력, 알림과 제약 조건 기반 스케줄 생성을 연결한 Gyu-Kaku Vancouver의 실제 운영 플랫폼입니다.",
-    period: "2026년 5월 – 현재",
+    period: "2026년 4–9월 개발 · 2026년 10월부터 정식 운영",
     status: "Gyu-Kaku Vancouver 정식 운영 중 · 약 41명 사용",
     role: "단독 풀스택 개발자",
     team: "개발자 1명 · 운영 이해관계자 5명",
@@ -79,7 +79,7 @@ export const projects: Project[] = [
         "데이터베이스 및 권한 설계",
         "제약 기반 스케줄링 엔진",
         "인프라 및 배포",
-        "정식 도입, 모니터링과 지속적인 개선",
+        "정식 도입, 모니터링과 지속적인 유지보수",
         "문서화 및 직원 교육",
       ],
       constraints: [
@@ -367,7 +367,7 @@ export const projects: Project[] = [
         },
       ],
       outcomes: [
-        "파일럿을 마치고 Gyu-Kaku Vancouver에서 정식 운영을 시작했습니다.",
+        "파일럿을 마치고 2026년 10월 Gyu-Kaku Vancouver에서 정식 운영을 시작했습니다.",
         "현재 Staff와 Management를 포함한 약 41명이 일상적인 레스토랑 운영에 사용하고 있습니다.",
         "FOH와 BOH를 합친 첫 스케줄 초안을 10초 이내에 생성합니다.",
         "주당 약 6–10시간이던 스케줄 업무가 검토와 수정을 포함해 최대 1시간으로 줄었습니다.",

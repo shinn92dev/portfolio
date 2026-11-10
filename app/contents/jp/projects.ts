@@ -288,7 +288,7 @@ export const projects: Project[] = [
     eyebrow: "レストラン運営 · 有償契約",
     summary:
       "スタッフ管理、勤務可能時間、休暇、評価履歴、通知、制約ベースのシフト生成を統合した、Gyu-Kaku Vancouver の本番運用プラットフォームです。",
-    period: "2026年5月 – 現在",
+    period: "2026年4–9月に開発 · 2026年10月から正式運用",
     status: "Gyu-Kaku Vancouver で正式運用中 · 約41名が利用",
     role: "単独フルスタックデベロッパー",
     team: "開発者1名 · 運営ステークホルダー5名",
@@ -345,7 +345,7 @@ export const projects: Project[] = [
         "DB・認可設計",
         "制約ベースのスケジューリングエンジン",
         "インフラ・デプロイ",
-        "正式導入、モニタリング、継続的な改善",
+        "正式導入、モニタリング、継続的な保守",
         "文書化・スタッフ研修",
       ],
       constraints: [
@@ -490,7 +490,7 @@ export const projects: Project[] = [
       ],
       decisions: gyuKakuDecisions,
       outcomes: [
-        "パイロット運用を完了し、Gyu-Kaku Vancouver で正式運用を開始しました。",
+        "パイロット運用を完了し、2026年10月に Gyu-Kaku Vancouver で正式運用を開始しました。",
         "現在はスタッフとマネジメントを含む約41名が、日々の店舗運営に利用しています。",
         "FOH・BOH の初回案を10秒未満で生成します。",
         "週6〜10時間の作業が、確認・調整込みで1時間以内になりました。",

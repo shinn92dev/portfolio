@@ -107,14 +107,14 @@ export const profileContent: ProfileContent = {
       roles: [
         {
           title: "Contract Full-stack Developer",
-          period: "May 2026 – Present",
+          period: "April 2026 – Present",
           summary:
-            "Proposed, built, launched, and continue to evolve a production restaurant operations platform for Gyu-Kaku Vancouver.",
+            "Built the initial product from April to September 2026, launched it into production in October, and remain under contract for maintenance and targeted enhancements.",
           highlights: [
             "Owned product planning, requirements, UX, frontend, backend, database design, deployment, testing, documentation, and staff onboarding as the sole developer.",
             "Launched the platform into production for approximately 41 staff and management users at Gyu-Kaku Vancouver.",
             "Implemented an OR-Tools scheduling engine that generates an initial FOH and BOH draft in under ten seconds and reduced weekly scheduling work from roughly 6–10 hours to no more than one hour.",
-            "Continued evolving the production system with notifications, reminders, training-aware scheduling, manager schedule imports, published-schedule corrections, and staff-facing schedule views.",
+            "Maintained the production system under an ongoing contract and delivered targeted enhancements including notifications, reminders, training-aware scheduling, manager schedule imports, published-schedule corrections, and staff-facing schedule views.",
           ],
         },
       ],

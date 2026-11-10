@@ -97,14 +97,14 @@ export const profileContent: ProfileContent = {
       roles: [
         {
           title: "契約フルスタックデベロッパー",
-          period: "2026年5月 – 現在",
+          period: "2026年4月 – 現在",
           summary:
-            "Gyu-Kaku Vancouver の本番運用プラットフォームを提案・構築・リリースし、現在も継続的に改善しています。",
+            "2026年4月から9月に初期プロダクトを構築し、10月に正式リリースしました。現在も保守と必要な機能改善の契約を継続しています。",
           highlights: [
             "単独開発者として、企画、要件、UX、フロントエンド、バックエンド、DB 設計、デプロイ、テスト、文書化、スタッフ onboarding を担当しました。",
             "Gyu-Kaku Vancouver のスタッフとマネジメント約41名が利用する production プラットフォームとして正式リリースしました。",
             "FOH と BOH の初回案を10秒以内に生成し、週次シフト作成を約6〜10時間から最大1時間へ短縮する OR-Tools エンジンを実装しました。",
-            "正式運用後も、通知、reminder、Training を考慮したシフト生成、Manager schedule import、公開シフト修正、スタッフ向け表示を継続的に追加しました。",
+            "正式リリース後も保守契約を継続し、通知、reminder、Training を考慮したシフト生成、Manager schedule import、公開シフト修正、スタッフ向け表示など、必要な機能改善を行いました。",
           ],
         },
       ],
