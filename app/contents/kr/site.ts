@@ -101,7 +101,7 @@ export const siteContent = {
         description:
           "결정을 명확히 설명하고 트레이드오프를 공유하며 결과물의 완성까지 책임집니다.",
         evidence: [
-          "Gyu-Kaku Portal의 이해관계자 조사부터 파일럿 교육까지 단독 개발자로 수행했습니다.",
+          "Gyu-Kaku Portal의 이해관계자 조사부터 정식 출시와 지속적인 개선까지 단독 개발자로 수행했습니다.",
           "Kana Fighter의 기술 구조, 구현, 테스트와 빌드 검증을 주도했습니다.",
         ],
         projectSlugs: ["gyu-kaku-portal", "kana-fighter"],
@@ -121,7 +121,7 @@ export const siteContent = {
       {
         experienceId: "gyu-kaku-portal",
         summary:
-          "레스토랑 현장에서 발견한 문제를 별도 유급 내부 제품으로 발전시키고, 최초 제안부터 파일럿 도입까지 전 과정을 맡았습니다.",
+          "레스토랑 현장에서 발견한 문제를 별도 유급 내부 제품으로 발전시키고, Gyu-Kaku Vancouver 정식 출시와 약 41명을 위한 운영 개선까지 단독으로 담당하고 있습니다.",
       },
       {
         experienceId: "kana-fighter",

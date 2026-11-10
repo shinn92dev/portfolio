@@ -107,14 +107,14 @@ export const profileContent: ProfileContent = {
       roles: [
         {
           title: "Contract Full-stack Developer",
-          period: "May 2026 – July 2026",
+          period: "May 2026 – Present",
           summary:
-            "Proposed, designed, and built an internal restaurant operations platform for the Vancouver location.",
+            "Proposed, built, launched, and continue to evolve a production restaurant operations platform for Gyu-Kaku Vancouver.",
           highlights: [
-            "Led product planning, requirements gathering, UX design, frontend and backend development, database design, deployment, testing, documentation, and staff training as the sole developer.",
-            "Built staff availability, time-off, employee management, schedule editing, publication, and operational administration workflows.",
-            "Implemented a Google OR-Tools scheduling engine that generates an initial FOH and BOH schedule draft in under ten seconds.",
-            "Supported a pilot with approximately 15 users before the planned broader rollout.",
+            "Owned product planning, requirements, UX, frontend, backend, database design, deployment, testing, documentation, and staff onboarding as the sole developer.",
+            "Launched the platform into production for approximately 41 staff and management users at Gyu-Kaku Vancouver.",
+            "Implemented an OR-Tools scheduling engine that generates an initial FOH and BOH draft in under ten seconds and reduced weekly scheduling work from roughly 6–10 hours to no more than one hour.",
+            "Continued evolving the production system with notifications, reminders, training-aware scheduling, manager schedule imports, published-schedule corrections, and staff-facing schedule views.",
           ],
         },
       ],

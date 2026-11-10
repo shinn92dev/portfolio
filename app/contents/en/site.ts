@@ -136,7 +136,7 @@ export const siteContent = {
         description:
           "Clarifying decisions, communicating trade-offs, and remaining accountable for delivery.",
         evidence: [
-          "Owned Gyu-Kaku Portal from stakeholder discovery through pilot training as the sole developer.",
+          "Owned Gyu-Kaku Portal from stakeholder discovery through production launch and continued iteration as the sole developer.",
           "Led Kana Fighter’s technical architecture, implementation, testing, and build validation.",
         ],
         projectSlugs: ["gyu-kaku-portal", "kana-fighter"],
@@ -156,7 +156,7 @@ export const siteContent = {
       {
         experienceId: "gyu-kaku-portal",
         summary:
-          "Turned firsthand restaurant operations into a paid internal product, owning the work from initial proposal through pilot adoption.",
+          "Turned firsthand restaurant operations into a paid internal product, launched it for Gyu-Kaku Vancouver, and continue evolving it for approximately 41 users.",
       },
       {
         experienceId: "kana-fighter",

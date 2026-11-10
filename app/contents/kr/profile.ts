@@ -97,14 +97,14 @@ export const profileContent: ProfileContent = {
       roles: [
         {
           title: "계약 풀스택 개발자",
-          period: "2026년 5월 – 2026년 7월",
+          period: "2026년 5월 – 현재",
           summary:
-            "밴쿠버 지점을 위한 내부 레스토랑 운영 플랫폼을 제안하고 설계·개발했습니다.",
+            "Gyu-Kaku Vancouver의 실제 운영 플랫폼을 제안하고 구축·출시했으며 현재도 지속적으로 개선하고 있습니다.",
           highlights: [
-            "단독 개발자로서 제품 기획, 요구사항 조사, UX 설계, 프론트엔드와 백엔드 개발, 데이터베이스 설계, 배포, 테스트, 문서화와 직원 교육을 수행했습니다.",
-            "직원 근무 가능 시간, 휴가 신청, 직원 관리, 스케줄 수정·공개와 운영 관리 흐름을 구축했습니다.",
-            "FOH와 BOH의 첫 스케줄 초안을 10초 이내에 생성하는 Google OR-Tools 기반 스케줄링 엔진을 구현했습니다.",
-            "약 15명의 사용자가 참여한 파일럿을 지원했으며 이후 확대 도입을 준비했습니다.",
+            "단독 개발자로서 제품 기획, 요구사항, UX, 프론트엔드와 백엔드, 데이터베이스 설계, 배포, 테스트, 문서화와 Staff onboarding을 담당했습니다.",
+            "Gyu-Kaku Vancouver의 Staff와 Management 약 41명이 사용하는 production 플랫폼으로 정식 출시했습니다.",
+            "FOH와 BOH 첫 초안을 10초 이내에 생성하고 주간 스케줄 업무를 약 6–10시간에서 최대 1시간으로 줄인 OR-Tools 엔진을 구현했습니다.",
+            "정식 운영 이후 알림, reminder, Training-aware scheduling, Manager schedule import, 공개 스케줄 수정과 Staff용 스케줄 조회 기능을 지속적으로 추가했습니다.",
           ],
         },
       ],
